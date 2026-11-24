@@ -1,0 +1,2415 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>加減乘除躲數球｜遊戲版 V3.25 挑戰強化與經典排陣</title><style>
+:root{font-family:'Microsoft JhengHei','Noto Sans TC',system-ui,sans-serif;color:#243a4d;background:#eaf0f3}*{box-sizing:border-box}body{margin:0;overflow:hidden}button,select{font:inherit}button{border:1px solid #48667d;border-radius:9px;background:#25485f;color:white;padding:9px 6px;cursor:pointer;min-height:36px}button:disabled{opacity:.38;cursor:default}button.active{background:#f5d16e;color:#243b4c;border-color:#e8bb4c}button.primary{background:#2c926e;border-color:#8cceaf}button.red{background:#9b5155;border-color:#ce8887}button.secondary{background:#f2f5f7;color:#284459;border:1px solid #b8cad5}.shell{display:grid;grid-template-columns:158px minmax(0,1fr);height:100dvh;min-height:330px}.tools{background:#172e42;color:white;padding:9px 8px;overflow-y:auto;display:flex;flex-direction:column;gap:7px;scrollbar-width:thin}.brand{font-size:14px;font-weight:900;line-height:1.4;text-align:center;margin:3px 0}.tiny{font-size:11px;color:#bcd0db;line-height:1.35;text-align:center}.heading{font-size:11px;font-weight:800;color:#b5d4e7;padding-top:7px;border-top:1px solid #466174}.toolrow{display:grid;grid-template-columns:1fr 1fr;gap:5px}.tools button{font-size:12px;font-weight:750}.tools .role{display:grid;grid-template-columns:1fr 1fr;gap:5px}.role button{font-size:11px;padding:8px 3px}.main{min-width:0;display:flex;flex-direction:column;padding:8px;gap:7px}.scoreboard{display:flex;align-items:center;justify-content:center;gap:clamp(9px,3vw,45px);background:white;border:1px solid #d5e1e8;border-radius:13px;padding:4px 14px;flex:0 0 auto}.scorecol{min-width:70px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}.scorecol b{font-size:clamp(21px,3vw,35px);font-variant-numeric:tabular-nums}.blue{color:#286f9f}.orange{color:#cf843b}.clock{font-size:clamp(22px,3.1vw,34px);font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}.centered{text-align:center}.meta{font-size:11px;color:#667d8a;font-weight:750}.boardbox{background:#fff;border:1px solid #dbe5eb;border-radius:12px;padding:5px;flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}svg{display:block;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none}svg text{pointer-events:none;font-weight:700}.hint{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #d5e1e8;border-radius:10px;min-height:35px;padding:5px 12px;gap:12px;font-size:13px;font-weight:700;flex:0 0 auto}.hint small{color:#68818e;font-size:11px;font-weight:500}.chips{display:flex;gap:5px;flex-wrap:wrap}.chip{font-size:10px;border:1px solid #d0dee6;border-radius:15px;padding:3px 6px;white-space:nowrap;color:#536b7a}.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.swatch{padding:0;min-height:25px;border-radius:6px;background:var(--c);border:2px solid white}.swatch.active{outline:2px solid #ffd26d}.slots{display:none;flex-direction:column;gap:5px}.slots.open{display:flex}.slot{background:#27485b;padding:6px 4px;border-radius:8px}.slotlabel{font-size:11px;text-align:center;margin-bottom:4px}.slotbuttons{display:grid;grid-template-columns:1fr 1fr;gap:4px}.slotbuttons button{font-size:11px;min-height:30px;padding:3px}.field{display:flex;flex-direction:column;gap:4px}.field select{min-width:0;width:100%;border-radius:8px;border:1px solid #a2b8c6;background:#f5f8fa;padding:7px;font-size:12px}.sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0)}#toast{position:absolute;top:12px;left:50%;transform:translateX(-50%);background:#173e58ec;color:white;border-radius:10px;padding:8px 15px;font-size:13px;font-weight:750;pointer-events:none;z-index:10;max-width:85%;text-align:center;opacity:0;transition:opacity .15s}#toast.show{opacity:1}#aimHelp{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:11px;color:#47687b;background:#ffffffde;border-radius:15px;padding:5px 12px;pointer-events:none;white-space:nowrap}.hide{display:none!important}#intro{position:absolute;inset:0;background:#102d44b8;z-index:20;display:flex;align-items:center;justify-content:center;padding:16px}#intro.hide{display:none}.introcard{background:#fff;border-radius:16px;max-width:375px;padding:21px;box-shadow:0 8px 30px #0003;text-align:center}.introcard h2{margin:0 0 8px;font-size:22px}.introcard p{line-height:1.65;color:#506775;font-size:14px}.introcard button{min-width:170px;background:#257b61}#popup{position:absolute;top:14px;right:12px;max-width:280px;background:#fff;border:1px solid #a7becb;border-radius:10px;padding:10px;display:none;z-index:6;font-size:13px;box-shadow:0 4px 16px #0002}#popup.show{display:block}@media(max-width:740px){.shell{grid-template-columns:108px minmax(0,1fr)}.tools{padding:6px 4px;gap:5px}.tools button{font-size:10px;min-height:30px;padding:6px 2px}.role button{font-size:10px}.brand{font-size:11px}.main{padding:4px;gap:3px}.scoreboard{padding:3px;gap:8px}.meta{font-size:9px}.scorecol{min-width:45px}.hint{font-size:10px;padding:4px;min-height:29px}.hint small,.chips{display:none}.boardbox{padding:0}.tiny{font-size:9px}#aimHelp{font-size:9px}}
+
+/* 遊戲版：簡化左側操作，球場在任何桌面／平板橫向視窗均完整縮放 */
+.shell{height:100dvh;max-height:100dvh;min-height:0;overflow:hidden;grid-template-columns:132px minmax(0,1fr);position:relative}
+.main{min-height:0;min-width:0;overflow:hidden;padding:6px;gap:5px}
+.boardbox{position:relative;min-width:0;min-height:0;flex:1 1 0;overflow:hidden;padding:0}
+.boardbox>svg{position:absolute;inset:0;width:100%;height:100%;max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain}
+.tools{min-height:0;padding:8px 6px;gap:6px}
+.scoreboard{padding:3px 10px;min-height:54px}
+.hint{min-height:30px;padding:3px 8px;font-size:11px;gap:5px}
+#aimHelp{bottom:4px;font-size:10px}
+@media(max-width:800px){.shell{grid-template-columns:102px minmax(0,1fr)}.tools{padding:5px 3px;gap:4px}.scoreboard{min-height:43px}.scorecol b{font-size:20px}.clock{font-size:23px}.hint{font-size:9px;min-height:26px}.tools button{font-size:10px;padding:5px 2px;min-height:30px}}
+@media(max-height:600px){.scoreboard{min-height:38px}.clock{font-size:22px}.scorecol b{font-size:20px}.hint{min-height:23px}#aimHelp{display:none}.brand{font-size:11px}}
+/* 虛擬搖桿：放在球場右下角的黃色區域，避免離畫面外側過近。 */
+.joypossession{display:flex;flex-direction:column;gap:3px;align-items:center;width:100%;font-size:10px;font-weight:750;color:#fff4d0}
+.joypossession button{min-height:24px!important;padding:3px 8px!important;font-size:10px!important;border-radius:9px;background:#357b77;border-color:#80aca5}
+.joypossession button:disabled{opacity:.42}
+#joySquad button.holding{box-shadow:inset 0 0 0 2px #f9dc7a,0 0 5px #ffd65b}
+
+.joybar{position:absolute;right:18px;bottom:16px;z-index:12;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:8px 8px 6px;border-radius:16px;background:linear-gradient(180deg,#17334be8,#102639d9);border:1px solid #ffffff2f;box-shadow:0 6px 18px #00000024;user-select:none;-webkit-user-select:none}
+.joytitle,.joyhelp{display:none}
+.joywho{font-size:11px;color:#ecf6fb;text-align:center;line-height:1.2;background:#0f2840cc;border:1px solid #ffffff2f;border-radius:12px;padding:4px 9px;min-height:0;white-space:nowrap}
+#joystick{width:92px;aspect-ratio:1;border-radius:50%;border:3px solid #6e8e9e;background:radial-gradient(circle,#3c6175,#213c50);position:relative;touch-action:none;cursor:grab;flex-shrink:0;box-shadow:inset 0 0 12px #071d30}
+#joystick .cross{position:absolute;inset:9px;border:1px dashed #789aaa;border-radius:50%;pointer-events:none}
+#joyKnob{position:absolute;left:50%;top:50%;width:38%;aspect-ratio:1;border:2px solid #ffffffc9;border-radius:50%;background:#60b6d2;transform:translate(-50%,-50%);pointer-events:none;box-shadow:0 2px 8px #0005}
+@media(max-width:800px){.joybar{right:10px;bottom:10px;padding:6px 6px 4px;border-radius:14px}.joywho{font-size:9px;padding:3px 7px}#joystick{width:74px}#joyKnob{width:40%}}
+@media(max-height:600px){.joybar{right:9px;bottom:8px;padding:4px}}
+
+/* V2.0 arcade polish: readable scoreboard, stage-aware controls and short-lived feedback */
+:root{background:#dfe8ef}
+.tools{background:linear-gradient(180deg,#17334b,#102639);box-shadow:inset -1px 0 #ffffff16}
+.joybar{background:linear-gradient(180deg,#17334b,#102639)}
+.main{background:linear-gradient(160deg,#d9e8ed,#edf2f3)}
+.scoreboard{background:linear-gradient(110deg,#f8fdff,#ffffff 55%,#fffaf4);border:1px solid #bacfdc;box-shadow:0 3px 12px #163e5f16}
+.scorecol b{font-weight:950;text-shadow:0 1px 0 #fff}
+.scorecol.blue{background:#e6f3fc;border-radius:9px;padding:2px 8px}
+.scorecol.orange{background:#fff2e6;border-radius:9px;padding:2px 8px}
+.boardbox{border:2px solid #a1b6c5;box-shadow:0 3px 10px #21445e21;background:#f8edc2}
+.heading{letter-spacing:.6px;color:#9ed3eb}
+.tools button{transition:background .12s,transform .12s}
+.tools button:active:not(:disabled){transform:scale(.97)}
+#toast{font-weight:900;box-shadow:0 5px 18px #1439534a;border:1px solid #ffffff55;max-width:70%;line-height:1.4}
+#toast.positive{background:#176c60f0}#toast.danger{background:#ad583ef0}#toast.special{background:#224f83f0}
+#eventBanner{position:absolute;left:50%;top:17%;transform:translate(-50%,-8px) scale(.92);opacity:0;pointer-events:none;z-index:13;text-align:center;color:white;text-shadow:0 3px 8px #173c5ca8;transition:opacity .14s,transform .14s;white-space:nowrap;font-weight:950;font-size:clamp(19px,2.4vw,33px);background:#123f60ca;border:2px solid #fff9;border-radius:18px;padding:8px 20px;box-shadow:0 7px 22px #102d4355}
+#eventBanner.show{opacity:1;transform:translate(-50%,0) scale(1)}
+#eventBanner.goal{background:#25856ddb}#eventBanner.combo{background:#ad6734eb}#eventBanner.warning{background:#a95b55ee}
+#victory{position:absolute;inset:0;z-index:24;background:#122d48b8;display:none;align-items:center;justify-content:center;padding:16px}
+#victory.show{display:flex}
+.victory-card{background:linear-gradient(165deg,#fff,#eaf6fd);border:3px solid #f2d180;border-radius:20px;padding:25px;box-shadow:0 12px 35px #0004;text-align:center;min-width:min(290px,95%);max-width:410px}
+.victory-card h2{font-size:27px;margin:4px 0 10px;color:#1c4564}.victory-card .vscore{font-size:31px;font-weight:950;color:#26658c;margin:7px}.victory-card p{margin:7px;color:#506b7d;font-size:13px}.victory-card button{margin-top:14px;padding:10px 23px;background:#257b61}
+#timer.last30{color:#bd4948;animation:timerBeat 1s ease-in-out infinite}
+@keyframes timerBeat{50%{transform:scale(1.07)}}
+.setup-only{display:contents}
+body.is-playing .setup-only{display:none}
+body.is-setup .play-only{display:none}
+.hint{display:none!important}
+@media(max-height:650px){.victory-card{padding:15px}.victory-card h2{font-size:21px}#eventBanner{top:11%}}
+/* V3.7 – compact simultaneous offensive/defensive target selectors */
+.tools > *{flex-shrink:0}
+.tactics-group{background:#25445b;border:1px solid #4a6d81;border-radius:9px;color:#fff;overflow:hidden}
+.tactics-group summary{padding:9px 7px;font-size:12px;font-weight:850;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:3px;list-style:none}
+.tactics-group summary::-webkit-details-marker{display:none}
+.tactics-group summary::before{content:'▸';font-size:11px;color:#afd0de}
+.tactics-group[open] summary::before{content:'▾'}
+.pick-count{color:#dfedfa;font-size:10px;background:#193147;border-radius:10px;padding:2px 5px;font-weight:650}
+.tactics-picks{padding:4px 4px 6px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px}
+.tactics-picks button{min-height:29px;padding:3px 1px!important;font-size:11px!important;background:#426276;border-color:#728b9d}
+.tactics-picks button.active{background:#f6d078;color:#26384a;border-color:#ffeaaa}
+.tactics-clear{font-size:10px!important;min-height:30px!important}
+.tactics-phase{background:#274e64;border-radius:7px;padding:6px 3px;min-height:27px;color:#e4f1f7}
+.tactics-info{font-size:10px}
+.player-mark{pointer-events:none}
+@media(max-width:800px){.tactics-picks{grid-template-columns:repeat(3,minmax(0,1fr))}.tactics-group summary{font-size:10px;padding:7px 3px}}
+/* 教師開發診斷：僅在網址加上 ?debug=1 才會出現 */
+#diagnostics{position:fixed;top:8px;right:8px;z-index:60;background:#112e43ed;color:#fff;border-radius:10px;padding:10px 12px;max-width:260px;max-height:56vh;overflow:auto;box-shadow:0 4px 18px #0006;font:11px/1.6 monospace;white-space:pre-wrap}
+#diagnostics[hidden]{display:none!important}
+/* V2.9 - scoreboard feedback and decisive moments */
+.scorecol.score-pulse b{animation:scorePulse .56s cubic-bezier(.2,.8,.25,1)}
+.scorecol.score-pulse{box-shadow:0 0 0 3px #f6cf7b80,0 3px 12px #163e5f26}
+@keyframes scorePulse{0%{transform:scale(1)}35%{transform:scale(1.3)}70%{transform:scale(.96)}100%{transform:scale(1)}}
+.boardbox.moment-flash{animation:momentFlash .42s ease-out}
+@keyframes momentFlash{0%{box-shadow:inset 0 0 0 0 #ffe8a7}35%{box-shadow:inset 0 0 0 8px #ffe8a7a0}100%{box-shadow:inset 0 0 0 0 #ffe8a700}}
+#eventBanner.moment-critical{background:linear-gradient(125deg,#a35430,#e19d38);border-color:#ffedb1}
+#eventBanner.moment-clear{background:linear-gradient(125deg,#176b86,#3ca8b0);border-color:#b9f6f8}
+#victory.moment-win .victory-card{animation:winReveal .52s cubic-bezier(.22,.8,.35,1)}
+@keyframes winReveal{from{opacity:0;transform:scale(.84)}to{opacity:1;transform:scale(1)}}
+/* V3.7 cleaner teacher sidebar and quick player selector */
+.tools{gap:8px;line-height:1.4}.tools .heading{font-size:12px;margin-top:2px}.tools .brand{font-size:14px}.tools .tactics-group summary{line-height:1.4}.tools .field select{padding:7px 5px}
+.tactics-picks{grid-template-columns:repeat(4,minmax(0,1fr))}.tactics-group{flex-shrink:0}
+.joybar{width:216px;gap:4px;padding:6px 7px;right:12px;bottom:12px}.joysquad{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;width:100%}.joysquad.fold{display:none}.joysquad button{padding:2px 0;min-height:25px;font-size:11px;font-weight:850;border-radius:6px;background:#385d76;border-color:#688aa1}.joysquad button.active{background:#f5d16e;color:#17344c;border-color:#fff3b8}.joysquad button.outer-number:not(.active){border-style:dashed;color:#d3f1e8}.joytoggle{padding:2px 6px;min-height:23px;background:#203e55;border-color:#64839a;font-size:11px;width:100%}.joypass{font-size:10px;min-height:25px;padding:3px 6px;background:#2a7e71;border-color:#69b1a8}.joywho{padding:2px 8px}
+@media(max-width:800px){.joybar{width:194px;right:5px;bottom:5px;padding:4px}.joysquad{gap:2px}.joysquad button{font-size:10px;min-height:22px}.tools{gap:5px}}
+@media(max-height:560px){.joybar{width:187px;gap:2px}.joysquad button{min-height:20px}.joytoggle{min-height:20px}}
+/* V3.9: larger, finger-friendly direct player selection */
+.joybar{width:258px;max-width:calc(100% - 14px)}
+.joysquad{gap:5px}
+.joysquad button{min-height:36px;font-size:13px;padding:5px 0;border-radius:8px;touch-action:manipulation}
+@media(max-width:800px){.joybar{width:232px}.joysquad button{min-height:33px;font-size:12px}}
+@media(max-height:560px){.joybar{width:225px}.joysquad button{min-height:30px;font-size:12px}}
+/* V3.8: understated possession shot clock below game clock */
+.attack-clock{font-size:11px;font-weight:750;line-height:1.25;color:#577083;white-space:nowrap;margin-top:2px;font-variant-numeric:tabular-nums}
+.attack-clock.warning{color:#b4563e;font-weight:900}
+@media(max-width:800px){.attack-clock{font-size:9px}}
+
+/* V3.12: player-facing compact sidebar. All existing actions and IDs preserved. */
+.shell{grid-template-columns:148px minmax(0,1fr)}
+.tools{padding:9px 8px;gap:9px;line-height:1.3;align-items:stretch}
+.tools .brand{font-size:15px;font-weight:900;letter-spacing:.3px;margin:1px 0 0;line-height:1.25;white-space:nowrap}
+.brand-version{font-size:10px;font-weight:700;color:#9fc1d5;margin-left:2px}
+.sidebar-section{display:flex;flex-direction:column;gap:5px;flex-shrink:0}
+.sidebar-section + .sidebar-section{padding-top:9px;border-top:1px solid #39576c}
+.section-title{display:block;font-size:11px;letter-spacing:.3px;color:#a9d3e7;font-weight:850;line-height:1.25;margin:0 0 1px}
+.main-actions #start{min-height:39px;font-size:13px;padding:7px 5px}
+.main-actions .toolrow button{min-height:33px;font-size:11px;padding:5px 2px}
+.tools .mini-label{font-size:10px;color:#d0e2eb;line-height:1.35;text-align:left}
+.tools .setup-label{margin-top:4px}
+.tools .mini-note{font-size:10px;color:#b7ccda;text-align:left;line-height:1.3}
+.tools .role{gap:4px}
+.tools .role button{font-size:11px;min-height:31px;padding:5px 1px}
+.tools .setup-only{display:flex}
+body.is-playing .tools .setup-only{display:none}
+.tactical-panel{gap:5px}
+.tools .tactics-phase{font-size:10px;text-align:center;line-height:1.25;min-height:0;padding:5px 3px;border-radius:6px}
+.tools .tactics-group{border-radius:7px}
+.tools .tactics-group summary{font-size:11px;padding:7px 5px;line-height:1.2;min-height:32px}
+.tools .tactics-group summary::before{font-size:10px}
+.tools .pick-count{font-size:9px;padding:2px 4px;white-space:nowrap}
+.tools .tactics-picks{grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;padding:5px 4px 6px}
+.tools .tactics-picks button{min-height:29px;font-size:11px!important;padding:3px 0!important}
+.tools .tactics-clear{font-size:10px!important;min-height:28px!important;padding:4px!important}
+.tools .difficulty-panel{gap:5px}
+.tools .field select{font-size:11px;min-height:33px;padding:5px 6px}
+@media(max-width:800px){
+ .shell{grid-template-columns:120px minmax(0,1fr)}
+ .tools{padding:6px 5px;gap:6px}
+ .tools .brand{font-size:12px}
+ .sidebar-section + .sidebar-section{padding-top:6px}
+ .tools .tactics-group summary{font-size:10px;padding:6px 4px}
+ .tools .pick-count{font-size:9px}
+ .tools .tactics-picks{grid-template-columns:repeat(4,minmax(0,1fr));gap:2px}
+ .tools .tactics-picks button{min-height:27px;font-size:10px!important}
+ .main-actions #start{min-height:34px;font-size:11px}
+ .main-actions .toolrow button{font-size:10px;min-height:30px}
+}
+@media(max-height:600px){
+ .tools{padding-top:5px;padding-bottom:5px;gap:4px}
+ .tools .brand{font-size:12px;line-height:1.1;margin:0}
+ .sidebar-section{gap:3px}
+ .sidebar-section + .sidebar-section{padding-top:4px}
+ .main-actions #start{min-height:31px;padding:4px}
+ .main-actions .toolrow button{min-height:27px;padding:3px}
+ .tools .role button{min-height:27px;padding:3px 1px}
+ .tools .tactics-group summary{min-height:28px;padding:5px 4px}
+ .tools .tactics-phase{padding:3px 2px}
+ .tools .tactics-clear{min-height:26px!important}
+ .tools .field select{min-height:29px;padding:4px 5px}
+}
+
+/* V3.14: Dedicated control zones, larger accessible buttons, and a tightly cropped
+   out-of-bounds margin. Geometric court and yellow-floor contact rules are unchanged. */
+.shell{grid-template-columns:194px minmax(0,1fr)!important}
+.tools{padding:13px 11px!important;gap:13px!important;overflow-y:auto}
+.tools .brand{font-size:18px!important;line-height:1.3!important}
+.tools .section-title{font-size:13px!important}
+.sidebar-section{gap:7px}
+.sidebar-section + .sidebar-section{padding-top:11px}
+.tools button,.tools .main-actions .toolrow button,.tools .role button{
+  min-height:43px!important;font-size:13px!important;padding:8px 5px!important;
+  border-radius:10px;
+}
+.tools .main-actions #start{min-height:49px!important;font-size:15px!important}
+.tools .tactics-group summary{min-height:43px!important;display:flex;align-items:center;justify-content:space-between;font-size:13px!important;padding:9px 8px!important}
+.tools .tactics-picks button{min-height:36px!important;font-size:12px!important;padding:5px 1px!important}
+.tools .tactics-clear{min-height:40px!important;font-size:12px!important}
+.tools .field select{min-height:43px!important;font-size:13px!important}
+.tools .mini-label,.tools .mini-note{font-size:11px}
+.tools .tactics-phase{font-size:11px;padding:7px 5px}
+.main{padding:8px;gap:6px;overflow:hidden}
+.play-area{display:flex;flex:1 1 0;min-height:0;min-width:0;gap:8px;align-items:stretch}
+.boardbox{flex:1 1 0;min-width:0;min-height:0;position:relative}
+.boardbox>svg{position:absolute;inset:0;width:100%;height:100%}
+/* The controls are now a sibling of the court, not an overlay. */
+.joybar{position:static!important;right:auto!important;bottom:auto!important;
+  flex:0 0 204px;width:204px!important;max-width:204px!important;
+  align-self:stretch;display:flex;justify-content:center;
+  margin:0;padding:12px 9px!important;border-radius:12px;
+  overflow-y:auto;box-shadow:none;
+}
+.joytoggle{font-size:13px;min-height:35px;padding:6px 3px}
+.joysquad{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.joysquad button,.joysquad button:where(:not(.active)){
+  min-height:41px!important;font-size:14px!important;padding:7px 0!important;border-radius:9px
+}
+.joywho{font-size:12px;padding:5px 7px}
+.joypossession{font-size:12px;gap:6px}
+.joypossession button{font-size:12px!important;min-height:35px!important}
+.joypass{font-size:12px!important;min-height:38px!important;width:100%}
+#joystick{width:105px;max-width:100%}
+/* Compact horizontal control dock for narrower / portrait windows. */
+@media(max-width:900px){
+ .shell{grid-template-columns:171px minmax(0,1fr)!important}
+ .tools{padding:9px 8px!important;gap:9px!important}
+ .tools .brand{font-size:15px!important}
+ .tools button,.tools .main-actions .toolrow button,.tools .role button{min-height:39px!important;font-size:12px!important;padding:6px 3px!important}
+ .tools .main-actions #start{min-height:44px!important;font-size:13px!important}
+ .play-area{flex-direction:column;gap:6px}
+ .boardbox{background:#e6edf1}
+ .joybar{flex:0 0 auto;align-self:stretch;max-width:none!important;width:100%!important;
+   display:grid;grid-template-columns:minmax(0,1fr) 112px;grid-template-rows:auto auto auto auto;
+   gap:5px 12px;align-items:center;justify-items:stretch;padding:7px 12px!important;
+   min-height:0;overflow:visible
+ }
+ .joytoggle{grid-column:1;grid-row:1;min-height:29px;font-size:12px}
+ .joysquad{grid-column:1;grid-row:2;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+ .joysquad button{min-height:33px!important;font-size:12px!important;padding:4px 0!important}
+ .joywho{grid-column:1;grid-row:3;font-size:11px}
+ .joypossession{grid-column:1;grid-row:4;flex-direction:row;justify-content:center;font-size:11px}
+ .joypossession button{min-height:28px!important}
+ .joypass{grid-column:2;grid-row:1;min-height:32px!important}
+ #joystick{grid-column:2;grid-row:2 / 5;width:91px;justify-self:center}
+}
+@media(max-width:600px){
+ .shell{grid-template-columns:143px minmax(0,1fr)!important}
+ .tools{padding:7px 5px!important;gap:7px!important}
+ .tools .section-title{font-size:11px!important}
+ .tools button,.tools .main-actions .toolrow button,.tools .role button{min-height:34px!important;font-size:11px!important}
+ .tools .main-actions #start{min-height:39px!important;font-size:12px!important}
+ .tools .tactics-group summary{min-height:36px!important;font-size:11px!important}
+ .joybar{grid-template-columns:minmax(0,1fr) 84px;gap:4px;padding:5px!important}
+ .joysquad{gap:2px}
+ .joysquad button{min-height:29px!important;font-size:10px!important}
+ #joystick{width:78px}
+ .main{padding:4px;gap:4px}
+ .scoreboard{min-height:44px}
+}
+@media(max-height:600px) and (min-width:901px){
+ .tools{gap:8px!important}
+ .tools button,.tools .main-actions .toolrow button,.tools .role button{min-height:37px!important}
+ .joybar{padding:5px!important;gap:3px}
+ .joysquad button{min-height:30px!important;padding:4px 0!important}
+ #joystick{width:77px}
+ .joytoggle,.joypass{min-height:28px!important}
+}
+
+/* V3.14: equal-height sidebars; scoreboard and court centered within the true playing column. */
+.shell{display:grid;grid-template-columns:194px minmax(0,1fr) 204px!important;grid-template-rows:minmax(0,1fr);height:100dvh}
+.shell>.tools{grid-column:1;grid-row:1;min-height:0}
+.shell>.main{grid-column:2;grid-row:1;min-width:0;min-height:0;display:flex;flex-direction:column}
+.shell>.joybar{grid-column:3;grid-row:1;position:relative!important;right:auto!important;bottom:auto!important;
+ align-self:stretch!important;justify-self:stretch;max-width:none!important;width:auto!important;min-width:0;
+ height:100%;margin:0!important;border-radius:0!important;overflow-y:auto;flex-direction:column!important;
+ display:flex!important;grid-template-columns:none!important;grid-template-rows:none!important;gap:9px;padding:12px 9px!important}
+.shell>.joybar>*{grid-column:auto!important;grid-row:auto!important}
+.shell>.joybar #joystick{width:108px!important;max-width:95%;justify-self:auto}
+.shell>.joybar .joysquad{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:5px}
+.shell>.joybar .joysquad button{min-height:40px!important;font-size:13px!important;padding:6px 0!important}
+.shell>.main>.scoreboard{width:100%;flex-shrink:0}
+.shell .play-area{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.shell .boardbox{flex:1 1 0;min-height:0}
+@media (max-width:1050px){
+ .shell{grid-template-columns:171px minmax(0,1fr) 164px!important}
+ .shell>.joybar{padding:7px 6px!important;gap:5px}
+ .shell>.joybar .joysquad{gap:3px}
+ .shell>.joybar .joysquad button{min-height:34px!important;font-size:11px!important}
+ .shell>.joybar #joystick{width:88px!important}
+}
+@media (max-width:700px){
+ .shell{grid-template-columns:135px minmax(0,1fr) 117px!important}
+ .shell>.joybar{padding:5px 3px!important;gap:4px}
+ .shell>.joybar .joysquad{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:2px}
+ .shell>.joybar .joysquad button{min-height:29px!important;font-size:10px!important}
+ .shell>.joybar .joytoggle,.shell>.joybar .joypass{font-size:10px!important;min-height:32px!important}
+ .shell>.joybar .joywho,.shell>.joybar .joypossession{font-size:10px!important;white-space:normal}
+ .shell>.joybar .joypossession{flex-direction:column!important}
+ .shell>.joybar #joystick{width:79px!important}
+}
+@media (max-height:600px){
+ .shell>.joybar{justify-content:flex-start;gap:3px}
+ .shell>.joybar .joysquad button{min-height:28px!important;padding:3px!important}
+ .shell>.joybar #joystick{width:73px!important}
+}
+
+/* V3.21: Dedicated sprint control stays inside the right-hand control column. */
+.shell>.joybar .dashbar{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:5px;padding:2px 1px}
+.shell>.joybar .dashbutton{min-height:47px!important;padding:8px 6px!important;border-radius:11px;
+ font-size:16px!important;font-weight:900;color:#17334b;background:linear-gradient(180deg,#ffe6a1,#f3b744);
+ border:2px solid #fff2bd;box-shadow:0 3px 0 #9e6c23;touch-action:manipulation;cursor:pointer}
+.shell>.joybar .dashbutton:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 #9e6c23}
+.shell>.joybar .dashbutton:disabled{color:#bbccda;background:#39576c;border-color:#56768a;box-shadow:none;opacity:.78;cursor:default}
+.shell>.joybar .dashbutton.dashing{color:#fff7d4;background:linear-gradient(180deg,#d99232,#ad5c1b);border-color:#ffe3a1}
+.shell>.joybar .dash-meter{height:5px;background:#39546b;border-radius:10px;overflow:hidden}
+.shell>.joybar .dash-meter>span{display:block;height:100%;width:100%;background:#ffc86b;transition:width 80ms linear}
+.shell>.joybar .dash-caption{font-size:10px;text-align:center;color:#c5d9e3;line-height:1.15}
+@media(max-width:700px){.shell>.joybar .dashbutton{font-size:13px!important;min-height:40px!important;padding:5px 2px!important}.shell>.joybar .dash-caption{font-size:9px}}
+@media(max-height:600px){.shell>.joybar .dashbutton{min-height:35px!important;padding:3px!important}.shell>.joybar .dashbar{gap:2px}}
+
+/* V3.21 modes and challenge progress. Court and touch control geometry unchanged. */
+.mode-open{min-height:42px!important;background:#e3bb66!important;color:#17334b!important;border-color:#f8df9d!important;font-weight:900!important}
+.mode-side-label{text-align:center;font-size:10px;color:#cfe6f4;line-height:1.45}.mission-progress{font-size:11px;text-align:center;line-height:1.5;color:#ffe5ad;margin-top:4px;min-height:15px;font-weight:700}.mission-progress:empty{display:none}
+.mode-overlay[hidden],.mission-result[hidden],.mission-next[hidden]{display:none!important}
+.mode-overlay{position:fixed;inset:0;z-index:100;background:#112536dc;display:flex;align-items:center;justify-content:center;padding:16px}
+.mode-window{width:min(870px,98vw);height:min(690px,94dvh);display:flex;flex-direction:column;overflow:hidden;background:#f5f9fc;border-radius:18px;border:2px solid #c5d9e3;box-shadow:0 15px 50px #061b2acc}
+.mode-header{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding:15px 18px 10px;background:#fff}
+.mode-header h2{margin:0 0 2px;color:#183d57;font-size:22px}.mode-header p{margin:0;font-size:11px;color:#657e8a;line-height:1.4}
+.mode-close{min-width:38px;min-height:38px;background:#e8f0f5;color:#25475a}
+.mode-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;padding:9px 13px;background:#fff;border-bottom:1px solid #d4e2ea}
+.mode-tabs button{min-height:41px;background:#eef3f7;color:#2c5068;border-color:#cadae6;font-size:13px}
+.mode-tabs button.active{background:#247c96;color:#fff;border-color:#247c96}
+.mode-list{flex:1;min-height:0;overflow:auto;padding:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-content:start;gap:9px}
+.mode-card{padding:12px 10px;border:2px solid #d1e0e9;border-radius:12px;background:white;color:#20455e;text-align:left;display:flex;flex-direction:column;gap:7px;min-height:104px}
+.mode-card strong{font-size:14px}.mode-card small{font-size:10px;color:#5d7683;line-height:1.45}.mode-card .stars{font-size:15px;color:#c28b29}
+.mode-card.chosen{border-color:#dfac4d;box-shadow:0 0 0 2px #ffde927a;background:#fffbf1}.mode-card:disabled{opacity:.49;filter:grayscale(.6)}
+.mode-footer{padding:10px 15px;background:#fff;border-top:1px solid #dae5eb;display:flex;justify-content:space-between;align-items:center;gap:10px}
+#modeDescription{font-size:11px;color:#45677a;max-width:60%;line-height:1.45}.mode-play{background:#247d65;min-height:44px;min-width:122px;font-weight:900}
+.mission-result{font-size:12px!important;background:#edf5fc;padding:10px 9px;border-radius:9px;color:#365b73;margin:9px 0;line-height:1.7}
+.victory-card .mission-next,.victory-card .mission-modes{margin:7px 3px 0!important;padding:9px!important;font-size:12px!important}
+.victory-card .mission-next{background:#ba7c26}.victory-card .mission-modes{background:#3d6581}
+@media(max-width:700px){.mode-window{height:96dvh}.mode-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:8px}.mode-tabs{gap:3px;padding:6px}.mode-tabs button{font-size:11px;padding:6px 2px}.mode-header{padding:9px 10px}.mode-header h2{font-size:18px}.mode-header p{font-size:10px}.mode-card{min-height:90px;padding:8px}.mode-card strong{font-size:12px}.mode-card small{font-size:10px}.mode-footer{padding:8px}.mode-play{min-width:110px}}
+@media(max-height:520px){.mode-window{height:98dvh}.mode-header p{display:none}.mode-list{grid-template-columns:repeat(3,minmax(0,1fr))}.mode-card{min-height:75px}.mode-footer{padding:5px}}
+
+/* V3.21: clear pre-match mission briefing and fixed, per-difficulty progress. */
+.mode-difficulty[hidden]{display:none!important}
+.mode-difficulty{display:flex;align-items:center;gap:10px;padding:9px 16px;background:#eef5f8;border-bottom:1px solid #d5e1e8;flex-wrap:wrap}
+.mode-difficulty strong{color:#254e63;font-size:13px;white-space:nowrap}
+.mode-difficulty-options{display:flex;gap:7px;flex-wrap:wrap}
+.mode-difficulty-options button{min-height:37px;padding:6px 17px;background:white;border:2px solid #bdcfda;color:#31576c;border-radius:10px;font-size:13px;font-weight:800}
+.mode-difficulty-options button.active{background:#1d7189;border-color:#1d7189;color:white}
+.mode-difficulty-tip{font-size:11px;color:#617988}
+body.mission-locked .difficulty-panel select{opacity:.73;cursor:not-allowed}
+body.mission-locked .difficulty-panel .section-title:after{content:'（本局固定）';font-size:10px;color:#d0e6f3}
+.mission-brief[hidden]{display:none!important}
+.mission-brief{position:fixed;inset:0;z-index:110;background:#0b263bdc;display:flex;align-items:center;justify-content:center;padding:14px}
+.mission-brief-card{width:min(510px,96vw);max-height:92dvh;overflow:auto;background:#f7fbfd;border:2px solid #c4dbe8;border-radius:19px;box-shadow:0 20px 60px #081b28aa;color:#25445a;padding:22px}
+.mission-brief-kicker{font-size:12px;font-weight:800;color:#247b9a;letter-spacing:.06em}
+.mission-brief-card h2{font-size:24px;margin:7px 0 12px;color:#183b55}
+.mission-brief-goal{background:#e7f2f8;border-left:4px solid #3385ac;padding:13px 14px;border-radius:9px;font-size:17px;font-weight:850;line-height:1.55}
+.mission-brief-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.mission-brief-details div{padding:10px;background:#fff;border:1px solid #d9e7ed;border-radius:10px;font-size:12px;color:#587081}
+.mission-brief-details b{display:block;font-size:15px;color:#254a64;margin-top:4px}
+.mission-brief-hint{font-size:12px;color:#5b7180;line-height:1.75;margin:10px 0}
+.mission-brief-actions{display:flex;gap:9px;margin-top:17px}
+.mission-brief-actions button{flex:1;min-height:48px;border-radius:10px;font-size:14px;font-weight:900}
+#briefBack{background:#e6eef3;color:#294b60}
+#briefConfirm{background:#217d69;color:white}
+@media(max-width:700px){.mode-difficulty{padding:6px 9px;gap:5px}.mode-difficulty-options button{min-height:31px;padding:5px 10px;font-size:12px}.mode-difficulty-tip{display:none}.mission-brief-card{padding:15px}.mission-brief-card h2{font-size:21px}.mission-brief-goal{font-size:15px}}
+
+/* V3.22: high-readability in-game mission brief for 9-inch iPad and desktop.
+   Card is in the left control column, never over the court. */
+#missionCard[hidden]{display:none!important}
+.tools .mission-card{
+ display:flex;flex-direction:column;gap:7px; flex-shrink:0;
+ padding:12px 10px 13px; border:2px solid #9ad5e5;border-radius:12px;
+ background:linear-gradient(155deg,#254d65,#1a3a53);box-shadow:0 3px 12px #071e304a;
+ color:#fff;overflow-wrap:anywhere;
+}
+.tools .mission-card-kicker{font-size:14px;line-height:1.3;color:#b7e9f8;font-weight:900;letter-spacing:.02em}
+.tools .mission-card-name{font-size:16px;line-height:1.35;color:#fff;font-weight:900}
+.tools .mission-card-goal{font-size:15px;line-height:1.55;color:#fff6d9;font-weight:750;text-align:left}
+.tools .mission-card-divider{height:1px;background:#6d9caf;opacity:.75}
+.tools .mission-card-progress-label{font-size:12px;line-height:1.3;color:#d0ecfa;font-weight:800}
+.tools #missionProgress{font-size:16px;line-height:1.45;color:#ffdc83;text-align:left;margin:0;font-weight:900;min-height:0;font-variant-numeric:tabular-nums}
+body.mission-card-active .tools #modeSidebar{display:none}
+@media (min-width:701px) and (max-width:1100px){
+ .tools .mission-card{padding:11px 8px;gap:6px}
+ .tools .mission-card-kicker{font-size:14px}
+ .tools .mission-card-name{font-size:15px}
+ .tools .mission-card-goal{font-size:15px;line-height:1.5}
+ .tools #missionProgress{font-size:16px}
+}
+@media (max-width:700px){
+ .tools .mission-card{padding:9px 7px;gap:5px;border-radius:9px}
+ .tools .mission-card-kicker{font-size:12px}
+ .tools .mission-card-name{font-size:13px}
+ .tools .mission-card-goal{font-size:13px;line-height:1.4}
+ .tools .mission-card-progress-label{font-size:11px}
+ .tools #missionProgress{font-size:14px;line-height:1.35}
+}
+@media (max-height:600px){.tools .mission-card{padding-top:7px;padding-bottom:8px;gap:4px}}
+/* V3.22: visible task objectives and review, no extra court overlays. */
+body.mission-card-active .tools .mode-shortcut{order:-1;position:sticky;top:0;z-index:5;background:#172e42;padding-bottom:8px}
+.tools .mission-stars-hint{font-size:12px;line-height:1.55;color:#cfe9f4;font-weight:650;border-top:1px dashed #6a96ae;padding-top:7px}
+.mission-brief-hint{font-size:14px;line-height:1.7}
+.mission-result{max-height:min(43dvh,300px);overflow-y:auto;text-align:left!important;font-size:13px!important}
+.analysis-title{font-size:16px;font-weight:900;color:#274e69;margin-bottom:8px}
+.analysis-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.analysis-metric{display:flex;flex-direction:column;gap:2px;background:white;padding:7px 3px;border-radius:7px;text-align:center}
+.analysis-metric small{font-size:11px;color:#6b7f8c}.analysis-metric b{font-size:16px;color:#254b62}
+.analysis-criteria{display:grid;gap:4px;margin-top:8px}.analysis-condition{background:#fff;padding:5px 7px;border-radius:6px;color:#7e8d98}.analysis-condition.met{color:#1d7858;font-weight:800;background:#e9f9f0}
+.analysis-history{background:#f7fcff;border:1px solid #d8e9f1;border-radius:7px;padding:7px;margin-top:7px;font-size:12px;line-height:1.6}.analysis-history strong{display:block;margin-bottom:3px}.analysis-tip{background:#fff2d5;color:#624d25;padding:7px 9px;border-radius:8px;margin-top:8px;line-height:1.5;font-weight:700}
+@media(pointer:coarse){.joybar button,.tools button{touch-action:manipulation}.mission-brief-actions button{min-height:52px}}
+@media(max-width:900px){.tools .mission-stars-hint{font-size:11px}.tools .mission-card{gap:5px}.analysis-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* V3.25 shared-classroom tablets: readable random-play action without altering the court. */
+.shared-pad-tip{margin:9px 15px 2px;padding:8px 11px;border-radius:9px;background:#e5f2ef;color:#285c59;font-size:13px;line-height:1.4;font-weight:700}
+.mode-play-actions{display:flex;gap:9px;align-items:stretch;flex-shrink:0}
+.mode-play-actions>button{min-height:45px;font-size:14px;font-weight:800;border-radius:9px;padding:10px 14px}
+.mode-random{background:#e7f0f9;color:#1f5272;border:1px solid #a3c4dd;cursor:pointer}
+.mode-random:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:780px){.shared-pad-tip{font-size:12px;margin:6px 10px}.mode-play-actions{gap:5px}.mode-play-actions>button{padding:8px 9px;font-size:12px}}
+</style></head><body class="is-setup">
+<div class="shell"><aside class="tools" aria-label="遊戲操作">
+  <div class="brand">躲數球 <span class="brand-version">V3.27</span></div>
+  <section class="sidebar-section main-actions" aria-label="比賽控制">
+    <button id="start" class="primary">▶ 開始比賽</button>
+    <div class="toolrow"><button id="pause" disabled>Ⅱ 暫停</button><button id="reset">↻ 重來</button></div>
+  </section>
+  <section class="sidebar-section mode-shortcut" aria-label="遊戲模式"><button id="openModes" class="mode-open" type="button">🎮 模式選擇</button><div id="modeSidebar" class="mode-side-label">經典對戰</div>
+    <section id="missionCard" class="mission-card" aria-label="目前關卡任務" hidden>
+      <div class="mission-card-kicker">🎯 本關任務</div>
+      <div id="missionCardName" class="mission-card-name"></div>
+      <div id="missionCardGoal" class="mission-card-goal"></div>
+      <div class="mission-card-divider"></div>
+      <div class="mission-card-progress-label">進度</div>
+      <div id="missionProgress" class="mission-progress" aria-live="off"></div><div id="missionStarsHint" class="mission-stars-hint" aria-live="off"></div>
+    </section></section>
+  <section class="sidebar-section setup-only" aria-label="賽前設定">
+    <div class="section-title">賽前</div>
+    <div class="mini-label" id="selectedLabel">目前球員</div>
+    <div class="role" id="roles" aria-label="球員角色"><button data-role="attack">進攻</button><button data-role="defend">防守</button><button data-role="evade">閃避</button><button data-role="none">一般</button></div>
+    <div class="mini-label setup-label">內／外場</div>
+    <div class="toolrow"><button id="toInner" class="secondary">進內場</button><button id="toOuter" class="secondary">到外場</button></div>
+    <div id="lineupHint" class="mini-note">外場至少 3 人</div>
+  </section>
+  <section class="sidebar-section tactical-panel" aria-label="戰術設定">
+    <div class="section-title">戰術</div>
+    <div class="tactics-phase" id="strategyHint" aria-live="polite">藍隊持球｜準備進攻</div>
+    <details class="tactics-group" id="atkGroup"><summary>🎯 進攻目標 <span class="pick-count" id="atkCount">自動</span></summary><div class="tactics-picks" id="attackPicks"></div></details>
+    <details class="tactics-group" id="defGroup"><summary>🛡 保護號碼 <span class="pick-count" id="defCount">自動</span></summary><div class="tactics-picks" id="defensePicks"></div></details>
+    <details class="tactics-group" id="blockGroup"><summary>🧱 優先擋球 <span class="pick-count" id="blockCount">不指定</span></summary><div class="tactics-picks" id="blockPicks"></div></details>
+    <button id="clearTactics" class="secondary tactics-clear" title="清除三組戰術指定">清空戰術</button>
+  </section>
+  <section class="sidebar-section difficulty-panel" aria-label="電腦難度">
+    <label class="section-title" for="difficulty">難度</label>
+    <div class="field"><select id="difficulty"><option value="easy">練習</option><option value="normal" selected>一般</option><option value="hard">挑戰（極難）</option></select></div>
+  </section>
+</aside>
+<main class="main"><div class="scoreboard"><div class="scorecol blue"><span>藍隊</span><b id="blueScore">0</b></div><div class="centered"><div id="timer" class="clock">05:00</div><div class="meta" id="period">賽前排陣</div><div id="attackClock" class="attack-clock" aria-live="off">進攻限時 15 秒</div></div><div class="scorecol orange"><b id="orangeScore">0</b><span>橘隊</span></div></div>
+<div class="play-area"><div class="boardbox"><svg id="court" viewBox="125 90 850 520" preserveAspectRatio="xMidYMid meet" aria-label="加減乘除躲數球互動球場"></svg><div id="toast"></div><div id="eventBanner" aria-live="polite"></div><div id="victory"><div class="victory-card"><div style="font-size:38px">🏆</div><h2 id="victoryTitle">比賽結束</h2><div class="vscore" id="victoryScore">0 : 0</div><p id="victoryReason"></p><div id="missionResult" class="mission-result" hidden></div><button id="victoryAgain">再玩一局</button><button id="victoryNext" class="mission-next" hidden>下一關 ▶</button><button id="victoryModes" class="mission-modes">選擇模式</button></div></div><div id="aimHelp">點隊友傳球｜拖球員移動｜拖白球投球</div><div id="popup"></div>
+<div id="intro"><div class="introcard"><h2>🏐 躲數球遊戲 V3.27</h2><p>賽前可先排陣、設定角色與戰術。<br>可直接點藍隊隊友傳球；搖桿上方號碼只負責切換操控球員。<br>拖曳<strong>球員身體</strong>移動（持球時也可以），拖曳<strong>白球</strong>投球；右側「衝刺」可短暫加速。<br>持球或傳球超過 15 秒仍未進攻，就交換球權。</p><button id="introClose">開始排陣</button></div></div>
+</div>
+</div><div class="hint"><span id="status">藍：左內右外｜橘：右內左外</span><small id="ballStatus">球權：藍隊</small><div class="chips"><span class="chip" id="countBlue">藍 內11／外3</span><span class="chip" id="countOrange">橘 內11／外3</span></div></div></main><div class="joybar" aria-label="快速選擇球員與虛擬搖桿"><button class="joytoggle" id="showSquad" type="button" aria-expanded="true">球員名單 ▴</button><div class="joysquad" id="joySquad" aria-label="快速選擇藍隊球員"></div><div class="joywho" id="joyWho">操控：1 號</div><div class="joypossession"><span id="joyHolder">持球：—</span><button id="jumpHolder" type="button" title="切換控制到藍隊持球者">切到持球</button></div><button id="quickPass" class="joypass" type="button" title="把球傳給目前選取的藍隊球員">傳球</button><div class="dashbar"><button id="dashButton" class="dashbutton" type="button" disabled aria-label="目前操控球員衝刺">⚡ 衝刺</button><div class="dash-meter" aria-hidden="true"><span id="dashMeter"></span></div><div class="dash-caption" id="dashCaption">冷卻 4 秒</div></div><div id="joystick" role="application" aria-label="拖曳控制所選球員方向"><div class="cross"></div><div id="joyKnob"></div></div></div></div>
+<div id="diagnostics" hidden></div>
+
+<div id="modeOverlay" class="mode-overlay" hidden role="dialog" aria-modal="true" aria-label="選擇遊戲模式">
+  <div class="mode-window">
+    <header class="mode-header"><div><h2>🏐 躲數球挑戰</h2><p>選模式、選難度，再開始。</p></div><button id="modeClose" class="mode-close" type="button">✕</button></header>
+    <nav class="mode-tabs" aria-label="遊戲種類"><button data-tab="classic" type="button">經典對戰</button><button data-tab="levels" type="button">闖關冒險</button><button data-tab="special" type="button">特殊挑戰</button><button data-tab="survival" type="button">生存挑戰</button></nav>
+    <div class="mode-difficulty" id="modeDifficultyRow"><strong>難度</strong><div class="mode-difficulty-options" id="modeDifficultyOptions" role="group" aria-label="選擇本場難度"><button type="button" data-diff="easy">練習</button><button type="button" data-diff="normal">一般</button><button type="button" data-diff="hard">挑戰</button></div></div>
+    
+    <div id="modeList" class="mode-list" aria-live="polite"></div>
+    <footer class="mode-footer"><div id="modeDescription">選一個模式開始</div><div class="mode-play-actions"><button id="modeRandom" class="mode-random" type="button">🎲 隨機</button><button id="modePlay" class="mode-play" type="button">開始 ▶</button></div></footer>
+  </div>
+</div>
+<div id="missionBrief" class="mission-brief" hidden role="dialog" aria-modal="true" aria-labelledby="briefTitle">
+  <div class="mission-brief-card">
+    <div class="mission-brief-kicker" id="briefKicker">任務確認</div>
+    <h2 id="briefTitle">關卡名稱</h2>
+    <div class="mission-brief-goal" id="briefGoal"></div>
+    <div class="mission-brief-details" id="briefDetails"></div>
+    <p class="mission-brief-hint" id="briefHint"></p>
+    <div class="mission-brief-actions"><button type="button" id="briefBack">返回</button><button type="button" id="briefConfirm">開始 ▶</button></div>
+  </div>
+</div>
+<script>
+(()=>{'use strict';
+const svg=document.querySelector('#court'),NS='http://www.w3.org/2000/svg', $=id=>document.getElementById(id), clamp=(x,a,b)=>Math.max(a,Math.min(b,x)), hypot=Math.hypot;
+const nums=['1','2','3','4','5','6','7','8','9','−1','−5','0','×2','÷2'];const roleNames={attack:'進攻',defend:'防守',evade:'閃避',none:'一般'};
+const roleStats={attack:{a:5,c:2,d:1},defend:{a:1,c:5,d:2},evade:{a:2,c:1,d:5},none:{a:3,c:3,d:3}};
+const outerB=[[770,127],[917,270],[785,562],[914,432],[720,128],[810,564],[923,344],[742,563],[840,125],[915,528],[732,153]];
+const outerO=[[329,127],[183,270],[315,562],[186,432],[380,128],[290,564],[181,344],[355,563],[260,125],[186,528],[380,153]];
+const OWN={blue:{inner:[[292,523,192,508]],outer:[[722,943,122,158],[862,943,155,545],[722,943,542,578]]},orange:{inner:[[577,808,192,508]],outer:[[157,378,122,158],[157,238,155,545],[157,378,542,578]]}};
+let players=[],scores={blue:0,orange:0},selected=null,drag=null;
+let state='setup',phase='normal',remaining=300,last=0,raf=0,now=0,toastUntil=0,toastMsg='',lastEvent=0,shotId=0,aiCooldown=1.5,ball=null,pending=[],winMessage='',dragMoved=false;
+let cpuPlan='balanced',cpuMode='defense',cpuPlanTick=0,cpuBaseSlots=new Map(),cpuModeChange=0;
+let playerLineup=null; // Keep the player's pre-match arrangement across rematches.
+let playerFormation='balanced',autoTactics=false,autoTacticsNext=0,autoTacticsKey='',playerFormationBase=new Map(),formationTick=0;
+const tacticalPicks={attack:[],defense:[],block:[]};let tacticalModeKey='',tacticalPlanNext=0,queuedShot=null;
+let cpuSituationKey='',playerSituationKey='',formationRevision=0;
+let joystick={active:false,pointer:null,x:0,y:0}, setupReposition=null;
+// Shared cooldown deliberately prevents switching player to bypass sprint recovery.
+const DASH_DURATION=.28,DASH_COOLDOWN=4,DASH_SPEED=2.35;
+let dash={playerId:null,until:0,readyAt:0,dirX:1,dirY:0};
+function dashRunning(p){return state==='playing'&&dash.playerId===p?.id&&now<dash.until;}
+function resetDash(){dash={playerId:null,until:0,readyAt:0,dirX:1,dirY:0};updateDashButton();}
+function updateDashButton(){
+ const b=$('dashButton'),meter=$('dashMeter'),caption=$('dashCaption');if(!b)return;
+ const p=players.find(q=>q.id===selected),active=dashRunning(p),remaining=Math.max(0,dash.readyAt-now);
+ b.disabled=state!=='playing'||!p||p.team!=='blue'||remaining>0;
+ b.classList.toggle('dashing',active);
+ b.textContent=active?'⚡ 衝刺中':remaining>0?'衝刺 '+remaining.toFixed(1)+'s':'⚡ 衝刺';
+ meter.style.width=(remaining>0?100*(1-remaining/DASH_COOLDOWN):100).toFixed(1)+'%';
+ caption.textContent=active?'爆發移動中':state!=='playing'?'比賽開始後可使用':remaining>0?'冷卻中 · '+remaining.toFixed(1)+' 秒':'可使用 · 4 秒冷卻';
+}
+function useDash(){
+ const p=players.find(q=>q.id===selected);
+ if(state!=='playing'||!p||p.team!=='blue'||now<dash.readyAt)return false;
+ let dx=0,dy=0;
+ if(joystick.active&&Math.hypot(joystick.x,joystick.y)>.15){dx=joystick.x;dy=joystick.y;}
+ else if(p.goal&&Math.hypot(p.goal.x-p.x,p.goal.y-p.y)>5){dx=p.goal.x-p.x;dy=p.goal.y-p.y;}
+ else if(Math.hypot(p.moveVx||0,p.moveVy||0)>18){dx=p.moveVx;dy=p.moveVy;}
+ else {dx=Math.cos(p.angle);dy=Math.sin(p.angle);}
+ const length=Math.hypot(dx,dy)||1;
+ dash.playerId=p.id;dash.until=now+DASH_DURATION;dash.readyAt=now+DASH_COOLDOWN;
+ dash.dirX=dx/length;dash.dirY=dy/length;
+ p.fxDodgeUntil=Math.max(p.fxDodgeUntil||0,now+DASH_DURATION+.13);
+ updateDashButton();return true;
+}
+
+// A team's shot clock persists across passes; only a genuine attack or lost possession ends it.
+let ATTACK_LIMIT=15;
+let attackClockTeam=null, attackClockStart=0, attackClockViolations={blue:0,orange:0};
+let passReadyAt=0, controlLast=null, aiFormationCooldown=0;let shotDefenseMap=new Map();let cpuHeldSince=0,cpuDecisionAt=0,cpuLastTarget=null,pickupAssignment=null,cpuPassChain=0,cpuLastDecision=null,cpuSupportAt=0,cpuSupportId=null;
+const gameStats={shots:{blue:0,orange:0},catch:{blue:0,orange:0},dodges:{blue:0,orange:0},hits:{blue:0,orange:0},scores:{blue:0,orange:0},pickups:{blue:0,orange:0},out:0,turnovers:0,stallViolations:{blue:0,orange:0},defenseThreats:{blue:0,orange:0},dodgeSuccess:{blue:0,orange:0},catchAttempts:{blue:0,orange:0},shotImpacts:{blue:0,orange:0},passes:{blue:0,orange:0},passCaught:{blue:0,orange:0},passIntercepted:{blue:0,orange:0},passMissed:{blue:0,orange:0},dodgeConfirmed:{blue:0,orange:0},catchFailed:{blue:0,orange:0},shotMissed:{blue:0,orange:0},recoveries:{blue:0,orange:0},cpuDecisions:{shot:0,pass:0,reposition:0,forced:0,blockedLane:0},coordination:{supportMoves:0,passApproaches:0,defensiveDelegations:0,yieldMoves:0}};
+const debugMode=new URLSearchParams(location.search).get('debug')==='1';
+
+// V3.21: modes share the existing court physics, passing, catches and scoring.
+const CHAPTERS=['躲數球新秀','戰術高手','冠軍之路'];
+const LEVELS=[
+ {id:'1-1',name:'初次交鋒',desc:'率先取得 15 分',goal:'score',score:15,duration:180,difficulty:'easy',blueInner:11,orangeInner:8,cpu:'balanced',cpuTier:0,aiStyle:'basic'},
+ {id:'1-2',name:'十發挑戰',desc:'最多 10 次正式投球，取得 15 分',goal:'shotcap',score:15,shotcap:10,duration:180,difficulty:'easy',blueInner:11,orangeInner:9,cpu:'balanced',cpuTier:0,aiStyle:'basic'},
+ {id:'1-3',name:'精準得分',desc:'90 秒內剛好取得 30 分',goal:'exact',duration:90,difficulty:'normal',startBlue:20,blueInner:11,orangeInner:10,cpu:'balanced',cpuTier:1,aiStyle:'math'},
+ {id:'1-4',name:'指定獵物',desc:'擊中橘隊 2、4、5 號各一次',goal:'targets',targets:['2','4','5'],duration:180,difficulty:'easy',blueInner:11,orangeInner:9,cpu:'balanced',cpuTier:0,aiStyle:'basic'},
+ {id:'1-5',name:'保護關鍵',desc:'讓藍隊 7 號堅持 90 秒不出局',goal:'guard',guard:'7',duration:90,difficulty:'normal',blueInner:10,orangeInner:10,cpu:'aggressive',cpuTier:1,aiStyle:'press'},
+ {id:'1-6',name:'新秀決賽',desc:'在 150 秒內取得 30 分',goal:'exact',duration:150,difficulty:'normal',blueInner:11,orangeInner:11,cpu:'balanced',cpuTier:1,aiStyle:'balanced'},
+ {id:'2-1',name:'銅牆鐵壁',desc:'擊敗防守型橘隊',goal:'exact',duration:180,difficulty:'normal',blueInner:10,orangeInner:11,cpu:'cautious',cpuTier:1,aiStyle:'guard'},
+ {id:'2-2',name:'閃避大師',desc:'擊敗閃避高手隊',goal:'exact',duration:180,difficulty:'hard',style:'evade',blueInner:10,orangeInner:10,cpu:'balanced',cpuTier:2,aiStyle:'evade'},
+ {id:'2-3',name:'外場包圍',desc:'由我方外場射手完成 2 次有效命中',goal:'outer',count:2,duration:180,difficulty:'normal',blueInner:9,orangeInner:10,cpu:'balanced',cpuTier:1,aiStyle:'pass'},
+ {id:'2-4',name:'逆轉時刻',desc:'從 10：24 的比分，在 90 秒內逆轉',goal:'reverse',duration:90,startBlue:10,startOrange:24,difficulty:'normal',blueInner:11,orangeInner:9,cpu:'aggressive',cpuTier:2,aiStyle:'guard'},
+ {id:'2-5',name:'數學陷阱',desc:'從 18 分出發，最多 5 次投球取得 30 分',goal:'exact',startBlue:18,shotcap:5,duration:150,difficulty:'normal',blueInner:10,orangeInner:10,cpu:'cautious',cpuTier:2,aiStyle:'math'},
+ {id:'2-6',name:'戰術決戰',desc:'擊敗積極傳球的進攻隊',goal:'exact',duration:180,difficulty:'hard',blueInner:10,orangeInner:11,cpu:'aggressive',cpuTier:2,aiStyle:'pass'},
+ {id:'3-1',name:'極速攻防',desc:'10 秒進攻限制，率先取得 30 分',goal:'exact',duration:150,attackLimit:10,difficulty:'hard',blueInner:9,orangeInner:11,cpu:'aggressive',cpuTier:2,aiStyle:'press'},
+ {id:'3-2',name:'最後三人',desc:'我方內場僅剩三人，完成逆轉',goal:'reverse',duration:180,startBlue:13,startOrange:21,difficulty:'hard',blueInner:3,orangeInner:8,cpu:'balanced',cpuTier:2,aiStyle:'press'},
+ {id:'3-3',name:'保衛王牌',desc:'保護藍隊 7 號並取得 30 分',goal:'guardWin',guard:'7',duration:180,difficulty:'hard',blueInner:9,orangeInner:11,cpu:'aggressive',cpuTier:2,aiStyle:'math'},
+ {id:'3-4',name:'連續追擊',desc:'連續三次得分攻擊，中途不能投失',goal:'combo',count:3,duration:180,difficulty:'hard',blueInner:10,orangeInner:10,cpu:'cautious',cpuTier:3,aiStyle:'guard'},
+ {id:'3-5',name:'頂尖對手',desc:'擊敗最積極的進攻協作隊',goal:'exact',duration:210,difficulty:'hard',blueInner:9,orangeInner:11,cpu:'aggressive',cpuTier:3,aiStyle:'pass'},
+ {id:'3-6',name:'冠軍決戰',desc:'從 12：20 逆境取得 30 分',goal:'exact',duration:240,startBlue:12,startOrange:20,difficulty:'hard',blueInner:9,orangeInner:11,cpu:'cautious',cpuTier:3,aiStyle:'math'}
+];
+const SPECIALS=[
+ {id:'s1',name:'60 秒搶分',desc:'60 秒內至少取得 20 分',goal:'score',score:20,duration:60,difficulty:'normal',blueInner:11,orangeInner:9,cpu:'balanced',cpuTier:1,aiStyle:'basic'},
+ {id:'s2',name:'精準獵人',desc:'擊中橘隊 2、4、5 號各一次',goal:'targets',targets:['2','4','5'],duration:180,difficulty:'normal',blueInner:11,orangeInner:9,cpu:'balanced',cpuTier:1,aiStyle:'evade'},
+ {id:'s3',name:'運算挑戰',desc:'藍隊從 24 分開始，剛好達到 30',goal:'exact',startBlue:24,duration:120,difficulty:'normal',blueInner:11,orangeInner:9,cpu:'balanced',cpuTier:1,aiStyle:'math'},
+ {id:'s4',name:'守護任務',desc:'讓 7 號在 120 秒內不出局',goal:'guard',guard:'7',duration:120,difficulty:'hard',blueInner:10,orangeInner:10,cpu:'aggressive',cpuTier:2,aiStyle:'press'},
+ {id:'s5',name:'極速對決',desc:'10 秒攻擊限制，爭取 30 分',goal:'exact',attackLimit:10,duration:180,difficulty:'hard',blueInner:10,orangeInner:11,cpu:'aggressive',cpuTier:2,aiStyle:'press'},
+ {id:'s6',name:'隨機挑戰',desc:'隨機套用比分、對手和任務',goal:'random',duration:150,difficulty:'normal',blueInner:10,orangeInner:10,cpu:'balanced',cpuTier:1,aiStyle:'random'}
+];
+const SURVIVALS=[
+ {id:'v1',name:'90 秒守城',desc:'90 秒後我方至少 5 名內場球員存活',goal:'survival',duration:90,minInner:5,difficulty:'normal',blueInner:11,orangeInner:11,cpu:'aggressive',cpuTier:1,aiStyle:'press'},
+ {id:'v2',name:'最後防線',desc:'我方僅 5 人在內場，堅持 120 秒且至少留 2 人',goal:'survival',duration:120,minInner:2,difficulty:'hard',blueInner:5,orangeInner:10,cpu:'aggressive',cpuTier:2,aiStyle:'press'},
+ {id:'v3',name:'三回合生存',desc:'每回合 60 秒，共 3 回合；最後至少 3 名內場球員存活',goal:'survival',duration:180,rounds:3,minInner:3,difficulty:'normal',blueInner:9,orangeInner:11,cpu:'cautious',cpuTier:2,aiStyle:'pass'}
+];
+// V3.22: Every mission has visible, stage-specific performance criteria.
+// These are separate from victory requirements, never mandatory to unlock the next level.
+const STAR_CRITERIA={
+ '1-1':[['完成15分任務',null],['剩餘至少45秒',s=>s.left>=45],['正式投球不超過8次',s=>s.shots<=8]],
+ '1-2':[['10次投球內達到15分',null],['8次投球內完成',s=>s.shots<=8],['6次投球內完成',s=>s.shots<=6]],
+ '1-3':[['90秒內剛好30分',null],['剩餘至少20秒',s=>s.left>=20],['傳球與出界違例為0次',s=>s.turnovers===0]],
+ '1-4':[['完成全部指定目標',null],['剩餘至少50秒',s=>s.left>=50],['正式投球不超過12次',s=>s.shots<=12]],
+ '1-5':[['守護7號直到計時結束或提前取得30分',null],['結束時至少8名內場球員',s=>s.inner>=8],['沒有傳球出界或進攻違例',s=>s.turnovers===0]],
+ '1-6':[['150秒內取得30分',null],['剩餘至少40秒',s=>s.left>=40],['結束時至少8名內場球員',s=>s.inner>=8]],
+ '2-1':[['突破防守隊取得30分',null],['正式投球不超過14次',s=>s.shots<=14],['失誤不超過1次',s=>s.turnovers<=1]],
+ '2-2':[['擊敗閃避隊取得30分',null],['有至少4次有效命中結算',s=>s.hits>=4],['剩餘至少40秒',s=>s.left>=40]],
+ '2-3':[['外場射手有效命中2次',null],['全場傳球至少2次',s=>s.passes>=2],['剩餘至少45秒',s=>s.left>=45]],
+ '2-4':[['從10：24逆轉成功',null],['剩餘至少20秒',s=>s.left>=20],['比賽中不發生出界或進攻違例',s=>s.turnovers===0]],
+ '2-5':[['5次正式投球內達到30分',null],['4次投球內達成',s=>s.shots<=4],['3次投球內達成',s=>s.shots<=3]],
+ '2-6':[['擊敗協作型橘隊',null],['我方主動傳球至少2次',s=>s.passes>=2],['剩餘至少45秒',s=>s.left>=45]],
+ '3-1':[['10秒限時下取得30分',null],['沒有15秒／10秒違例',s=>s.stalls===0],['剩餘至少40秒',s=>s.left>=40]],
+ '3-2':[['僅三人內場完成逆轉',null],['至少2名內場球員存活',s=>s.inner>=2],['3名初始內場球員全部存活',s=>s.inner>=3]],
+ '3-3':[['守住7號並取得30分',null],['剩餘至少45秒',s=>s.left>=45],['失誤不超過1次',s=>s.turnovers<=1]],
+ '3-4':[['連續3次有效攻擊',null],['投球不超過4次',s=>s.shots<=4],['完成時沒有傳球失誤',s=>s.turnovers===0]],
+ '3-5':[['擊敗頂尖協作隊',null],['正式投球不超過15次',s=>s.shots<=15],['結束時至少6名內場球員',s=>s.inner>=6]],
+ '3-6':[['逆境中取得30分',null],['剩餘至少45秒',s=>s.left>=45],['失誤不超過1次',s=>s.turnovers<=1]],
+ 's1':[['60秒內取得20分',null],['正式投球不超過10次',s=>s.shots<=10],['正式投球不超過7次',s=>s.shots<=7]],
+ 's2':[['完成3位指定目標',null],['剩餘至少45秒',s=>s.left>=45],['失誤為0次',s=>s.turnovers===0]],
+ 's3':[['從24分剛好到30分',null],['3次正式投球內完成',s=>s.shots<=3],['1次正式投球就完成',s=>s.shots<=1]],
+ 's4':[['守住7號直到計時結束或提前取得30分',null],['結束時至少7名內場球員',s=>s.inner>=7],['沒有任何失誤',s=>s.turnovers===0]],
+ 's5':[['10秒進攻限制下獲勝',null],['沒有進攻逾時',s=>s.stalls===0],['剩餘至少40秒',s=>s.left>=40]],
+ 's6':[['完成隨機任務',null],['失誤不超過1次',s=>s.turnovers<=1],['至少6名內場球員存活',s=>s.inner>=6]],
+ 'v1':[['90秒後保留至少5名內場球員',null],['至少7名內場球員存活',s=>s.inner>=7],['至少9名內場球員存活',s=>s.inner>=9]],
+ 'v2':[['120秒後保留至少2名內場球員',null],['至少3名內場球員存活',s=>s.inner>=3],['至少4名內場球員存活',s=>s.inner>=4]],
+ 'v3':[['守住全部3個回合',null],['最後至少5名內場球員',s=>s.inner>=5],['最後至少7名內場球員',s=>s.inner>=7]]
+};
+function criteriaFor(c){return STAR_CRITERIA[c?.id]||[['完成本關任務',null],['失誤不超過1次',s=>s.turnovers<=1],['至少6名內場球員存活',s=>s.inner>=6]]}
+function missionMetrics(){return {left:remaining,elapsed:Math.max(0,missionStartRemaining-remaining),shots:missionStats.blueShots,passes:missionStats.bluePasses,hits:missionStats.scoreEvents,turnovers:missionStats.blueTurnovers,stalls:attackClockViolations.blue,inner:missionStats.blueInnerAtFinish??players.filter(p=>p.team==='blue'&&p.zone==='inner').length,combo:missionStats.bestConsecutive}}
+function starAssessment(success){const criteria=criteriaFor(modeStage),s=missionMetrics();const achieved=criteria.map((c,i)=>!!success && (i===0||!!c[1]?.(s)));achieved[2]=achieved[1]&&achieved[2];let stars=success?1:0;if(success&&achieved[1])stars=2;if(success&&achieved[2])stars=3;return {stars,achieved,criteria,metrics:s}}
+const arithmeticSequence=(initial,target,values,maxUses)=>{
+ const walk=(score,remaining,used)=>{if(score===target)return true;if(used>=maxUses)return false;
+  for(let i=0;i<remaining.length;i++){const after=calc(score,remaining[i]);if(after.win||(after.score===target))return true;
+    if(walk(after.score,remaining.filter((_,j)=>i!==j),used+1))return true;}return false};
+ return walk(initial,values,0)
+};
+function validateMissionSetup(c){
+ if(!c)return {ok:true,notes:[]};const notes=[];
+ for(const [key,min,max] of [['blueInner',3,11],['orangeInner',3,11]])if(c[key]!==undefined&&(c[key]<min||c[key]>max))notes.push(key+'超出合法人數');
+ if(c.targets&&(new Set(c.targets).size!==c.targets.length||c.targets.some(n=>!nums.includes(n))||c.targets.length>(c.orangeInner??11)))notes.push('指定目標超過可攻擊名單');
+ if(c.guard&&!nums.includes(c.guard))notes.push('守護號碼不存在');
+ if(c.minInner&&c.minInner>(c.blueInner??11))notes.push('存活人數要求超過起始人數');
+ if(c.shotcap&&c.shotcap<1)notes.push('投球限制必須大於0');
+ if((c.goal==='exact'||c.goal==='shotcap')&&c.shotcap &&!arithmeticSequence(c.startBlue||0,c.score||30,nums,c.shotcap))notes.push('運算目標在限定投球數內無解');
+ return {ok:!notes.length,notes};
+}
+let modeType='classic',modeSelection='classic',modeTab='levels',modeStage=null,modeActive=false;
+const DIFF_LABEL={easy:'練習',normal:'一般',hard:'挑戰（極難）'};
+let selectedModeDifficulty='normal',pendingBriefId=null,pendingBriefOrigin='select';
+let missionStats={hitNums:[],history:[],outerHits:0,consecutive:0,bestConsecutive:0,misses:0,blueShots:0,bluePasses:0,blueTurnovers:0,guardLost:false,scoreEvents:0,blueInnerAtFinish:null};
+let missionShotSerial=0,missionLastHitSerial=0,missionShotEvaluated=0,missionStartRemaining=300,missionStartOut=0;
+let missionRound=1,missionRoundBaseline='normal';
+let lastMissionResult=null;
+// V3.25 shared school iPad mode: no student records or difficulty survive a page reload.
+// Only remove the two keys this game previously wrote; never clear unrelated site storage.
+const MODE_KEY='dodgeball_v316_progress';
+const DIFF_KEY='dodgeball_v319_difficulty';
+try{localStorage.removeItem(MODE_KEY);localStorage.removeItem(DIFF_KEY);}catch(e){}
+const stageDifficultyKey=(id,diff)=>id+'|'+diff;
+let progress={stars:{},best:{}}; // Current open page only; reload starts fresh.
+const modeById=id=>LEVELS.concat(SPECIALS,SURVIVALS).find(c=>c.id===id);
+function saveModeProgress(){/* Keep this session's stars in memory only. */}
+function levelUnlocked(index){return index>=0&&index<LEVELS.length;}
+function selectedStars(id){return progress.stars[stageDifficultyKey(id,selectedModeDifficulty)]||0}
+function setModeDifficulty(d){if(!DIFF_LABEL[d])return;selectedModeDifficulty=d;modeRender()}
+function syncDifficultyUi(){
+ $('modeDifficultyRow').hidden=modeTab==='classic';
+ document.querySelectorAll('#modeDifficultyOptions button').forEach(b=>{const chosen=b.dataset.diff===selectedModeDifficulty;b.classList.toggle('active',chosen);b.setAttribute('aria-pressed',String(chosen))});
+}
+
+function modeChoices(tab){return tab==='classic'?[{id:'classic',name:'經典對戰',desc:'原本 5 分鐘、30 分獲勝的完整玩法'}]:tab==='levels'?LEVELS:tab==='special'?SPECIALS:SURVIVALS;}
+function modeRender(){
+ syncDifficultyUi();
+ document.querySelectorAll('.mode-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.tab===modeTab));
+ const list=$('modeList');list.replaceChildren();const choices=modeChoices(modeTab);
+ choices.forEach((c,i)=>{const locked=false;const b=document.createElement('button');b.type='button';b.className='mode-card'+(modeSelection===c.id?' chosen':'');b.disabled=locked;
+ const title=document.createElement('strong');title.textContent=locked?'🔒 '+c.id+' '+c.name:(modeTab==='levels'?c.id+' · ':'')+c.name;
+ const desc=document.createElement('small');desc.textContent=c.desc+(c.blueInner&&c.orangeInner?'｜內場 '+c.blueInner+' 對 '+c.orangeInner:'');
+ const stars=document.createElement('span');stars.className='stars';const rating=selectedStars(c.id);stars.textContent=modeTab==='classic'?'自由對戰':(DIFF_LABEL[selectedModeDifficulty]+'　'+'★'.repeat(rating)+'☆'.repeat(3-rating));
+ b.append(title,desc,stars);b.onclick=()=>{modeSelection=c.id;modeRender()};list.append(b)});
+ const item=choices.find(c=>c.id===modeSelection);if(!item){modeSelection=choices.find((c,i)=>modeTab!=='levels'||levelUnlocked(i))?.id||'classic';return modeRender()}
+ $('modeDescription').textContent=item.desc+(modeTab==='classic'?'':'｜★ '+criteriaFor(item)[0][0]+'　★★ '+criteriaFor(item)[1][0]+'　★★★ '+criteriaFor(item)[2][0]); $('modePlay').disabled=false;$('modeRandom').disabled=modeTab==='classic';
+}
+function modeOpen(tab){if(state==='playing'||state==='paused'){displayNotice('請先結束或重開比賽，再切換模式',1.5);return;}clearTacticalSelections();if(tab)modeTab=tab;const choices=modeChoices(modeTab);if(!choices.some(c=>c.id===modeSelection))modeSelection=choices[0].id;$('modeOverlay').hidden=false;modeRender()}
+function modeClose(){$('modeOverlay').hidden=true}
+function showMissionBrief(id,origin='select'){
+ const c=id==='classic'?{id:'classic',name:'經典對戰',desc:'先手動安排藍隊角色與內外場位置，再按「開始比賽」；正式比賽五分鐘，率先達到 30 分獲勝。',duration:300}:modeById(id);
+ if(!c)return;
+ const ix=LEVELS.findIndex(x=>x.id===id);
+ if(ix>=0&&!levelUnlocked(ix)&&!debugMode)return;
+ pendingBriefId=id;pendingBriefOrigin=origin;
+ const diff=id==='classic'?$('difficulty').value:selectedModeDifficulty;
+ const sec=c.duration||300;const mins=Math.floor(sec/60),seconds=sec%60;
+ $('briefKicker').textContent=id==='classic'?'經典模式確認':(id+' · '+(LEVELS.some(x=>x.id===id)?'闖關挑戰':SPECIALS.some(x=>x.id===id)?'特殊挑戰':'生存挑戰'));
+ $('briefTitle').textContent=c.name;
+ $('briefGoal').textContent=c.desc;
+ const detail=$('briefDetails');detail.replaceChildren();
+ const entries=[['電腦難度',DIFF_LABEL[diff]||'一般'],['挑戰時間',mins+' 分 '+String(seconds).padStart(2,'0')+' 秒']];
+ if(c.startBlue!==undefined||c.startOrange!==undefined)entries.push(['起始比分',(c.startBlue||0)+' ： '+(c.startOrange||0)]);
+ if(c.attackLimit)entries.push(['進攻限時',c.attackLimit+' 秒']);
+ if(c.shotcap)entries.push(['投球限制',c.shotcap+' 次']);
+ if(c.blueInner)entries.push(['我方內場／外場',c.blueInner+'／'+(14-c.blueInner)+' 人']);
+ if(c.orangeInner)entries.push(['橘隊內場／外場',c.orangeInner+'／'+(14-c.orangeInner)+' 人']);
+ if(c.cpuTier!==undefined)entries.push(['對手戰術強度',['基礎','一般','進階','菁英'][c.cpuTier]]);
+ if(c.rounds)entries.push(['挑戰回合',c.rounds+' 回合']);
+ if(c.targets)entries.push(['指定目標',c.targets.join('、')+' 號']);
+ if(c.guard)entries.push(['保護球員',c.guard+' 號']);
+ for(const [label,value] of entries){const box=document.createElement('div'),caption=document.createTextNode(label),bold=document.createElement('b');bold.textContent=value;box.append(caption,bold);detail.append(box)}
+ $('briefHint').textContent=id==='classic'?'確認後先進入賽前排陣，可點選藍隊球員設定專長及內外場，按左側開始比賽才開賽。':criteriaFor(c).map((r,i)=>'★'.repeat(i+1)+' '+r[0]).join('｜')+'。本次挑戰星數依難度分開顯示；未指定戰術時由 AI 自動執行。';
+ $('modeOverlay').hidden=true;$('missionBrief').hidden=false;$('briefConfirm').textContent=id==='classic'?'進入賽前排陣':'確認，開始挑戰';$('briefConfirm').focus();
+}
+function cancelMissionBrief(){
+ $('missionBrief').hidden=true;
+ if(pendingBriefOrigin==='select'){$('modeOverlay').hidden=false;modeRender();}
+ else if(pendingBriefOrigin==='victory'){$('victory').classList.add('show');}
+ pendingBriefId=null;
+}
+function confirmMissionBrief(){const id=pendingBriefId;if(!id)return;pendingBriefId=null;$('missionBrief').hidden=true;modeSelectAndStart(id)}
+function modeRandomized(){const options=[
+ {goal:'reverse',startBlue:12,startOrange:23,duration:90},
+ {goal:'score',score:22,startBlue:8,duration:105},
+ {goal:'exact',startBlue:24,duration:120},
+ {goal:'targets',targets:['2','4','5'],duration:160,cpu:'balanced'}];
+ return {...options[Math.floor(Math.random()*options.length)],name:'隨機挑戰'};
+}
+function modeSelectAndStart(id){
+ if(id!=='classic'&&!modeById(id))return;
+ const levelIndex=LEVELS.findIndex(c=>c.id===id);
+ if(levelIndex>=0&&!levelUnlocked(levelIndex)&&!debugMode)return;
+ const validity=validateMissionSetup(id==='classic'?null:modeById(id));if(!validity.ok){displayNotice('關卡配置異常：'+validity.notes.join('、'),3);return;}
+ clearTacticalSelections(); // A new confirmed mode never inherits previous strategy picks.
+ modeSelection=id;modeType=id==='classic'?'classic':LEVELS.some(c=>c.id===id)?'levels':SPECIALS.some(c=>c.id===id)?'special':'survival';
+ modeStage=id==='classic'?null:{...modeById(id),difficulty:selectedModeDifficulty};
+ if(modeStage?.goal==='random')modeStage={...modeStage,...modeRandomized(),id,name:'隨機挑戰'};
+ modeClose();
+ playerLineup=null; // New mode starts clean; custom classic lineup persists within its rematches only.
+ reset();
+ if(modeStage){if(modeStage.cpu)setupCpuTeam(modeStage.cpu);if(modeStage.style==='evade'){
+  const inner=players.filter(p=>p.team==='orange'&&p.zone==='inner');inner.slice(0,6).forEach(p=>p.role='evade');
+ }}
+ $('modeSidebar').textContent=modeStage?modeStage.id+' · '+modeStage.name:'經典對戰 · 5 分鐘';
+ $('difficulty').value=modeStage?.difficulty||selectedModeDifficulty;
+ $('difficulty').disabled=!!modeStage;document.body.classList.toggle('mission-locked',!!modeStage);
+ if(modeStage){startGame();}else{
+  // Classic is explicitly a preparation room: team positions/roles remain editable.
+  syncStage();sync();render();
+  displayNotice('經典對戰：先選球員調整角色與內外場，再按左側「開始比賽」',3.2);
+ }
+}
+function missionProgressText(){
+ if(!modeActive||!modeStage)return '';
+ const c=modeStage,st=missionStats;
+ const seconds=Math.ceil(Math.max(0,remaining));
+ if(c.goal==='score'||c.goal==='shotcap')return `得分 ${scores.blue}/${c.score}`+(c.shotcap?` · 投球 ${st.blueShots}/${c.shotcap}`:'');
+ if(c.goal==='targets')return `已擊中指定號碼 ${c.targets.filter(n=>st.hitNums.includes(n)).length}/${c.targets.length}`;
+ if(c.goal==='outer')return `外場有效命中 ${st.outerHits}/${c.count}`;
+ if(c.goal==='combo')return `連續命中 ${st.consecutive}/${c.count} · 最佳 ${st.bestConsecutive}`;
+ if(c.goal==='guard'||c.goal==='survival')return `${c.rounds?`第 ${missionRound}/${c.rounds} 回合 · `:''}剩餘 ${seconds} 秒 · 內場 ${players.filter(p=>p.team==='blue'&&p.zone==='inner').length} 人`;
+ if(c.goal==='guardWin')return `守護 ${c.guard} 號 · 我方 ${scores.blue}/30`;
+ if(c.goal==='reverse')return `追分中 ${scores.blue}：${scores.orange}`;
+ return `我方 ${scores.blue}/30`+(c.shotcap?` · 投球 ${st.blueShots}/${c.shotcap}`:'');
+}
+function updateMissionProgress(){
+ const el=$('missionProgress'),card=$('missionCard');
+ if(!el||!card)return;
+ const active=!!(modeActive&&modeStage);
+ card.hidden=!active;
+ document.body.classList.toggle('mission-card-active',active);
+ if(!active){el.textContent='';return;}
+ const c=modeStage;
+ $('missionCardName').textContent=(c.id||'')+' · '+c.name;
+ $('missionCardGoal').textContent=c.desc||'依照本關規則完成挑戰';
+ el.textContent=missionProgressText();
+ const hint=$('missionStarsHint');if(hint)hint.textContent='★★ '+criteriaFor(c)[1][0]+'　｜　★★★ '+criteriaFor(c)[2][0];
+}
+function configureMissionLineup(){
+ if(!modeStage)return;
+ // Exactly 14 players on each side, with >=3 in the exterior area.
+ for(const team of ['blue','orange']){
+  const requested=Number(team==='blue'?modeStage.blueInner:modeStage.orangeInner);
+  if(!Number.isInteger(requested)||requested<3||requested>11)continue;
+  const guard=team==='blue'?modeStage.guard:null;
+  const protectedTargets=team==='orange'&&modeStage.targets?new Set(modeStage.targets):new Set();
+  const current=players.filter(p=>p.team===team&&p.zone==='inner');
+  const count=Math.max(0,current.length-requested);
+  const removable=current.filter(p=>p.id!==ball.owner && p.num!==guard && !protectedTargets.has(p.num));
+  // Leave main striker and mission targets on court. Fill the exterior with
+  // remaining lower-priority players; spread them among legal U-shaped lanes.
+  removable.sort((a,b)=>nums.indexOf(b.num)-nums.indexOf(a.num));
+  for(const p of removable.slice(0,count)){
+   p.zone='outer';const spot=chooseOuterSpot(p);
+   p.x=p.anchorX=spot.x;p.y=p.anchorY=spot.y;
+   p.goal=null;p.roamTarget=null;p.act='watch';
+  }
+  if(team==='orange'){
+   for(const p of players.filter(p=>p.team==='orange'))cpuBaseSlots.set(p.id,{x:p.x,y:p.y,zone:p.zone,index:nums.indexOf(p.num)});
+  }else{
+   playerFormationBase=new Map(players.filter(p=>p.team==='blue').map(p=>[p.id,{x:p.x,y:p.y,zone:p.zone}]));
+  }
+ }
+}
+// Extra CPU challenge comes from measured decision quality, not movement,
+// invulnerability, or guaranteed catches. It only applies to mission play.
+function stageCpuLevel(){return modeActive?(modeStage?.cpuTier||0):0}
+function stageCpuFactor(){return stageCpuLevel()/3}
+function stageAiStyle(){return modeActive?(modeStage?.aiStyle||'balanced'):'balanced'}
+
+function improveMissionMathAccess(){
+ const c=modeStage;
+ if(!c||!['exact','shotcap','score','reverse'].includes(c.goal))return;
+ const target=c.score||30,initial=c.startBlue||0,limit=Math.min(c.shotcap||4,4);
+ const getInner=()=>players.filter(p=>p.team==='orange'&&p.zone==='inner');
+ const possible=()=>arithmeticSequence(initial,target,getInner().map(p=>p.num),limit);
+ if(possible())return;
+ const candidates=['9','×2','8','7','6','5'].map(n=>players.find(p=>p.team==='orange'&&p.num===n)).filter(p=>p&&p.zone==='outer');
+ const unimportant=['−5','−1','0','÷2','1','2','3','4'].map(n=>players.find(p=>p.team==='orange'&&p.num===n)).filter(p=>p&&p.zone==='inner'&&!c.targets?.includes(p.num));
+ for(const arriving of candidates){
+  const leaving=unimportant.find(p=>p.zone==='inner');if(!leaving)break;
+  const locA={x:arriving.x,y:arriving.y,anchorX:arriving.anchorX,anchorY:arriving.anchorY};
+  const locB={x:leaving.x,y:leaving.y,anchorX:leaving.anchorX,anchorY:leaving.anchorY};
+  arriving.zone='inner';leaving.zone='outer';
+  Object.assign(arriving,locB);Object.assign(leaving,locA);
+  arriving.goal=leaving.goal=null;arriving.roamTarget=leaving.roamTarget=null;
+  for(const p of [arriving,leaving])cpuBaseSlots.set(p.id,{x:p.x,y:p.y,zone:p.zone,index:nums.indexOf(p.num)});
+  if(possible())break;
+ }
+}
+function applyMissionAiStyle(){
+ if(!modeStage)return;
+ const orange=players.filter(p=>p.team==='orange');const style=stageAiStyle();
+ if(style==='evade'){
+  // Several visible evade specialists but maintain defenders and attackers.
+  orange.filter(p=>p.zone==='inner'&&p.role==='attack').slice(0,3).forEach(p=>p.role='evade');
+ }else if(style==='guard'){
+  orange.filter(p=>p.zone==='inner'&&p.role==='attack').slice(0,2).forEach(p=>p.role='defend');
+ }else if(style==='press'){
+  orange.filter(p=>p.zone==='inner'&&p.role==='defend').slice(0,2).forEach(p=>p.role='attack');
+ }else if(style==='pass'){
+  orange.filter(p=>p.zone==='inner'&&p.role==='evade').slice(0,2).forEach(p=>p.role='attack');
+ }
+ // No extra speed, catch chance, invulnerability or hidden stat modifiers.
+}
+
+function assignMissionRoles(){
+ if(!modeStage)return;
+ const blue=players.filter(p=>p.team==='blue');
+ // Diverse roster, with visible attack/defense/evade specialists in every stage.
+ // Assign after lineup deployment: in survival stages the remaining inner players
+ // also have meaningful complementary specialties.
+ const level=Number((modeStage.id||'').split('-')[0])||1;
+ const patterns=level>=3?['evade','defend','attack','evade','defend','attack','defend','evade','attack','defend','evade','attack','defend','attack']
+                    :level===2?['attack','defend','evade','attack','defend','evade','attack','defend','evade','attack','defend','evade','attack','defend']
+                    :['attack','defend','evade','attack','defend','evade','attack','defend','evade','attack','defend','evade','attack','defend'];
+ blue.forEach((p,i)=>p.role=patterns[i]);
+ if(modeStage.guard){const protect=blue.find(p=>p.num===modeStage.guard);if(protect)protect.role='evade';}
+ rememberLineup();
+}
+
+function missionStart(){
+ lastMissionResult=null;modeActive=!!modeStage;ATTACK_LIMIT=modeStage?.attackLimit||15;
+ missionStats={hitNums:[],history:[],outerHits:0,consecutive:0,bestConsecutive:0,misses:0,blueShots:0,bluePasses:0,blueTurnovers:0,guardLost:false,scoreEvents:0,blueInnerAtFinish:null};
+ missionShotSerial=0;missionLastHitSerial=0;missionShotEvaluated=0;
+ missionRound=1;missionRoundBaseline=modeStage?.difficulty||'normal';
+ if(!modeActive){updateMissionProgress();return;}
+ remaining=modeStage.duration||300;missionStartRemaining=remaining;phase='challenge';
+ scores.blue=modeStage.startBlue||0;scores.orange=modeStage.startOrange||0;
+ // The challenge's lineup is applied before play; no teleporting during a rally.
+ configureMissionLineup();
+ assignMissionRoles();
+ applyMissionAiStyle();
+ improveMissionMathAccess();
+ missionStartOut=players.filter(p=>p.team==='blue'&&p.zone==='outer').length;
+ $('period').textContent=modeStage.id+' · '+modeStage.name+(modeStage.rounds?' · 第 1 回合':'');updateMissionProgress();
+ $('timer').textContent=formatTime(remaining);
+ sync();
+ displayNotice(modeStage.name+'：'+modeStage.desc,2.4);
+}
+function missionOnLaunch(from,kind){if(!modeActive)return;if(from.team==='blue'){
+ if(kind==='throw'){missionStats.blueShots++;missionShotSerial++;}
+ else missionStats.bluePasses++;
+ }}
+function missionOnHit(attack,p,shooter){if(!modeActive)return;
+ if(attack==='blue'){
+  missionStats.hitNums.push(p.num);missionStats.scoreEvents++;missionStats.history.push({num:p.num,outer:shooter?.zone==='outer',score:scores.blue,time:Math.round(missionStartRemaining-remaining)});
+  if(shooter?.zone==='outer')missionStats.outerHits++;
+  if(missionShotSerial!==missionLastHitSerial){missionStats.consecutive++;missionLastHitSerial=missionShotSerial;missionStats.bestConsecutive=Math.max(missionStats.bestConsecutive,missionStats.consecutive)}
+ } else if(p.team==='blue'&&modeStage?.guard===p.num)missionStats.guardLost=true;
+}
+function missionFinalizeShot(){
+ // A shot is counted once after it has completely finished. A multi-hit throw
+ // is ONE successful shot, not two successive attacks.
+ if(!modeActive||missionShotSerial<=missionShotEvaluated||ball.mode==='air')return;
+ if(missionLastHitSerial!==missionShotSerial){missionStats.misses++;missionStats.consecutive=0;}
+ missionShotEvaluated=missionShotSerial;
+}
+function missionLostShots(){if(!modeActive)return false;
+ const c=modeStage;
+ if(c.shotcap && missionStats.blueShots>c.shotcap)return true;
+ // The last allowed shot must be resolved before a failure is declared.
+ if(c.shotcap && missionStats.blueShots>=c.shotcap && missionShotEvaluated>=missionShotSerial && !missionCompleted())return true;
+ if(c.goal==='combo'&&missionStats.misses>0&&missionStats.bestConsecutive<c.count)return true;
+ return false;
+}
+function missionCompleted(){if(!modeActive||!modeStage)return false;
+ const c=modeStage;
+ const blueInner=missionStats.blueInnerAtFinish??players.filter(p=>p.team==='blue'&&p.zone==='inner').length;
+ if(c.goal==='score'||c.goal==='shotcap')return scores.blue>=c.score;
+ if(c.goal==='targets')return c.targets.every(n=>missionStats.hitNums.includes(n));
+ if(c.goal==='outer')return missionStats.outerHits>=c.count;
+ if(c.goal==='combo')return missionStats.bestConsecutive>=c.count;
+ // Reaching 30 is still a legal early victory: protective tasks do not
+ // turn a genuine match victory into a failed mission.
+ if(c.goal==='guard')return !missionStats.guardLost&&(remaining<=.03||scores.blue===30);
+ if(c.goal==='survival')return blueInner>=c.minInner&&(remaining<=.03||scores.blue===30);
+ if(c.goal==='reverse')return scores.blue===30||(remaining<=.03&&scores.blue>scores.orange);
+ if(c.goal==='guardWin')return !missionStats.guardLost&&scores.blue===30;
+ return scores.blue===30;
+}
+function missionUpdateRound(){
+ if(!modeActive||!modeStage?.rounds||state!=='playing')return;
+ // Three actual timed segments. Preserve the positions, roles, remaining players,
+ // score and possession throughout; never respawn eliminated players.
+ const per=missionStartRemaining/modeStage.rounds;
+ const elapsed=Math.max(0,missionStartRemaining-remaining);
+ const next=Math.min(modeStage.rounds,1+Math.floor((elapsed+0.00001)/per));
+ if(next<=missionRound)return;
+ missionRound=next;
+ if(modeStage.id==='v3'){
+  // AI grows more coordinated by changing its tactical choice, never its
+  // movement or physics values. Do not re-run setupCpuTeam mid-match.
+  cpuPlan=next===2?'balanced':'aggressive';
+  // 難度由賽前決定，三回合僅更換 AI 戰術，不擅自提高難度。
+ }
+ $('period').textContent=modeStage.id+' · '+modeStage.name+' · 第 '+next+' 回合';
+ decisiveMoment('第 '+next+' 回合！橘隊調整戰術','critical',1.8);
+}
+function missionTick(){if(!modeActive||state!=='playing')return;
+ missionUpdateRound();missionFinalizeShot();updateMissionProgress();
+ if(missionLostShots()||((modeStage.goal==='guard'||modeStage.goal==='guardWin')&&missionStats.guardLost)){finishGame('orangewin','mission');return}
+ if(missionCompleted()){finishGame('bluewin','mission');return}
+}
+function missionOutcome(result,reason=''){
+ if(!modeActive||!modeStage)return null;
+ missionFinalizeShot();
+ const completed=missionCompleted();
+ const defeatedByEnemy=(result==='orangewin'&&reason!=='mission-timeout-success');
+ const success=completed&&!missionLostShots()&&!defeatedByEnemy;
+ return {success,...starAssessment(success)};
+}
+function missionFinish(result,reason=''){
+ const c=modeStage,el=$('missionResult'),next=$('victoryNext');
+ if(!modeActive||!c){el.hidden=true;next.hidden=true;return}
+ const outcome=missionOutcome(result,reason),{success,stars,criteria,achieved,metrics}=outcome;
+ updateMissionProgress();
+ if(success){const key=stageDifficultyKey(c.id,c.difficulty||selectedModeDifficulty);progress.stars[key]=Math.max(progress.stars[key]||0,stars);const best=progress.best[key]||0;progress.best[key]=Math.max(best,Math.round(remaining));saveModeProgress()}
+ lastMissionResult={id:c.id,difficulty:c.difficulty,success,stars,achieved:[...achieved]};
+ $('victoryTitle').textContent=(success?'挑戰成功！':'挑戰未達成')+' '+c.name+'（'+DIFF_LABEL[c.difficulty||'normal']+'）';
+ $('victoryReason').textContent=success?'本場任務已結算':'未完成：'+c.desc;
+ el.hidden=false;el.replaceChildren();
+ const title=document.createElement('div');title.className='analysis-title';title.textContent='本場表現與星級分析';el.append(title);
+ const badges=document.createElement('div');badges.className='analysis-metrics';
+ const items=[['正式投球',metrics.shots+' 次'],['有效命中',metrics.hits+' 次'],['傳球',metrics.passes+' 次'],['失誤',metrics.turnovers+' 次'],['剩餘時間',Math.ceil(metrics.left)+' 秒'],['內場存活',metrics.inner+' 人']];
+ for(const [name,value] of items){const cell=document.createElement('div');cell.className='analysis-metric';const l=document.createElement('small');l.textContent=name;const v=document.createElement('b');v.textContent=value;cell.append(l,v);badges.append(cell)}el.append(badges);
+ const conditions=document.createElement('div');conditions.className='analysis-criteria';
+ criteria.forEach((criterion,i)=>{const line=document.createElement('div');line.className='analysis-condition'+(achieved[i]?' met':'');line.textContent=(achieved[i]?'✓ ':'○ ')+('★'.repeat(i+1))+' '+criterion[0];conditions.append(line)});
+ el.append(conditions);
+ if(missionStats.history.length){
+  const history=document.createElement('div');history.className='analysis-history';
+  const heading=document.createElement('strong');heading.textContent='數學得分紀錄';history.append(heading);
+  const rows=document.createElement('div');rows.textContent=missionStats.history.slice(-8).map(h=>h.num+' 號 → '+h.score+' 分'+(h.outer?'（外場）':'')).join('　｜　');history.append(rows);el.append(history);
+ }
+ const tip=document.createElement('div');tip.className='analysis-tip';
+ if(!success){
+  if(missionStats.guardLost)tip.textContent='本關指定守護號碼已出局。可優先控制關鍵球員，使用衝刺躲避危險球路。';
+  else if(missionLostShots())tip.textContent='投球次數或連續命中條件未達標。先尋找容易命中的號碼，再把握出手機會。';
+  else if(c.goal==='targets')tip.textContent='尚缺目標：'+c.targets.filter(n=>!missionStats.hitNums.includes(n)).join('、')+' 號；試著讓隊友協助尋找投球角度。';
+  else if(c.goal==='survival')tip.textContent='本關需要保留至少 '+c.minInner+' 位內場球員；請善用接球、閃避與衝刺。';
+  else tip.textContent='未達到主要目標。可優先尋找有利的數學號碼，必要時調整傳球與跑位。';
+ } else if(stars<3){const nextGoal=criteria[stars];tip.textContent='下次挑戰可嘗試：'+(nextGoal?.[0]||'完成更高階的附加目標')}
+ else tip.textContent='本關三個星級目標全部達成！可挑戰更高難度。';
+ el.append(tip);
+ const ix=LEVELS.findIndex(x=>x.id===c.id);
+ next.hidden=!(success&&ix>=0&&ix<LEVELS.length-1);
+ if(success&&ix>=0&&ix<LEVELS.length-1)next.dataset.next=LEVELS[ix+1].id;
+}
+
+let debugTime=0;
+function resetStats(){for(const key of Object.keys(gameStats)){
+ const val=gameStats[key];if(val&&typeof val==='object'){for(const k of Object.keys(val))val[k]=0;}else gameStats[key]=0;
+}}
+function debugUpdate(dt){if(!debugMode)return;debugTime+=dt;if(debugTime<.35)return;debugTime=0;
+ const ps=players.filter(p=>p.team==='orange'&&p.zone==='inner');let minGap=999;
+ for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++)minGap=Math.min(minGap,Math.hypot(ps[i].x-ps[j].x,ps[i].y-ps[j].y));
+ const el=$('diagnostics');el.hidden=false;el.textContent=`V3.25 教師測試（僅 debug=1）\n狀態：${state} / ${bluePhase()}
+進攻指定：${tacticalPicks.attack.join('、')||'自動'} / 防守指定：${tacticalPicks.defense.join('、')||'自動'}\n投球：藍${gameStats.shots.blue} / 橘${gameStats.shots.orange}\n接球：藍${gameStats.catch.blue}/${gameStats.catchAttempts.blue} / 橘${gameStats.catch.orange}/${gameStats.catchAttempts.orange}\n閃避動作：藍${gameStats.dodges.blue} / 橘${gameStats.dodges.orange}\n碰撞命中：藍${gameStats.hits.blue} / 橘${gameStats.hits.orange}\n得分結算：藍${gameStats.scores.blue} / 橘${gameStats.scores.orange}\n撿球：藍${gameStats.pickups.blue} / 橘${gameStats.pickups.orange}\n出界：${gameStats.out}\n威脅球路：藍${gameStats.defenseThreats.blue} / 橘${gameStats.defenseThreats.orange}\n判定閃避成功：藍${gameStats.dodgeConfirmed.blue} / 橘${gameStats.dodgeConfirmed.orange}（不含自然落空）\n接球失敗：藍${gameStats.catchFailed.blue} / 橘${gameStats.catchFailed.orange}\n傳球：藍${gameStats.passes.blue} / 橘${gameStats.passes.orange}｜成功：藍${gameStats.passCaught.blue} / 橘${gameStats.passCaught.orange}｜遭攔截：藍${gameStats.passIntercepted.blue} / 橘${gameStats.passIntercepted.orange}\n電腦內場最近距離：${minGap===999?'—':minGap.toFixed(0)}`;
+}
+
+const settings={playerSpeed:132,turnSpeed:Math.PI*1.6,ballAirBase:0.95,groundFriction:0.9,throwMin:220,throwMax:730,maxAutoOffset:35,
+ // Tactical formations should settle instead of constantly resetting the team's locations.
+ personalSpace:42,manualGrace:.45,passCooldown:.42,
+ // 角色重點：防守手接球、閃避手閃球、進攻手控球。真正結果仍受球路限制。
+ aiReaction:{defend:.16,evade:.13,attack:.22,none:.18},
+ catchCap:.80,flyResistance:.49,
+ // 非持球時持續小幅跑位；不蓋過球路反應，也不讓球員脫離本來隊形。
+ idleRadius:{attack:28,defend:18,evade:32,none:22},idleSpeed:{attack:49,defend:34,evade:55,none:40}};
+const random=(a,b)=>a+Math.random()*(b-a),other=t=>t==='blue'?'orange':'blue';
+function makePlayers(){const all=[];for(const team of ['blue','orange']){let oi=0;for(let i=0;i<14;i++){let inside=i<11,[x,y]=inside?[(team==='blue'?320:593)+(i%4)*64,237+Math.floor(i/4)*79]:(team==='blue'?outerB:outerO)[oi++];let role=team==='blue'?(new Set([1,2,5,9,13]).has(i)?'attack':new Set([0,3,6,10,12]).has(i)?'defend':'evade'):(i<2?'attack':i===2?'evade':i===3?'defend':'none');all.push({id:team+'-'+i,team,num:nums[i],role,zone:inside?'inner':'outer',x,y,anchorX:x,anchorY:y,angle:team==='blue'?0:Math.PI,goal:null,manualUntil:0,act:'watch',actUntil:0,lastHit:-1,roamTarget:null,roamNext:0,fxDodgeUntil:0,fxShieldUntil:0,attackFlashUntil:0,prevX:x,prevY:y,visualVx:0,visualVy:0,motionSpeed:0,viewReaction:0});}}return all;}
+// V1.4：電腦開局部署。三種配置只更改橘隊，藍隊仍可自由排陣。
+const cpuPlans={
+ balanced:{label:'均衡',outer:[8,10,12],attack:[1,2,5,9,13],catch:[0,3,6,10,12],evade:[4,7,8,11]},
+ aggressive:{label:'進攻',outer:[7,8,9],attack:[1,2,3,5,9,13],catch:[0,4,10,11],evade:[6,7,8,12]},
+ cautious:{label:'穩健',outer:[6,8,10],attack:[1,3,5,13],catch:[0,2,4,7,8,10],evade:[6,9,11,12]}
+};
+function setupCpuTeam(forcedPlan=null){
+ const options=Object.keys(cpuPlans);cpuPlan=forcedPlan&&cpuPlans[forcedPlan]?forcedPlan:options[Math.floor(Math.random()*options.length)];
+ const config=cpuPlans[cpuPlan],outside=new Set(config.outer),offensive=new Set(config.attack),catchers=new Set(config.catch),evaders=new Set(config.evade);
+ // Every orange shirt receives a visible specialty, including outer-court players.
+ const assigned=[...config.attack,...config.catch,...config.evade];
+ if(assigned.length!==14||new Set(assigned).size!==14||assigned.some(i=>i<0||i>=14))throw new Error('橘隊戰術配置必須完整分配 14 個號碼');
+ const innerSlots=[
+  [611,247],[687,247],[765,247],
+  [611,316],[687,316],[765,316],
+  [611,385],[687,385],[765,385],
+  [650,461],[744,461]
+ ];
+ // 外場在 ㄇ 字三個區域各設一位隊員；不跨越敵方內場。
+ const outsideSlots=[[329,135],[182,351],[326,562]];
+ let i=0,o=0;cpuBaseSlots=new Map();
+ for(const p of players.filter(p=>p.team==='orange')){
+  let idx=nums.indexOf(p.num);p.zone=outside.has(idx)?'outer':'inner';
+  p.role=offensive.has(idx)?'attack':catchers.has(idx)?'defend':evaders.has(idx)?'evade':'none';
+  let xy=p.zone==='outer'?outsideSlots[o++]:innerSlots[i++];let a=allowed(p,xy[0],xy[1]);
+  p.x=p.anchorX=a.x;p.y=p.anchorY=a.y;p.goal=null;p.act='watch';p.actUntil=0;
+  cpuBaseSlots.set(p.id,{x:p.x,y:p.y,zone:p.zone,index:idx});
+ }
+ cpuMode='defense';cpuPlanTick=0;cpuModeChange=0;
+}
+// Automatic tactical choice: no hidden physics bonus. Only behavior, positioning and risk change.
+function bluePhase(){
+ if(state==='ended')return 'ended';
+ if(!ball)return 'setup';
+ if(queuedShot?.team==='blue')return 'ready';
+ if(ball.mode==='held')return players.find(p=>p.id===ball.owner)?.team==='blue'?'attack':'defense';
+ if(ball.mode==='air')return ball.team==='blue'?'ready':'defense';
+ return 'loose';
+}
+function currentBlueFormation(){return bluePhase()==='attack'?'attack':'defense'}
+function chooseAutoTactic(){return currentBlueFormation()}
+function tacticalLabel(form){return form==='attack'?'進攻跑位':form==='defense'?'防守保護':'保持隊形';}
+function updateAutoTactics(){updateDualTactics();}
+function strategy(team){
+ if(team==='blue')return currentBlueFormation();
+ // Orange actually changes between offense and defense with possession. The
+ // chosen lineup changes how aggressively it implements those states.
+ const phase=cpuPossessionMode();
+ if(phase==='defense'||phase==='ready')return 'defense';
+ if(phase==='attack')return 'attack';
+ return cpuPlan==='cautious'?'defense':'balanced';
+}
+function selectedTargets(side){return tacticalPicks[side].map(num=>players.find(p=>p.team===(side==='attack'?'orange':'blue')&&p.num===num&&p.zone==='inner')).filter(Boolean)}
+function availableTargets(side){const selected=selectedTargets(side);if(selected.length)return selected;
+ const team=side==='attack'?'orange':'blue';return players.filter(p=>p.team===team&&p.zone==='inner').sort((a,b)=>{
+  const offense=side==='attack';const score=offense?scores.blue:scores.orange;
+  const value=p=>{const c=calc(score,p.num);return(c.win?100:0)+Math.max(-12,c.score-score)*.25+(p.num==='×2'?2:0)};
+  return value(b)-value(a);
+ }).slice(0,3);
+}
+function updateTacticsPanel(){
+ for(const side of ['attack','defense','block']){
+  const target=side==='attack'?'atkCount':side==='defense'?'defCount':'blockCount';
+  $(target).textContent=tacticalPicks[side].length?tacticalPicks[side].join('、'):(side==='block'?'不指定':'自動');
+  for(const btn of document.querySelectorAll(`#${side==='attack'?'attackPicks':side==='defense'?'defensePicks':'blockPicks'} button`))btn.classList.toggle('active',tacticalPicks[side].includes(btn.dataset.num));
+ }
+ const phase=bluePhase(),labels={attack:'我方持球｜進攻跑位',ready:'球已投出｜防守準備',defense:'敵方持球｜防守保護',loose:'球在地面｜接應撿球',ended:'比賽結束'};
+ $('strategyHint').textContent=labels[phase]||'賽前配置｜攻防自動切換';
+}
+function clearTacticalSelections(){
+ for(const side of ['attack','defense','block'])tacticalPicks[side].length=0;
+ tacticalModeKey='';tacticalPlanNext=0;
+ for(const id of ['atkGroup','defGroup','blockGroup']){const group=$(id);if(group)group.open=false;}
+ updateTacticsPanel();
+}
+function setupTacticsUI(){
+ for(const side of ['attack','defense','block']){
+  const root=$(side==='attack'?'attackPicks':side==='defense'?'defensePicks':'blockPicks');
+  for(const num of nums){const b=document.createElement('button');b.type='button';b.textContent=num;b.dataset.num=num;
+   b.title=(side==='attack'?'優先攻擊橘隊 ':side==='defense'?'優先保護藍隊 ':'藍隊優先擋球（不接球） ')+num+' 號';
+   b.onclick=()=>{const picks=tacticalPicks[side],at=picks.indexOf(num);if(at>=0)picks.splice(at,1);else if(picks.length<3)picks.push(num);else{displayNotice('最多指定 3 位號碼',1.2);return;}
+    tacticalModeKey='';tacticalPlanNext=0;updateTacticsPanel();};root.append(b);
+  }
+ }
+ $('clearTactics').onclick=()=>{clearTacticalSelections();displayNotice('已改為 AI 自動選擇攻防重點',1.1)};
+ updateTacticsPanel();
+}
+function updateDualTactics(){
+ if(state!=='playing')return;
+ const phase=bluePhase();
+ const key=[phase,tacticalPicks.attack.join(','),tacticalPicks.defense.join(','),tacticalPicks.block.join(','),scores.blue,scores.orange,
+    players.filter(p=>p.team==='orange'&&p.zone==='inner').map(p=>p.id).join(','),
+    players.filter(p=>p.team==='blue'&&p.zone==='inner').map(p=>p.id).join(',')].join('|');
+ if(key!==tacticalModeKey || now>tacticalPlanNext){
+  tacticalModeKey=key;tacticalPlanNext=now+1.7;
+  const offense=phase==='attack',ready=phase==='ready',targets=availableTargets(offense?'attack':'defense');
+  const inner=players.filter(p=>p.team==='blue'&&p.zone==='inner');
+  const eligible=inner.filter(p=>p.id!==selected&&p.manualUntil<=now);
+  // Only the two best-placed attackers act as support runners; everyone else
+  // keeps spacing so the player still has room to aim and dodge.
+  const activeSupport=offense?eligible.filter(p=>p.role==='attack'||p.role==='none').map(p=>{
+    const nearest=targets.length?Math.min(...targets.map(q=>Math.hypot(q.x-p.x,q.y-p.y))):999;
+    return {p,rank:nearest-(p.role==='attack'?75:0)};
+  }).sort((a,b)=>a.rank-b.rank).slice(0,2).map(q=>q.p.id):[];
+  for(const p of eligible){
+   if(p.goal&&p.actUntil>now)continue;
+   const base=playerFormationBase.get(p.id)||{x:p.x,y:p.y};
+   let x=p.x,y=p.y;
+   if(offense){
+    if(activeSupport.includes(p.id)&&targets.length){
+     const goal=targets.slice().sort((a,b)=>Math.abs(a.y-p.y)-Math.abs(b.y-p.y))[0];
+     // Seek a throwing lane without crossing center court or chasing a target
+     // into the opponent's zone. Keep a safe gap from teammate receivers.
+     const nearestTeammate=inner.filter(q=>q!==p).reduce((best,q)=>Math.min(best,Math.hypot(q.x-p.x,q.y-p.y)),999);
+     const run=nearestTeammate<45?5:p.role==='attack'?19:11;
+     x+=run;
+     y+=clamp(goal.y-p.y,-30,30)*.40;
+    }else{
+     // Keeping a lane free is also an offensive contribution.
+     const near=inner.filter(q=>q!==p).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y))[0];
+     if(near&&Math.hypot(near.x-p.x,near.y-p.y)<56)y+=p.y>=near.y?6:-6;
+    }
+   }else{
+    const blockIntent=isBlocker(p)&&!ready;
+    if(blockIntent){x+=p.team==='blue'?16:-16;y+=clamp(350-p.y,-14,14)*.4;}
+    const protectedPlayer=targets.find(q=>q.id===p.id);
+    if(protectedPlayer){
+     // Protected numbers are NOT magically harder to hit. They make room for
+     // their own sidesteps, and never flee toward a corner without space.
+     const others=inner.filter(q=>q!==p);
+     const above=others.filter(q=>q.y<p.y&&Math.abs(q.x-p.x)<75).sort((a,b)=>b.y-a.y)[0];
+     const below=others.filter(q=>q.y>=p.y&&Math.abs(q.x-p.x)<75).sort((a,b)=>a.y-b.y)[0];
+     const gapUp=above?p.y-above.y:80,gapDown=below?below.y-p.y:80;
+     const side=gapDown>gapUp?1:-1;
+     x-=ready?6:14;
+     if(Math.max(gapUp,gapDown)<58)y+=side*(ready?5:11);
+    }else if(p.role==='defend'){
+     const near=targets.filter(q=>q.id!==p.id).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y))[0];
+     if(near&&Math.hypot(near.x-p.x,near.y-p.y)<140){
+      // Support from the SIDE instead of standing directly in front of a
+      // protected teammate and taking the hit instead.
+      x+=clamp(near.x-p.x,-9,9)*.35;
+      y+=clamp(near.y-p.y,-22,22)*.38;
+     }else x-=4;
+    }else x-=ready?2:5;
+   }
+   // Clamp around the last pre-game location. This creates intent without
+   // warping anyone across the court, even after many possession changes.
+   x=clamp(x,base.x-44,base.x+44);
+   y=clamp(y,base.y-53,base.y+53);
+   const dest=allowed(p,x,y);
+   if(Math.hypot(dest.x-p.anchorX,dest.y-p.anchorY)>5){
+     p.anchorX=dest.x;p.anchorY=dest.y;p.roamTarget=null;
+   }
+  }
+  spaceTargets('blue',43);
+  updateTacticsPanel();
+ }
+}
+function isBlocker(p){return p?.team==='blue'&&p.zone==='inner'&&tacticalPicks.block.includes(p.num);}
+function blockerMove(p,dt){
+ // Intercept only shots from the opposing side, and only when the incoming
+ // trajectory passes close to a different blue inner-court teammate.
+ if(!isBlocker(p)||ball.mode!=='air'||ball.team!=='orange'||ball.kind!=='throw'||pending.some(h=>h.id===p.id))return false;
+ const v2=ball.vx*ball.vx+ball.vy*ball.vy;if(v2<30000)return false;
+ const otherBlue=players.filter(q=>q.team==='blue'&&q.zone==='inner'&&q!==p);
+ let best=null;
+ for(const q of otherBlue){
+  const t=clamp(((q.x-ball.x)*ball.vx+(q.y-ball.y)*ball.vy)/v2,0,.40);
+  if(t<.08||t>.38||ball.t<.12)continue;
+  const ix=ball.x+ball.vx*t,iy=ball.y+ball.vy*t;
+  if(Math.hypot(q.x-ix,q.y-iy)>24)continue;
+  const threatened=calc(scores.orange,q.num),sacrifice=calc(scores.orange,p.num);
+  // Never sacrifice a player if that hit would immediately win the game for orange
+  // while the protected player's hit would not. Otherwise allow a deliberate trade.
+  if(sacrifice.win&&!threatened.win)continue;
+  const intended=allowed(p,ix-ball.vx/Math.sqrt(v2)*25,iy-ball.vy/Math.sqrt(v2)*25);
+  const distance=Math.hypot(intended.x-p.x,intended.y-p.y);
+  if(distance>settings.playerSpeed*t*.88+15||distance>58)continue;
+  // Never take the selected character away from manual control.
+  if(!best||distance<best.distance)best={point:intended,distance,t};
+ }
+ if(!best)return false;
+ p.goal=best.point;p.act='block';p.actUntil=now+Math.max(.12,best.t);return true;
+}
+function scoreThreat(p){const enemy=scores[other(p.team)],result=calc(enemy,p.num);
+ return result.win?2.2:(p.num==='×2'&&enemy>=10&&enemy<=18?1.0:0);
+}
+function tacticsProfile(p){
+ const form=strategy(p.team),threat=scoreThreat(p)+(p.team==='blue'&&tacticalPicks.defense.includes(p.num)&&bluePhase()!=='attack'?1.4:0);
+ const opponent=other(p.team),ourScore=scores[p.team],theirScore=scores[opponent];
+ const urgent=remaining<45&&ourScore<theirScore;
+ const closeWin=theirScore>=24||threat>=2;
+ // The formation changes behavior, not maximum speed or any physical rule.
+ const defender=form==='defense';
+ return {
+  attackBias:form==='attack'?1.17:defender?.86:1,
+  dodgeBias:(defender?1.18:form==='attack'?.91:1)*(closeWin?1.14:1),
+  catchBias:(defender?1.06:form==='attack'?.98:1)*(closeWin&&threat>=2?.88:1),
+  protect:threat+(closeWin&&threat>=2?.25:0),
+  movement:form==='attack'?.93:defender?.77:.85,
+  urgency:urgent
+ };
+}
+
+function tacticalTarget(p,formation,mode,scale=1){
+ const forward=p.team==='blue'?1:-1,enemy=scores[other(p.team)],own=scores[p.team];
+ const critical=scoreThreat(p),urgency=remaining<45&&own<enemy;
+ let x=p.x,y=p.y;
+ if(p.zone==='inner'){
+  if(mode==='attack'){
+   let advance=p.role==='attack'?27:p.role==='defend'?9:5;
+   if(urgency)advance+=9;
+   if(formation==='defense')advance*=.48;
+   x+=forward*(advance-critical*12)*scale;
+  }else if(mode==='defense'){
+   const back=formation==='defense'?20:formation==='attack'?9:13;
+   x-=forward*(back+critical*9)*scale;
+  }else x+=forward*(p.role==='attack'?5:-3)*scale;
+  // 站位分散取決於當前人群中心，而不是所有球員被送往固定上下區。
+  const others=players.filter(q=>q.team===p.team&&q.zone==='inner'&&q!==p);
+  if(others.length){let near=others.reduce((best,q)=>Math.hypot(q.x-x,q.y-y)<Math.hypot(best.x-x,best.y-y)?q:best,others[0]);
+   let dy=y-near.y;if(Math.abs(dy)<54)y+=(dy>=0?1:-1)*(formation==='defense'?13:8)*scale;
+  }
+ }else{
+  // 外場只能在 ㄇ 字本段移動；不同翼間需沿側邊行走。
+  const wing=outerWing(p);
+  if(wing==='top'||wing==='bottom')x+=forward*(mode==='attack'?11:-4)*scale;
+  else y+=(y<350?-1:1)*(mode==='defense'?9:11)*scale;
+ }
+ return allowed(p,x,y);
+}
+function spaceTargets(team,minGap=41){
+ const list=players.filter(p=>p.team===team);
+ // Resolve overlap in the requested DESTINATIONS. Positions follow these goals gradually.
+ for(let k=0;k<25;k++){
+  let changed=false;
+  for(let i=0;i<list.length;i++)for(let j=i+1;j<list.length;j++){
+   const a=list[i],b=list[j];if(a.zone!==b.zone)continue;
+   let dx=b.anchorX-a.anchorX,dy=b.anchorY-a.anchorY,d=Math.hypot(dx,dy);
+   if(d>=minGap)continue;
+   if(d<.001){dx=(i%2?1:-1);dy=(j%2?1:-1);d=Math.SQRT2;}
+   let ux=dx/d,uy=dy/d,step=Math.min(10,(minGap-d)*.56);
+   let aa=allowed(a,a.anchorX-ux*step,a.anchorY-uy*step);
+   let bb=allowed(b,b.anchorX+ux*step,b.anchorY+uy*step);
+   if(Math.hypot(aa.x-a.anchorX,aa.y-a.anchorY)+Math.hypot(bb.x-b.anchorX,bb.y-b.anchorY)>.05)changed=true;
+   a.anchorX=aa.x;a.anchorY=aa.y;b.anchorX=bb.x;b.anchorY=bb.y;
+  }
+  if(!changed)break;
+ }
+}
+function cpuPossessionMode(){
+ if(ball.mode==='held')return players.find(p=>p.id===ball.owner)?.team==='orange'?'attack':'defense';
+ if(ball.mode==='air')return ball.team==='orange'?'ready':'defense';
+ return 'loose';
+}
+function cpuSituation(){
+ const mode=cpuPossessionMode(),urgency=scores.orange<scores.blue-5?'behind':scores.orange>scores.blue+7?'ahead':'even';
+ return [mode,urgency,remaining<45?'late':'normal',Math.floor(scores.blue/4),Math.floor(scores.orange/4),players.filter(p=>p.team==='orange'&&p.zone==='inner').length].join('|');
+}
+function updateCpuFormation(dt){
+ const mode=cpuPossessionMode();
+ if(state==='playing'){
+  const key=cpuSituation();
+  if(key!==cpuSituationKey){
+   cpuSituationKey=key;cpuMode=mode;
+   const active=players.filter(p=>p.team==='orange');
+   const enemies=players.filter(p=>p.team==='blue'&&p.zone==='inner');
+   const orangeInner=active.filter(p=>p.zone==='inner');
+   const holder=players.find(p=>p.id===ball.owner);
+   // Highest-value accessible target, not a target picked merely by its number.
+   const offenseTarget=mode==='attack'&&enemies.length?enemies.map(q=>{
+      const dist=holder&&holder.team==='orange'?Math.hypot(q.x-holder.x,q.y-holder.y):400;
+      const outcome=calc(scores.orange,q.num);
+      const value=(outcome.win?135:0)+(outcome.score-scores.orange)*1.25-dist*.050;
+      return {q,value};
+    }).sort((a,b)=>b.value-a.value)[0].q:null;
+   const runners=mode==='attack'&&offenseTarget?orangeInner.filter(p=>p.id!==holder?.id&&p.role==='attack')
+      .sort((a,b)=>Math.hypot(a.x-offenseTarget.x,a.y-offenseTarget.y)-Math.hypot(b.x-offenseTarget.x,b.y-offenseTarget.y))
+      .slice(0,cpuPlan==='aggressive'?2:1).map(p=>p.id):[];
+   for(const p of active){
+    // Targets are anchored near current legal positions; no formation teleport.
+    let dest=tacticalTarget(p,cpuPlan==='aggressive'?'attack':cpuPlan==='cautious'?'defense':'balanced',mode,1);
+    if(mode==='attack'&&runners.includes(p.id)&&offenseTarget){
+      // Approach a useful throwing lane without crowding the ball holder.
+      const laneY=offenseTarget.y+(orangeInner.indexOf(p)%2?21:-21);
+      dest=allowed(p,clamp(dest.x-12,p.x-32,p.x+32),dest.y+clamp(laneY-p.y,-29,29)*.55);
+    }
+    if(mode==='defense'&&p.zone==='inner'){
+      const critical=scoreThreat(p);
+      if(critical>=2){ // Protect a mathematically decisive number by leaving room to evade.
+       const neighbors=orangeInner.filter(q=>q!==p&&Math.hypot(q.x-p.x,q.y-p.y)<75);
+       let offset=0;for(const q of neighbors)offset+=p.y>=q.y?7:-7;
+       dest=allowed(p,dest.x+9, dest.y+clamp(offset,-17,17));
+      }else if(p.role==='defend'){
+       const vulnerable=orangeInner.filter(q=>q!==p&&scoreThreat(q)>=2).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y))[0];
+       if(vulnerable&&Math.hypot(vulnerable.x-p.x,vulnerable.y-p.y)<135){
+        dest=allowed(p,dest.x+clamp(vulnerable.x-p.x,-10,10)*.30,dest.y+clamp(vulnerable.y-p.y,-23,23)*.42);
+       }
+      }
+    }
+    p.anchorX=dest.x;p.anchorY=dest.y;p.roamTarget=null;
+   }
+   spaceTargets('orange',42);
+  }
+ }
+ // When orange holds the ball, give ONE potential receiver a modest, stable
+ // supporting run. This creates a pass lane without summoning every teammate.
+ if(state==='playing'&&mode==='attack'&&ball.mode==='held'&&now>=cpuSupportAt){
+  const holder=players.find(p=>p.id===ball.owner);
+  if(holder?.team==='orange'){
+   const candidates=players.filter(p=>p.team==='orange'&&p.zone===holder.zone&&p.id!==holder.id&&p.role==='attack');
+   const enemies=players.filter(q=>q.team==='blue'&&q.zone==='inner');
+   let chosen=null;
+   for(const rec of candidates){
+    if(Math.hypot(holder.x-rec.x,holder.y-rec.y)>240)continue;
+    const best=enemies.reduce((score,q)=>Math.max(score,cpuShootQuality(rec,q,$('difficulty').value).value),-999);
+    const separation=Math.min(160,...players.filter(q=>q!==rec&&q.team==='orange'&&q.zone===rec.zone).map(q=>Math.hypot(q.x-rec.x,q.y-rec.y)));
+    const score=best+Math.min(12,separation*.11)-Math.hypot(holder.x-rec.x,holder.y-rec.y)*.06;
+    if(!chosen||score>chosen.score)chosen={rec,score};
+   }
+   if(chosen){
+    // Small lateral shift; avoid blocking holder or crossing other players.
+    const p=chosen.rec, toward=holder.y-p.y;
+    const shifts=[-24,24,-43,43].map(n=>allowed(p,p.x,p.y+n));
+    const ranked=shifts.map(dest=>({dest,score:Math.min(...players.filter(q=>q!==p&&q.team==='orange'&&q.zone===p.zone).map(q=>Math.hypot(q.x-dest.x,q.y-dest.y)))-Math.abs(dest.y-p.y)*.13})).sort((a,b)=>b.score-a.score);
+    const best=ranked[0];
+    if(best&&best.score>27&&Math.hypot(p.x-best.dest.x,p.y-best.dest.y)>10){
+      p.anchorX=best.dest.x;p.anchorY=best.dest.y;p.roamTarget=null;
+      cpuSupportId=p.id;gameStats.coordination.supportMoves++;
+    }
+   }
+  }
+  cpuSupportAt=now+.85;
+ }
+ // Move only while there is a pending tactical goal; do not repeatedly pull players home.
+ for(const p of players.filter(p=>p.team==='orange')){
+  if(p.manualUntil>now||p.goal&&now<p.actUntil+.25||ball.mode==='ground'||p.roamTarget)continue;
+  if(Math.hypot(p.x-p.anchorX,p.y-p.anchorY)>2)moveTowards(p,{x:p.anchorX,y:p.anchorY},dt,settings.playerSpeed*.53);
+ }
+}
+
+// Select a free outer-court landing position instead of piling eliminated players together.
+function chooseOuterSpot(p){
+ const rects=OWN[p.team].outer,others=players.filter(q=>q.team===p.team&&q.zone==='outer'&&q.id!==p.id);
+ let best=null;
+ for(const r of rects){
+  for(let x=r[0]+12;x<=r[1]-10;x+=28)for(let y=r[2]+8;y<=r[3]-8;y+=32){
+   let point=allowed(p,x,y),nearest=others.length?Math.min(...others.map(q=>Math.hypot(q.x-point.x,q.y-point.y))):100;
+   let penalty=point.x>r[1]||point.x<r[0]?100:0;
+   let score=Math.min(100,nearest)-penalty;
+   if(!best||score>best.score)best={...point,score};
+  }
+ }
+ return best || allowed(p,p.team==='blue'?900:200,350);
+}
+function separateCpuOnCourt(dt){
+ const active=players.filter(p=>p.team==='orange'&&p.zone==='inner'&&!p.goal);
+ for(let i=0;i<active.length;i++)for(let j=i+1;j<active.length;j++){
+  const a=active[i],b=active[j],dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
+  if(d>=38)continue;
+  let nx=d>.01?dx/d:(i%2?1:-1),ny=d>.01?dy/d:0,shift=Math.min(20,(38-d)*.5,settings.playerSpeed*dt*.22);
+  const aa=allowed(a,a.x-nx*shift,a.y-ny*shift),bb=allowed(b,b.x+nx*shift,b.y+ny*shift);
+  a.x=aa.x;a.y=aa.y;b.x=bb.x;b.y=bb.y;
+ }
+}
+// Gentle, local separation: keeps non-controlled teammates from stacking up.
+// No physical collisions and no instant relocation; position changes are speed-limited.
+function crowdingPriority(p){
+ if(p.team==='blue'&&p.id===selected)return 100;
+ if(p.act==='dodge'||p.act==='block')return 90;
+ if(p.act==='pickup'||p.act==='outerCatch')return 65;
+ if(p.manualUntil>now)return 75;
+ if(p.act==='attack'||p.act==='support')return 35;
+ return 15;
+}
+function resolvePlayerCrowding(dt){
+ if(state!=='playing')return;
+ // Stable pairwise priority: lower-priority CPU steps aside, the controlled
+ // player and immediate defenders are not pushed backwards by ordinary roaming.
+ for(const team of ['blue','orange']){
+  const ps=players.filter(p=>p.team===team);
+  for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){
+   const a=ps[i],b=ps[j];if(a.zone!==b.zone)continue;
+   let dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
+   if(d>=40)continue;
+   if(d<.01){const spin=(i*31+j*7)%6;dx=Math.cos(spin);dy=Math.sin(spin);d=1;}
+   const pa=crowdingPriority(a),pb=crowdingPriority(b);
+   const winner=pa===pb?(a.id<b.id?a:b):(pa>pb?a:b);
+   const loser=winner===a?b:a;
+   if(loser.team==='blue'&&(loser.id===selected||loser.manualUntil>now))continue;
+   const nx=(loser.x-winner.x)/d,ny=(loser.y-winner.y)/d;
+   // Use stable pair ordering and a short yield hold to prevent back-and-forth
+   // correction when two teammates attempt to pass in a narrow outer lane.
+   const recentYield=loser.yieldUntil>now;
+   const shift=Math.min((40-d)*.40,settings.playerSpeed*dt*(recentYield?.16:.28));
+   const proposed=allowed(loser,loser.x+nx*shift,loser.y+ny*shift);
+   // Respect U-shaped outer court; never clip across the opposing inner court.
+   const step=Math.hypot(proposed.x-loser.x,proposed.y-loser.y);
+   if(step>.05&&(loser.zone==='inner'||sameWing(loser,{...loser,...proposed}))){
+     loser.x=proposed.x;loser.y=proposed.y;
+     loser.moveVx=(loser.moveVx||0)*.80;loser.moveVy=(loser.moveVy||0)*.80;
+     loser.yieldUntil=now+.32;
+     gameStats.coordination.yieldMoves++;
+     // Preserve the original tactical destination instead of creating a
+     // new random goal every frame.
+   }
+  }
+ }
+}
+// Tactical buttons issue a NEW relative command based on current positions.
+// No fixed numbered slots, and no instant teleport even during pre-match setup.
+function arrangePlayer(formation, announce=true, auto=false, keepAuto=false){
+ if(!keepAuto)autoTactics=false;
+ playerFormation=formation;
+ const mode=cpuPossessionMode()==='defense'?'attack':'defense';
+ for(const p of players.filter(p=>p.team==='blue')){
+  if(state==='playing'&&p.id===selected)continue;
+  const dest=tacticalTarget(p,formation,formation==='attack'?'attack':formation==='defense'?'defense':mode,auto?1.25:.80);
+  p.anchorX=dest.x;p.anchorY=dest.y;p.roamTarget=null;
+  // User-directed position and role are retained; AI only moves modest distances.
+  p.manualUntil=0;p.goal=null;
+ }
+ spaceTargets('blue',auto?43:38);
+ formationRevision++;
+ if(announce)displayNotice(tacticalLabel(formation)+(auto?'・位置調整':'・戰術切換'),1.3);
+ $('strategyHint').textContent=(autoTactics?'自動應變｜':'')+tacticalLabel(formation)+(formation==='defense'?'・優先保護關鍵號碼':formation==='attack'?'・增加攻擊機會':'・保持隊形與間距');
+ sync();render();
+}
+function updatePlayerFormation(dt){
+ // Only react to explicit button presses. Idle teammates keep positions and can
+ // still dodge/catch under the existing limited-range defensive AI.
+ for(const p of players.filter(p=>p.team==='blue')){
+  if(p.id===selected||p.manualUntil>now||p.goal&&now<p.actUntil+.3||ball.mode==='ground'||p.roamTarget)continue;
+  if(Math.hypot(p.x-p.anchorX,p.y-p.anchorY)>2)
+   moveTowards(p,{x:p.anchorX,y:p.anchorY},dt,settings.playerSpeed*.52);
+ }
+}
+
+function rememberLineup(){
+ playerLineup=players.filter(p=>p.team==='blue').map(p=>({id:p.id,role:p.role,zone:p.zone,x:p.x,y:p.y}));
+}
+function restoreLineup(){
+ if(!playerLineup)return;
+ for(const data of playerLineup){let p=players.find(q=>q.id===data.id);if(!p)continue;
+  p.role=Object.prototype.hasOwnProperty.call(roleStats,data.role)?data.role:'none';p.zone=data.zone;
+  const v=allowed(p,data.x,data.y);p.x=p.anchorX=v.x;p.y=p.anchorY=v.y;
+ }
+}
+function normalizeBlueOuterToThree(){
+ const blue=players.filter(p=>p.team==='blue');
+ if(!blue.length)return;
+ const preferred=(playerLineup||[]).filter(d=>d.zone==='outer').map(d=>d.id);
+ const byId=new Map(blue.map(p=>[p.id,p]));
+ let keep=[];
+ for(const id of preferred){if(byId.has(id)&&!keep.includes(id))keep.push(id);if(keep.length===3)break;}
+ const currentOuter=blue.filter(p=>p.zone==='outer').sort((a,b)=>(a.y-b.y)||(a.x-b.x));
+ for(const p of currentOuter){if(!keep.includes(p.id))keep.push(p.id);if(keep.length===3)break;}
+ const fallback=blue.slice().sort((a,b)=>nums.indexOf(a.num)-nums.indexOf(b.num));
+ for(const p of fallback){if(!keep.includes(p.id))keep.push(p.id);if(keep.length===3)break;}
+ keep=keep.slice(0,3);
+ const keepSet=new Set(keep);
+ const outerSlots=[[836,136],[914,344],[836,562]];
+ let outerIndex=0;
+ for(const id of keep){
+  const p=byId.get(id);if(!p)continue;
+  p.zone='outer';
+  const spot=allowed(p,outerSlots[outerIndex][0],outerSlots[outerIndex][1]);
+  p.x=p.anchorX=spot.x;p.y=p.anchorY=spot.y;p.goal=null;outerIndex++;
+ }
+ for(const p of blue){
+  if(keepSet.has(p.id))continue;
+  p.zone='inner';
+ }
+ for(const p of blue.filter(p=>!keepSet.has(p.id))){
+  const spot=findInnerOpenSpot(p);
+  p.x=p.anchorX=spot.x;p.y=p.anchorY=spot.y;p.goal=null;
+ }
+ playerFormationBase=new Map(blue.map(p=>[p.id,{x:p.anchorX,y:p.anchorY,zone:p.zone}]));
+ // 不覆寫開賽前記錄的球員配置；下局恢復賽前配置。
+}
+function reset(){modeActive=false;$('difficulty').disabled=false;ATTACK_LIMIT=15;updateMissionProgress();if(players.length&&state==='setup')rememberLineup();resetStats();dash={playerId:null,until:0,readyAt:0,dirX:1,dirY:0};attackClockTeam=null;attackClockStart=0;attackClockViolations={blue:0,orange:0};$('victory').classList.remove('show','moment-win');$('eventBanner').classList.remove('show');bannerUntil=0;last30Announced=false;scoreReason='';stopJoystick();cancelAnimationFrame(raf);players=makePlayers();setupCpuTeam();restoreLineup();scores={blue:0,orange:0};tacticalModeKey='';tacticalPlanNext=0;queuedShot=null;selected='blue-0';passReadyAt=0;controlLast=null;cpuHeldSince=0;cpuDecisionAt=0;cpuPassChain=0;cpuLastDecision=null;cpuSupportAt=0;cpuSupportId=null;pickupAssignment=null;state='setup';phase='normal';remaining=300;last=0;now=0;pending=[];shotId=0;aiCooldown=1.8;drag=null;setupReposition=null;ball={mode:'held',owner:'blue-0',x:players[0].x+22,y:players[0].y,z:14,vx:0,vy:0,t:0,flight:0,team:'blue',origin:'blue-0',power:0};$('start').textContent='▶ 開始比賽';$('start').disabled=false;$('pause').disabled=true;$('pause').textContent='Ⅱ 暫停';$('period').textContent='賽前排陣';$('timer').textContent='05:00';$('timer').classList.remove('last30');winMessage='';playerFormationBase=new Map(players.filter(p=>p.team==='blue').map(p=>[p.id,{x:p.anchorX,y:p.anchorY,zone:p.zone}]));formationTick=0;cpuSituationKey='';drawStatic();sync();updateDashButton();raf=requestAnimationFrame(loop);}
+function zoneRectDist(x,y,rect){let [x1,x2,y1,y2]=rect,xx=clamp(x,x1,x2),yy=clamp(y,y1,y2);return Math.hypot(xx-x,yy-y)}
+function allowed(p,x,y){const arr=OWN[p.team][p.zone];let best=1e20,out=null;for(const r of arr){let nx=clamp(x,r[0],r[1]),ny=clamp(y,r[2],r[3]),d=(nx-x)**2+(ny-y)**2;if(d<best){best=d;out={x:nx,y:ny}}}return out;}
+// V3.12: Use the actual drawn court, not the distant SVG canvas boundary.
+// The eight regions form the two inner rectangles and the left/right U-shaped exterior.
+// Yellow pockets are OUT only when the ball is on the floor; a ball may fly across them.
+const COURT_REGIONS=[
+ {team:'blue',zone:'inner',rect:[265,550,165,535]},
+ {team:'orange',zone:'inner',rect:[550,835,165,535]},
+ {team:'orange',zone:'outer',rect:[130,405,95,165]},
+ {team:'orange',zone:'outer',rect:[130,265,165,535]},
+ {team:'orange',zone:'outer',rect:[130,405,535,605]},
+ {team:'blue',zone:'outer',rect:[695,970,95,165]},
+ {team:'blue',zone:'outer',rect:[835,970,165,535]},
+ {team:'blue',zone:'outer',rect:[695,970,535,605]}
+];
+function zoneAt(x,y){
+ for(const area of COURT_REGIONS){const [x1,x2,y1,y2]=area.rect;
+  if(x>=x1&&x<=x2&&y>=y1&&y<=y2)return {team:area.team,zone:area.zone};
+ }
+ return null;
+}
+function isBallInCourt(x,y){return zoneAt(x,y)!==null;}
+function ballOutOfBounds(){
+ // An airborne ball may cross yellow territory without being out.
+ // Only the floor contact (landing or rolling) triggers a turnover.
+ if(ball.mode!=='ground' && !(ball.mode==='air' && ball.t>=ball.flight))return false;
+ if(isBallInCourt(ball.x,ball.y))return false;
+ const attackingTeam=ball.team;
+ const hadHits=pending.length>0;
+ if(ball.mode==='air'){
+  if(ball.kind==='pass')gameStats.passMissed[attackingTeam]++;
+  else if(!hadHits)gameStats.shotMissed[attackingTeam]++;
+ }
+ gameStats.out++;
+ gameStats.turnovers++;
+ if(modeActive&&attackingTeam==='blue'&&!(hadHits&&ball.kind==='throw'))missionStats.blueTurnovers++;
+ if(hadHits&&ball.kind==='throw'){
+  // A valid earlier hit is resolved; the defending team receives the next ball.
+  resolveHits();
+ }else{
+  clearAttackClock();
+  const team=other(attackingTeam);
+  const receiver=players.find(p=>p.team===team&&p.zone==='inner')||players.find(p=>p.team===team);
+  setHeld(receiver,'球出界！'+(team==='blue'?'藍隊':'橘隊')+'取得球權');
+ }
+ return true;
+}
+function el(tag,a={},parent=svg){let e=document.createElementNS(NS,tag);Object.entries(a).forEach(([k,v])=>e.setAttribute(k,String(v)));parent.append(e);return e}
+function t(x,y,str,size=17,color='#244053',parent=svg){let e=el('text',{x,y,'text-anchor':'middle','font-size':size,fill:color},parent);e.textContent=str;return e}
+let playerNodes=new Map(),ballNode=null,shadowNode=null,aimNodes=null;
+let fxLayer=null,trailLayer=null,trailDots=[],effects=[],bannerUntil=0,previousEventTime=0,last30Announced=false,scoreReason='';
+let ballFxNodes=null;
+function pulseScore(team){const col=$('blueScore').closest('.scorecol');const node=team==='blue'?col:$('orangeScore').closest('.scorecol');if(!node)return;node.classList.remove('score-pulse');void node.offsetWidth;node.classList.add('score-pulse');}
+function decisiveMoment(message,style='critical',time=1.6){eventFlash(message,style==='clear'?'moment-clear':'moment-critical',time);const board=document.querySelector('.boardbox');board.classList.remove('moment-flash');void board.offsetWidth;board.classList.add('moment-flash');}
+function eventFlash(message,style='goal',duration=1.05){
+ const n=$('eventBanner');n.textContent=message;n.className='show '+style;bannerUntil=now+duration;
+}
+function burst(x,y,color='#f7d57c',count=10){
+ if(!fxLayer)return;
+ for(let i=0;i<count;i++){
+  const a=Math.PI*2*i/count+random(-.25,.25),sp=random(42,115);
+  const n=el('circle',{cx:x,cy:y,r:random(2.3,5),fill:color,opacity:.95},fxLayer);
+  effects.push({node:n,x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:random(.30,.65),total:.65});
+ }
+}
+function triggerDodgeFx(p){if(!p)return;p.fxDodgeUntil=Math.max(p.fxDodgeUntil||0,now+.34);burst(p.x,p.y,'#a8fff2',7);}
+function triggerShieldFx(p){if(!p)return;p.fxShieldUntil=Math.max(p.fxShieldUntil||0,now+.52);burst(p.x,p.y,'#a8dcff',8);}
+function triggerAttackFx(p){if(!p)return;p.attackFlashUntil=Math.max(p.attackFlashUntil||0,now+.42);burst(p.x,p.y,'#ffb24d',9);}
+function popText(x,y,msg,color='#ffe6a1',size=24,life=.92){if(!fxLayer)return;const n=el('text',{x,y,fill:color,'font-size':size,'font-weight':900,'text-anchor':'middle','paint-order':'stroke','stroke':'rgba(28,48,66,.55)','stroke-width':4,opacity:1},fxLayer);n.textContent=msg;effects.push({type:'text',node:n,x,y,vx:0,vy:-34,life,total:life,scale:1});}
+function hitWave(x,y,color='#ffd28a',life=.34){if(!fxLayer)return;const ring=el('circle',{cx:x,cy:y,r:12,fill:'none',stroke:color,'stroke-width':4.5,opacity:.95},fxLayer);effects.push({type:'ring',node:ring,x,y,r:12,vr:92,life,total:life,sw:4.5});const flash=el('circle',{cx:x,cy:y,r:8,fill:'#fff7d4',opacity:.85},fxLayer);effects.push({type:'flash',node:flash,x,y,r:8,vr:62,life:life*.72,total:life*.72});}
+function triggerHitFx(p){if(!p)return;hitWave(p.x,p.y,'#ffbb74',.38);burst(p.x,p.y,'#ffd299',12);popText(p.x,p.y-26,'HIT!','#ffd27f',20,.64);}
+function triggerScoreFx(x,y,before,after,combo=1){hitWave(x,y,'#ffe07c',.42);popText(x,y-18,`${before}→${after}`,'#ffe07c',22,1.02);if(combo>1)popText(x,y-48,`COMBO ×${combo}`,'#fff3b8',18,.88);}
+function updateEffects(dt){
+ if(now>bannerUntil&&$('eventBanner').classList.contains('show'))$('eventBanner').classList.remove('show');
+ for(let i=effects.length-1;i>=0;i--){let e=effects[i];e.life-=dt;if(e.life<=0){e.node.remove();effects.splice(i,1);continue;}
+  const alpha=clamp(e.life/e.total,0,1);
+  if(e.type==='text'){e.x+=e.vx*dt;e.y+=e.vy*dt;e.vy-=10*dt;e.node.setAttribute('x',e.x);e.node.setAttribute('y',e.y);e.node.setAttribute('opacity',alpha);e.node.setAttribute('transform',`scale(${(1+(1-alpha)*.16).toFixed(3)})`);e.node.setAttribute('transform-origin',`${e.x}px ${e.y}px`);continue;}
+  if(e.type==='ring'){e.r+=e.vr*dt;e.node.setAttribute('cx',e.x);e.node.setAttribute('cy',e.y);e.node.setAttribute('r',e.r);e.node.setAttribute('stroke-width',Math.max(1.5,e.sw*alpha));e.node.setAttribute('opacity',alpha*.95);continue;}
+  if(e.type==='flash'){e.r+=e.vr*dt;e.node.setAttribute('cx',e.x);e.node.setAttribute('cy',e.y);e.node.setAttribute('r',e.r);e.node.setAttribute('opacity',alpha*.75);continue;}
+  e.x+=e.vx*dt;e.y+=e.vy*dt;e.vy+=75*dt;e.node.setAttribute('cx',e.x);e.node.setAttribute('cy',e.y);
+  e.node.setAttribute('opacity',alpha);}
+}
+function syncStage(){document.body.classList.toggle('is-setup',state==='setup');document.body.classList.toggle('is-playing',state==='playing'||state==='paused'||state==='ended');}
+
+function drawStatic(){svg.replaceChildren();playerNodes.clear();el('rect',{x:0,y:0,width:1100,height:690,rx:16,fill:'#f5e9b5'});el('rect',{x:120,y:85,width:860,height:530,fill:'none',stroke:'#b0a274','stroke-width':1.4});
+ el('polygon',{points:'130,95 405,95 405,165 265,165 265,535 405,535 405,605 130,605',fill:'#edc9df',stroke:'#a87996','stroke-width':3,'stroke-linejoin':'round'});
+ el('polygon',{points:'970,95 695,95 695,165 835,165 835,535 695,535 695,605 970,605',fill:'#edc9df',stroke:'#a87996','stroke-width':3,'stroke-linejoin':'round'});
+ el('rect',{x:265,y:165,width:285,height:370,fill:'#bfe0f6',stroke:'#60859c','stroke-width':3});el('rect',{x:550,y:165,width:285,height:370,fill:'#bfe0f6',stroke:'#60859c','stroke-width':3});el('line',{x1:550,y1:165,x2:550,y2:535,stroke:'#617b8b','stroke-width':4});el('circle',{cx:550,cy:350,r:35,fill:'none',stroke:'#6d8797','stroke-width':3});el('line',{x1:550,y1:313,x2:550,y2:387,stroke:'#6d8797','stroke-width':3});
+ // Court textures are very subtle so the number tokens remain legible.
+ for(let y=239;y<=475;y+=46){el('line',{x1:269,y1:y,x2:547,y2:y,stroke:'#ffffff','stroke-width':1,opacity:.19});el('line',{x1:553,y1:y,x2:831,y2:y,stroke:'#ffffff','stroke-width':1,opacity:.19});}
+
+ t(407,216,'藍隊內場',17,'#255f80');t(691,216,'橘隊內場',17,'#255f80');t(210,123,'橘隊外場',16,'#80506d');t(890,123,'藍隊外場',16,'#80506d');t(210,591,'外場',15,'#80506d');t(890,591,'外場',15,'#80506d');
+ const shadowLayer=el('g',{'pointer-events':'none'});shadowNode=el('ellipse',{cx:600,cy:350,rx:10,ry:5,fill:'#395065',opacity:.3},shadowLayer);
+ const tokens=el('g',{});for(const p of players){let g=el('g',{'data-p':p.id,style:'cursor:grab'},tokens);let ghost2=el('circle',{r:14.6,fill:p.team==='blue'?'#53a9dc':'#efb16d',opacity:0},g);let ghost1=el('circle',{r:15.2,fill:p.team==='blue'?'#2f8ac1':'#e39a51',opacity:0},g);let attackAura=el('circle',{r:19,fill:'none',stroke:'#ff9e36','stroke-width':3.6,opacity:0},g);let attackFlame1=el('circle',{cx:14,cy:-9,r:4.5,fill:'#ffca55',opacity:0},g);let attackFlame2=el('circle',{cx:18,cy:-2,r:3.2,fill:'#ff7c3a',opacity:0},g);let sel=el('circle',{r:21,fill:'none',stroke:'#f8c951','stroke-width':4,opacity:0},g);el('ellipse',{cx:1,cy:4,rx:17,ry:16,fill:'#1b3b53',opacity:.16},g);let shield=el('path',{d:'M 0 -18 Q 15 -13 14 1 Q 13 16 0 20 Q -13 16 -14 1 Q -15 -13 0 -18 Z',fill:'#8ed1ff',stroke:'#d9f1ff','stroke-width':2,opacity:0},g);let motionRing=el('ellipse',{cx:0,cy:4,rx:16,ry:15,fill:'none',stroke:p.team==='blue'?'#64b3de':'#f3c184','stroke-width':2.4,opacity:0},g);let base=el('circle',{r:15,fill:p.team==='blue'?'#246da1':'#d88c37',stroke:'#fff','stroke-width':2.2},g);let facing=el('path',{d:'M 13.5 -11.5 A 18 18 0 0 1 13.5 11.5',fill:'none',stroke:'#34d8a2','stroke-width':4.3,'stroke-linecap':'round'},g);let label=t(0,4.5,p.num,12.6,'#fff',g);let tag=el('rect',{x:-18,y:16,width:36,height:13,rx:4.5,fill:'#263c4d'},g);let role=t(0,26,roleNames[p.role],9.5,'white',g);let hit=el('circle',{r:18,fill:'none',stroke:'#e3504a','stroke-width':2.8,opacity:0},g);let tacticMark=el('circle',{r:23,fill:'none',stroke:p.team==='orange'?'#ec9c2f':'#65b8fa','stroke-width':2.4,'stroke-dasharray':'5 4',opacity:0,'pointer-events':'none'},g);let blockMark=el('circle',{r:27,fill:'none',stroke:'#ed7955','stroke-width':3,'stroke-dasharray':'2 5',opacity:0,'pointer-events':'none'},g);playerNodes.set(p.id,{g,ghost1,ghost2,attackAura,attackFlame1,attackFlame2,shield,sel,base,motionRing,facing,label,tag,role,hit,tacticMark,blockMark});}
+ trailLayer=el('g',{'pointer-events':'none'});
+ trailDots=[];for(let k=0;k<9;k++){let dot=el('circle',{r:5,fill:'#ffffff',opacity:0},trailLayer);trailDots.push(dot);}
+ fxLayer=el('g',{'pointer-events':'none'});effects=[];
+ const aim=el('g',{'pointer-events':'none'});aimNodes={line:el('line',{stroke:'#1e6195','stroke-width':3,'stroke-dasharray':'8 7',opacity:0},aim),tip:el('circle',{r:5,fill:'#2d7caa',opacity:0},aim),power:el('text',{'font-size':13,'font-weight':900,'text-anchor':'middle',fill:'#1d5b84',opacity:0},aim)};
+ const bgroup=el('g',{id:'ballgroup',style:'cursor:crosshair'});const ballFlame1=el('circle',{r:14,fill:'#ff8c2a',opacity:0},bgroup);const ballFlame2=el('circle',{r:10,fill:'#ffd36d',opacity:0},bgroup);ballNode=el('circle',{r:8,fill:'#fff',stroke:'#2d6a8b','stroke-width':2.5},bgroup);el('circle',{r:3,fill:'#e9f0f4','pointer-events':'none'},bgroup);ballFxNodes={ballFlame1,ballFlame2};
+ render();}
+function drawRoles(){for(const p of players){let n=playerNodes.get(p.id);n.role.textContent=roleNames[p.role];let show=p.role!=='none';n.role.setAttribute('opacity',show?1:0);n.tag.setAttribute('opacity',show?1:0);}}
+function render(){if(!ballNode)return;const attackOrigin=ball&&ball.origin?players.find(q=>q.id===ball.origin):null;const attackBall=ball.mode==='air'&&ball.kind==='throw';for(const p of players){let n=playerNodes.get(p.id);if(!n)continue;const moveX=p.x-(p.prevX??p.x),moveY=p.y-(p.prevY??p.y);const moving=Math.hypot(moveX,moveY);const dodgeOn=((p.fxDodgeUntil||0)>now)||(p.act==='dodge'&&p.actUntil>now);if(dodgeOn&&moving>.18){const scale=Math.min(1,Math.max(.45,moving/2.6));n.ghost1.setAttribute('cx',(-moveX*3.4).toFixed(2));n.ghost1.setAttribute('cy',(-moveY*3.4).toFixed(2));n.ghost2.setAttribute('cx',(-moveX*6.2).toFixed(2));n.ghost2.setAttribute('cy',(-moveY*6.2).toFixed(2));n.ghost1.setAttribute('opacity',(0.30*scale).toFixed(2));n.ghost2.setAttribute('opacity',(0.16*scale).toFixed(2));}else{n.ghost1.setAttribute('opacity',0);n.ghost2.setAttribute('opacity',0);}const attackActive=((p.attackFlashUntil||0)>now)||((ball.mode==='held'&&ball.owner===p.id)||(ball.mode==='air'&&ball.origin===p.id&&ball.kind==='throw'));if(attackActive){const pulse=.55+.45*Math.sin(now*18+(p.team==='blue'?0:1.5));n.attackAura.setAttribute('r',(18.2+pulse*2.5).toFixed(2));n.attackAura.setAttribute('opacity',(0.28+pulse*0.22).toFixed(2));n.attackFlame1.setAttribute('opacity',(0.68+pulse*0.18).toFixed(2));n.attackFlame2.setAttribute('opacity',(0.55+pulse*0.20).toFixed(2));n.attackFlame1.setAttribute('cx',(13.5+pulse*3.2).toFixed(2));n.attackFlame1.setAttribute('cy',(-9-pulse*1.3).toFixed(2));n.attackFlame2.setAttribute('cx',(17.5+pulse*3.8).toFixed(2));n.attackFlame2.setAttribute('cy',(-2+pulse*1.2).toFixed(2));}else{n.attackAura.setAttribute('opacity',0);n.attackFlame1.setAttribute('opacity',0);n.attackFlame2.setAttribute('opacity',0);}const shieldT=((p.fxShieldUntil||0)-now);if(shieldT>0){const alpha=clamp(shieldT/.52,0,1);n.shield.setAttribute('opacity',(alpha*.72).toFixed(2));n.shield.setAttribute('transform',`scale(${(1.0+(1-alpha)*0.28).toFixed(2)})`);}else{n.shield.setAttribute('opacity',0);n.shield.setAttribute('transform','scale(1)');}const vSmooth=.22; p.visualVx=(p.visualVx||0)*(1-vSmooth)+moveX*vSmooth; p.visualVy=(p.visualVy||0)*(1-vSmooth)+moveY*vSmooth;
+ const movement=clamp(Math.hypot(p.visualVx,p.visualVy)/3.5,0,1);
+ n.base.setAttribute('r',(15+movement*.35*Math.sin(now*17)).toFixed(2));
+ n.motionRing.setAttribute('opacity',(movement*.21).toFixed(2));
+ n.motionRing.setAttribute('rx',(16+movement*2).toFixed(2));
+ n.motionRing.setAttribute('ry',(15-movement*.7).toFixed(2));
+ n.motionRing.setAttribute('transform',`rotate(${clamp(Math.atan2(p.visualVy,p.visualVx)*180/Math.PI,-180,180)})`);
+ n.blockMark.setAttribute('opacity',isBlocker(p)?(.7+.2*Math.sin(now*4)).toFixed(2):0);n.tacticMark.setAttribute('opacity',p.zone==='inner'&&(p.team==='orange'?tacticalPicks.attack:tacticalPicks.defense).includes(p.num)?(.55+.15*Math.sin(now*3)).toFixed(2):0);n.g.setAttribute('transform',`translate(${p.x.toFixed(2)} ${p.y.toFixed(2)})`);n.sel.setAttribute('opacity',selected===p.id?1:0);n.facing.setAttribute('transform',`rotate(${p.angle*180/Math.PI})`);n.hit.setAttribute('opacity',pending.some(h=>h.id===p.id)?0.9:0);n.role.textContent=roleNames[p.role];n.role.setAttribute('opacity',p.role==='none'?0:1);n.tag.setAttribute('opacity',p.role==='none'?0:1);p.prevX=p.x;p.prevY=p.y;}
+ if(ball.mode==='held'){let p=players.find(p=>p.id===ball.owner);if(p){ball.x=p.x+22*Math.cos(p.angle);ball.y=p.y+22*Math.sin(p.angle);ball.z=15;}}ballNode.parentNode.setAttribute('transform',`translate(${ball.x.toFixed(2)} ${(ball.y-ball.z*.30).toFixed(2)})`);ballNode.setAttribute('r',ball.mode==='ground'?6.5:8);ballNode.setAttribute('stroke',attackBall?'#d85720':'#2d6a8b');ballNode.setAttribute('fill',attackBall?'#fff6dd':'#fff');if(ballFxNodes){if(attackBall){const pulse=.55+.45*Math.sin(now*22);ballFxNodes.ballFlame1.setAttribute('opacity',(0.24+pulse*.18).toFixed(2));ballFxNodes.ballFlame2.setAttribute('opacity',(0.34+pulse*.22).toFixed(2));ballFxNodes.ballFlame1.setAttribute('cx',(-ball.vx*.014).toFixed(2));ballFxNodes.ballFlame1.setAttribute('cy',(-ball.vy*.014).toFixed(2));ballFxNodes.ballFlame2.setAttribute('cx',(-ball.vx*.028).toFixed(2));ballFxNodes.ballFlame2.setAttribute('cy',(-ball.vy*.028).toFixed(2));}else{ballFxNodes.ballFlame1.setAttribute('opacity',0);ballFxNodes.ballFlame2.setAttribute('opacity',0);}}shadowNode.setAttribute('cx',ball.x);shadowNode.setAttribute('cy',ball.y+4);shadowNode.setAttribute('rx',ball.mode==='ground'?8:13);shadowNode.setAttribute('opacity',ball.mode==='held'?0:0.18+0.2*(1-ball.z/40));
+ for(let k=0;k<trailDots.length;k++){
+  const dot=trailDots[k];let h=ball.history?.[k];
+  if(ball.mode==='air'&&h){const speed=Math.hypot(ball.vx,ball.vy);dot.setAttribute('cx',h.x);dot.setAttribute('cy',h.y-h.z*.3);dot.setAttribute('r',Math.max(1.8,5.3-k*.43));dot.setAttribute('fill',attackBall?(k<3?'#ff9d36':'#ffd47e'):(speed>500?'#ffe6a8':'#ffffff'));dot.setAttribute('opacity',Math.max(.04,(attackBall ? .68 : .53)-k*(attackBall ? .07 : .055)));}
+  else dot.setAttribute('opacity',0);
+ }
+
+ let aiming=drag?.kind==='throw';aimNodes.line.setAttribute('opacity',aiming?0.92:0);aimNodes.tip.setAttribute('opacity',aiming?1:0);aimNodes.power.setAttribute('opacity',aiming?1:0);if(aiming){let length=Math.hypot(drag.dx,drag.dy),k=Math.min(96,length*.49)/(length||1),ex=ball.x+drag.dx*k,ey=ball.y+drag.dy*k;aimNodes.line.setAttribute('x1',ball.x);aimNodes.line.setAttribute('y1',ball.y);aimNodes.line.setAttribute('x2',ex);aimNodes.line.setAttribute('y2',ey);aimNodes.tip.setAttribute('cx',ex);aimNodes.tip.setAttribute('cy',ey);aimNodes.power.setAttribute('x',ball.x);aimNodes.power.setAttribute('y',ball.y-29);aimNodes.power.textContent='力道 '+Math.round(clamp(length/215,0,1)*100)+'%';}
+}
+function updateSquad(){
+ const root=$('joySquad');if(!root)return;
+ for(const b of root.querySelectorAll('button')){const p=players.find(q=>q.team==='blue'&&q.num===b.dataset.num);b.classList.toggle('active',p?.id===selected);b.classList.toggle('outer-number',p?.zone==='outer');b.classList.toggle('holding',p?.id===ball?.owner);}
+ const owner=players.find(q=>q.id===ball?.owner);
+ const canPass=state==='playing'&&ball?.mode==='held'&&owner?.team==='blue'&&selected!==owner.id;
+ $('quickPass').disabled=!canPass;const holderBlue=owner?.team==='blue'&&ball?.mode==='held';$('jumpHolder').disabled=!holderBlue||owner.id===selected;const hp=holderBlue?`藍隊 ${owner.num} 號`:ball?.mode==='held'?`橘隊 ${owner?.num||''} 號`:ball?.mode==='air'?'球在空中':'球在地面';$('joyHolder').textContent='持球：'+hp;
+}
+function sync(){syncStage(); updateTacticsPanel();$('blueScore').textContent=scores.blue;$('orangeScore').textContent=scores.orange;let p=players.find(x=>x.id===selected);$('selectedLabel').textContent=p?(p.team==='blue'?'藍':'橘')+'隊 '+p.num+' 號｜'+roleNames[p.role]:'點選球員';for(let b of document.querySelectorAll('[data-role]'))b.classList.toggle('active',p?.role===b.dataset.role);for(const t of ['blue','orange']){let n=players.filter(p=>p.team===t&&p.zone==='inner').length;$('count'+(t==='blue'?'Blue':'Orange')).textContent=(t==='blue'?'藍':'橘')+' 內'+n+'／外'+(14-n)}updateStartCondition();let ctl=players.find(x=>x.id===selected);$('joyWho').textContent=ctl?.team==='blue'?`操控：藍隊 ${ctl.num} 號`:'請選藍隊球員';updateSquad();updateDashButton();let holder=players.find(x=>x.id===ball?.owner);$('ballStatus').textContent=ball.mode==='held'?'持球：'+(holder?.team==='blue'?'藍隊':'橘隊')+' '+(holder?.num||'')+' 號':ball.mode==='air'?'球在空中':'球在地面';}
+function displayNotice(message,duration=1.65){toastMsg=message;toastUntil=now+duration;$('toast').textContent=message;$('toast').className='show '+(/獲勝|得分|接球|撿到/.test(message)?'positive':/出界|失誤|被擊中/.test(message)?'danger':'special');$('status').textContent=message;}
+function tickNotice(){if(now>toastUntil)$('toast').classList.remove('show')}
+function setRole(role){let p=players.find(p=>p.id===selected);if(!p||p.team!=='blue'||state!=='setup')return;p.role=role;rememberLineup();sync();render()}
+function changePreGameZone(zone){
+ if(state!=='setup'){displayNotice('比賽開始後不能更換內外場',1.5);return;}
+ const p=players.find(q=>q.id===selected);if(!p||p.team!=='blue'||p.zone===zone)return;
+ p.zone=zone;p.goal=null;setupReposition=null;
+ let dest=zone==='outer'?chooseOuterSpot(p):findInnerOpenSpot(p);
+ p.x=p.anchorX=dest.x;p.y=p.anchorY=dest.y;
+ if(ball.mode==='held'&&ball.owner===p.id){ball.x=p.x;ball.y=p.y;}
+ rememberLineup();sync();render();
+}
+function findInnerOpenSpot(p){
+ const rect=OWN[p.team].inner[0];let best=null;
+ const others=players.filter(q=>q.team===p.team&&q.zone==='inner'&&q!==p);
+ for(let x=rect[0]+18;x<=rect[1]-18;x+=39)for(let y=rect[2]+20;y<=rect[3]-20;y+=39){
+  const d=others.length?Math.min(...others.map(q=>Math.hypot(q.x-x,q.y-y))):100;
+  if(!best||d>best.score)best={x,y,score:d};
+ }return {x:best.x,y:best.y};
+}
+function updateStartCondition(){
+ const count=players.filter(p=>p.team==='blue'&&p.zone==='outer').length;
+ const valid=count===3;
+ $('start').disabled=state==='setup'&&!valid;
+ $('lineupHint').textContent=valid?'外場 3 人 ✓':`外場 ${count} 人｜需剛好 3 人`;
+ $('toInner').disabled=state!=='setup';$('toOuter').disabled=state!=='setup';
+}
+
+// A U-shaped outer court is top + side + bottom. NEVER cross the middle enemy field.
+function outerWing(p){return p.y<165?'top':p.y>535?'bottom':'side'}
+function wingOfTarget(p,dest){return dest.y<165?'top':dest.y>535?'bottom':'side'}
+function outerNextWaypoint(p,dest){
+ const from=outerWing(p),to=wingOfTarget(p,dest),sideX=p.team==='blue'?913:187;
+ const top={x:sideX,y:146},bottom={x:sideX,y:556};
+ if(from===to)return dest;
+ if(from==='top')return Math.abs(p.x-sideX)>6?top:(to==='bottom'?bottom:dest);
+ if(from==='bottom')return Math.abs(p.x-sideX)>6?bottom:(to==='top'?top:dest);
+ return to==='top'?top:bottom;
+}
+
+// V3.25 difficulty profiles: challenge is intentionally a difficult optional mode.
+// Bonuses apply only to orange computer players; blue physics and sprint unchanged.
+function cpuHard(){return state==='playing'&&$('difficulty').value==='hard'}
+function cpuLevel(){return $('difficulty').value;}
+// These modifiers are applied to the orange AI only. Standard stays at 1.0;
+// easy visibly slows decision, movement, and catching; hard retains V3.25 power.
+function cpuDifficultyBoost(p){
+ if(!p||p.team!=='orange'||state!=='playing')return 1;
+ if(cpuLevel()==='easy')return .84;
+ if(cpuHard())return 1.34+(modeActive?Math.min(.10,stageCpuFactor()*.10):0);
+ return 1;
+}
+function cpuCatchBoost(p){
+ if(p.team!=='orange'||state!=='playing')return 1;
+ if(cpuLevel()==='easy')return .72;
+ return cpuHard()?1.38+(modeActive?stageCpuFactor()*.08:0):1;
+}
+function cpuReactionBoost(p){
+ if(p.team!=='orange'||state!=='playing')return 1;
+ if(cpuLevel()==='easy')return 1.42;
+ return cpuHard()?.65*(1-stageCpuFactor()*.08):1;
+}
+
+function moveTowards(p,target,dt,speed=145){
+ speed*=cpuDifficultyBoost(p);
+ let dest=allowed(p,target.x,target.y);
+ if(p.zone==='outer')dest=outerNextWaypoint(p,dest);
+ let dx=dest.x-p.x,dy=dest.y-p.y,len=Math.hypot(dx,dy);
+ const auto=state==='playing'&&!(p.team==='blue'&&(p.id===selected||p.manualUntil>now));
+ if(len<=.3){p.motionSpeed=0;p.moveVx=0;p.moveVy=0;return false;}
+ if(auto){
+  const desiredSpeed=Math.min(speed,Math.sqrt(2*570*len));
+  const wantX=dx/len*desiredSpeed,wantY=dy/len*desiredSpeed;
+  const vx=p.moveVx||0,vy=p.moveVy||0;
+  // Acceleration limits prevent instantaneous reversal but still keep
+  // AI responsive to incoming balls (the reaction code remains authoritative).
+  const accel=p.act==='dodge'?900:620;
+  const changeX=wantX-vx,changeY=wantY-vy;
+  const amount=Math.hypot(changeX,changeY),stepLimit=accel*dt;
+  const k=amount>stepLimit?stepLimit/amount:1;
+  p.moveVx=vx+changeX*k;p.moveVy=vy+changeY*k;
+  const moveX=p.moveVx*dt,moveY=p.moveVy*dt;
+  // Clamping to legal zones is necessary for both inner and U-shaped outer play.
+  const next=allowed(p,p.x+moveX,p.y+moveY);
+  p.x=next.x;p.y=next.y;
+  p.motionSpeed=Math.hypot(p.moveVx,p.moveVy);
+  return p.motionSpeed>.5;
+ }
+ const d=Math.min(len,speed*dt);
+ p.x+=dx/len*d;p.y+=dy/len*d;
+ p.motionSpeed=d/Math.max(dt,.001);p.moveVx=dx/len*p.motionSpeed;p.moveVy=dy/len*p.motionSpeed;
+ return d>.01;
+}
+function angleDelta(a,b){return Math.atan2(Math.sin(b-a),Math.cos(b-a))}
+function turnToward(p,tx,ty,dt){let desired=Math.atan2(ty-p.y,tx-p.x);let diff=angleDelta(p.angle,desired);p.angle+=clamp(diff,-settings.turnSpeed*dt,settings.turnSpeed*dt)}
+function calc(score,num){let r=score;if(num==='×2')r*=2;else if(num==='÷2')r=Math.ceil(r/2);else if(num==='0')r=0;else r+=Number(num.replace('−','-'));r=Math.max(0,r);let won=r===30;if(r>30)r-=30;return {score:r,win:won}}
+// 外場接應：預測接下來約 0.9 秒的球路；只在同一段 ㄇ 字外場中移動，避免穿越敵方內場。
+function outerInterceptPlan(p){
+ if(p.zone!=='outer'||ball.mode!=='air'||(pending.length&&p.team===ball.team))return null;
+ const speed=Math.hypot(ball.vx,ball.vy);if(speed<65)return null;
+ const wing=outerWing(p),segment=wing==='top'?0:wing==='bottom'?2:1;
+ const r=OWN[p.team].outer[segment];let best=null;
+ for(let sec=.12;sec<=.91;sec+=.045){
+   if(sec>ball.flight-ball.t+.12)break;
+   const x=ball.x+ball.vx*sec,y=ball.y+ball.vy*sec;
+   if(x<r[0]-13||x>r[1]+13||y<r[2]-13||y>r[3]+13)continue;
+   const target={x:clamp(x,r[0],r[1]),y:clamp(y,r[2],r[3])};
+   const distance=Math.hypot(target.x-p.x,target.y-p.y);
+   const maxTravel=settings.playerSpeed*cpuDifficultyBoost(p)*.92*Math.max(0,sec-.10)+20;
+   // 外場可以離開初始位置約 95 單位，但是不能衝過其他外場區域。
+   if(distance<=maxTravel&&Math.hypot(target.x-p.anchorX,target.y-p.anchorY)<100){
+      const score=distance+sec*44;if(!best||score<best.score)best={target,score};
+   }
+ }
+ return best;
+}
+function updateAI(dt){let bx=ball.x,by=ball.y;let interceptors={},designatedCatcher=null;
+ // A single plausible catch leader reduces multiple teammates converging on
+ // the same fast ball. Other threatened players can still dodge naturally.
+ if(ball.mode==='air'&&ball.kind==='throw'&&ball.t>.10){
+  const speed2=ball.vx*ball.vx+ball.vy*ball.vy;
+  let candidates=[];
+  for(const p of players){
+   if(p.team===ball.team||p.zone!=='inner'||(p.team==='blue'&&p.id===selected))continue;
+   const t=speed2?clamp(((p.x-ball.x)*ball.vx+(p.y-ball.y)*ball.vy)/speed2,0,.46):0;
+   const x=ball.x+ball.vx*t,y=ball.y+ball.vy*t,miss=Math.hypot(x-p.x,y-p.y);
+   if(t<.055||miss>30||ball.t<(settings.aiReaction[p.role]??.18))continue;
+   const probability=catchChanceAt(p,Math.sqrt(speed2),ball.t+t,x,y);
+   if(probability>.10)candidates.push({p,score:probability-Math.max(0,miss-17)*.006});
+  }
+  candidates.sort((a,b)=>b.score-a.score);
+  designatedCatcher=candidates[0]?.p.id||null;
+  if(candidates.length>1)gameStats.coordination.defensiveDelegations++;
+ }
+ if(ball.mode==='air'){for(const p of players){if(pending.length&&p.team===ball.team&&p.zone==='outer'&&p.act==='outerCatch'){p.goal=null;p.act='watch';}let plan=outerInterceptPlan(p);if(plan&&(!interceptors[p.team]||plan.score<interceptors[p.team].plan.score))interceptors[p.team]={id:p.id,plan};}}
+ for(const p of players){ // 全員持續盯著球，但受轉身速度限制
+  if(ball.mode==='held'&&ball.owner===p.id){
+   // 持球者始終朝向敵方內場的正前方，避免手上的球斜著拿
+   let forward=p.team==='blue'?0:Math.PI;let diff=angleDelta(p.angle,forward);
+   p.angle+=clamp(diff,-settings.turnSpeed*dt,settings.turnSpeed*dt);
+  }
+  else turnToward(p,bx,by,dt);
+  if(state!=='playing')continue;
+  if(p.team==='blue'&&p.id===selected){
+   if(dashRunning(p)){
+    // Steering may continue through the joystick while sprinting; otherwise
+    // preserve the direction captured on button press.
+    let dx=dash.dirX,dy=dash.dirY;
+    if(joystick.active&&Math.hypot(joystick.x,joystick.y)>.15){let n=Math.hypot(joystick.x,joystick.y);dx=joystick.x/n;dy=joystick.y/n;dash.dirX=dx;dash.dirY=dy;}
+    else if(p.goal&&Math.hypot(p.goal.x-p.x,p.goal.y-p.y)>5){let n=Math.hypot(p.goal.x-p.x,p.goal.y-p.y);dx=(p.goal.x-p.x)/n;dy=(p.goal.y-p.y)/n;dash.dirX=dx;dash.dirY=dy;}
+    moveJoystickPlayer(p,dt,{x:dx,y:dy},DASH_SPEED);
+   }else if(joystick.active){moveJoystickPlayer(p,dt);}else if(p.goal){moveTowards(p,p.goal,dt,settings.playerSpeed);if(Math.hypot(p.x-p.goal.x,p.y-p.goal.y)<3)p.goal=null;}
+   p.anchorX=p.x;p.anchorY=p.y;continue;
+  }
+  if(p.team==='blue'&&p.manualUntil>now){if(p.goal)moveTowards(p,p.goal,dt,settings.playerSpeed);continue;}
+  if(ball.mode!=='air'&&ball.mode!=='ground')continue;
+  let st=roleStats[p.role],d=Math.hypot(ball.x-p.x,ball.y-p.y);
+  if(ball.mode==='air'){
+   // A targeted pass needs an actual receiver response. Only the named
+   // teammate may seek the pass; movement is speed-limited and zone-clamped.
+   if(ball.kind==='pass'&&ball.targetId===p.id&&p.team===ball.team){
+    const look=clamp(ball.flight-ball.t,.05,.30);
+    const dest=allowed(p,ball.x+ball.vx*look,ball.y+ball.vy*look);
+    const travel=Math.hypot(dest.x-p.x,dest.y-p.y);
+    if(travel>8&&travel<90){
+      p.goal=dest;p.act='receive';p.actUntil=now+.18;
+      moveTowards(p,dest,dt,settings.playerSpeed*.72);
+      gameStats.coordination.passApproaches++;
+    }
+   }
+   // 外場球員提前接應；內場仍維持原本有限距離 AI，避免全隊亂跑。
+   const outerPlan=interceptors[p.team];
+   if(p.zone==='outer'&&outerPlan?.id===p.id&&p.act!=='dodge'&&!(pending.length&&p.team===ball.team)){
+      p.goal=outerPlan.plan.target;p.act='outerCatch';p.actUntil=now+.22;
+   }
+   // AI 預估來球最近點及時間，不預知玩家尚未出手的方向
+   let rx=p.x-ball.x,ry=p.y-ball.y,sv=ball.vx*ball.vx+ball.vy*ball.vy,until=sv?clamp((rx*ball.vx+ry*ball.vy)/sv,0,0.43):0;
+   let nearX=ball.x+ball.vx*until,nearY=ball.y+ball.vy*until,miss=Math.hypot(p.x-nearX,p.y-nearY);
+   if(ball.kind==='throw'&&ball.team!==p.team&&p.zone==='inner'&&until>.035&&until<.42&&miss<23&&!shotDefenseMap.has(p.id)){shotDefenseMap.set(p.id,{shot:shotId,x:p.x,y:p.y,dodged:false,exposure:miss,team:p.team,kind:ball.kind});gameStats.defenseThreats[p.team]++;}
+   if(blockerMove(p,dt)){moveTowards(p,p.goal,dt,settings.playerSpeed*.90);continue;}
+   const profile=tacticsProfile(p),flightSpeed=Math.hypot(ball.vx,ball.vy);
+   const reaction=(settings.aiReaction[p.role]??.18)*cpuReactionBoost(p);
+   const exposed=ball.kind==='throw'&&ball.t>=reaction && until>=.065 && miss<31 && ball.team!==p.team;
+   // 每人都能嘗試閃避；能力 5 反應快、變向更果斷；能力 1 仍可能靠走位躲過。
+   // 遵守相同物理移動上限，絕不在球發射前讀取球路。
+   if(exposed && now>p.actUntil){
+    const dodgeSkill=st.d;
+    const highRisk=profile.protect>=1.6;
+    const movementFactor=(.56+(dodgeSkill-1)*.105)*(p.team==='orange'&&cpuLevel()==='easy'?.78:p.team==='orange'&&cpuHard()?1.28:1);
+    const room=until*settings.playerSpeed*movementFactor*profile.dodgeBias;
+    const remainingClearance=Math.max(0,25-miss);
+    const dodgeChance=clamp((room-remainingClearance+7)/27,0,.94);
+    const estimateCatch=catchChanceAt(p,flightSpeed,ball.t+until,nearX,nearY);
+    // No oracle: the AI knows the same probability model as the actual hit,
+    // but never sees the random catch roll or a future, unthrown trajectory.
+    const preferCatch=!isBlocker(p)&&!highRisk&&(designatedCatcher===null||designatedCatcher===p.id)&&estimateCatch>Math.max(.14,dodgeChance*.74)&&until>.11;
+    const wantsDodge=!preferCatch&&dodgeChance>.12;
+    if(wantsDodge && miss<25 && room>7 && until>.09){
+      const nx=-(ball.vy||1),ny=ball.vx||0,nn=Math.hypot(nx,ny);
+      const side=((p.x-nearX)*nx+(p.y-nearY)*ny)>=0?1:-1;
+      const need=clamp(28-miss,8,settings.maxAutoOffset);
+      const offset=Math.min(need,room,settings.maxAutoOffset);
+      const target=allowed(p,p.x+side*nx/nn*offset,p.y+side*ny/nn*offset);
+      if(Math.hypot(target.x-p.x,target.y-p.y)>4){p.goal=target;p.act='dodge';p.actUntil=now+clamp(until,.14,.34);triggerDodgeFx(p);gameStats.dodges[p.team]++;const rec=shotDefenseMap.get(p.id);if(rec)rec.dodged=true;}
+    }else if(preferCatch && until>.13 && miss>13 && miss<30){
+      const target=allowed(p,nearX,nearY);
+      if(Math.hypot(target.x-p.x)<settings.maxAutoOffset&&Math.hypot(target.y-p.y)<settings.maxAutoOffset){p.goal=target;p.act='catch';p.actUntil=now+Math.min(.28,until);}
+    }
+   }
+  }
+  if(p.goal&&now<p.actUntil+0.3)moveTowards(p,p.goal,dt,settings.playerSpeed*(p.act==='dodge'?(.63+(st.d-1)*.09):p.act==='outerCatch'?.92:.72));else if(p.goal){p.goal=null;p.act='watch';p.anchorX=p.x;p.anchorY=p.y}
+ }
+ // 地面球：由球所在地區的隊員撿取。玩家操作中的球員不由 AI 搶控制權。
+ // AI 僅派一人追球；選擇球到達時間最短的合格球員，移動仍受速度上限與 ㄇ 字外場路線限制。
+ if(ball.mode==='ground'){
+  const z=groundPickupZone();
+  if(z){
+   const eligible=players.filter(p=>p.team===z.team&&p.zone===z.zone&&!(p.team==='blue'&&p.manualUntil>now));
+   // Prefer autonomous teammates; if only the selected player is eligible,
+   // assist only when neither joystick nor direct-drag is being used.
+   eligible.sort((a,b)=>{
+    const sa=a.id===selected?70:0,sb=b.id===selected?70:0;
+    return pickupTravelEstimate(a,ball.x,ball.y)+sa-pickupTravelEstimate(b,ball.x,ball.y)-sb;
+   });
+   const available=eligible.filter(p=>p.id!==selected || (!joystick.active && drag?.kind!=='player' && ball.groundTime>.45));
+   let picker=available.find(p=>p.id===pickupAssignment);
+   if(!picker||pickupTravelEstimate(picker,ball.x,ball.y)>pickupTravelEstimate(available[0],ball.x,ball.y)+62)picker=available[0];
+   pickupAssignment=picker?.id||null;
+   if(picker){
+    picker.goal=null; // 撿球高於舊有的陣型跑位指令
+    moveTowards(picker,{x:ball.x,y:ball.y},dt,settings.playerSpeed*.90);
+    tryPickupGroundBall(); // 到達球旁即刻撿起，不必再等下一影格
+   }
+  }
+ }
+ // 限制移動範圍：反應完慢慢回原站位
+ for(const p of players){if(p.goal|| (p.team==='blue'&&p.manualUntil>now)||ball.mode==='ground')continue; /* keep the new position after dodging; no automatic return to stale anchors */}
+ }
+// V2.3 閒置跑位：球員持續做小幅移動，但只在沒有更重要的 AI 指令時生效。
+// 不更動 anchorX/Y；戰術指令仍以目前位置為基礎，選取的玩家球員完全不自動跑位。
+function updateIdleMotion(dt){
+ if(state!=='playing'||ball.mode==='ground')return;
+ for(const p of players){
+  if(p.team==='blue'&&(p.id===selected||p.manualUntil>now))continue;
+  if(p.goal||p.actUntil>now&&p.act!=='watch')continue;
+  // 戰術按鈕／攻守轉換的移動必須先完成，避免兩種移動互相搶控制權。
+  const anchorDistance=Math.hypot(p.x-p.anchorX,p.y-p.anchorY);
+  if(anchorDistance>settings.idleRadius[p.role in settings.idleRadius?p.role:'none']+6){
+   p.roamTarget=null;
+   continue;
+  }
+  if(anchorDistance>9)continue;
+  // 球已經飛近身邊時先處理接球與閃避，不做裝飾性跑位。
+  if(ball.mode==='air'){
+   const vx=ball.vx,vy=ball.vy,vs=vx*vx+vy*vy;
+   const t=vs>1?clamp(((p.x-ball.x)*vx+(p.y-ball.y)*vy)/vs,0,.60):0;
+   const miss=Math.hypot(ball.x+vx*t-p.x,ball.y+vy*t-p.y);
+   if(t>0&&miss<75)continue;
+  }
+  const role=p.role in settings.idleRadius?p.role:'none';
+  const radius=settings.idleRadius[role];
+  const pace=settings.idleSpeed[role];
+  const owner=ball.mode==='held'?players.find(q=>q.id===ball.owner):null;
+  const teamHasBall=owner?.team===p.team;
+  // 持球者只做更小的側向走位，避免拖曳瞄準時球員不停變動。
+  const isHolder=owner?.id===p.id;
+  const extent=isHolder?.32:teamHasBall?1.0:.84;
+  if(!p.roamTarget||now>=p.roamNext||Math.hypot(p.x-p.roamTarget.x,p.y-p.roamTarget.y)<3){
+   let chosen=null,best=-Infinity;
+   // 選鄰近位置，且不要與其他隊友擠在一起。
+   for(let k=0;k<10;k++){
+    const angle=random(0,Math.PI*2),len=radius*extent*random(.42,1);
+    const dest=allowed(p,p.anchorX+Math.cos(angle)*len,p.anchorY+Math.sin(angle)*len);
+    if(p.zone==='outer'&&wingOfTarget(p,dest)!==outerWing(p))continue;
+    if(Math.hypot(dest.x-p.x,dest.y-p.y)<5)continue;
+    let nearest=120;
+    for(const q of players){if(q===p||q.team!==p.team||q.zone!==p.zone)continue;
+     nearest=Math.min(nearest,Math.hypot(dest.x-q.x,dest.y-q.y));}
+    const safe=Math.min(nearest,88)-Math.max(0,48-nearest)*3;
+    const forward=p.team==='blue'?1:-1;
+    const smallAttackBias=(p.role==='attack'&&teamHasBall)?(dest.x-p.x)*forward*.08:0;
+    const value=safe+smallAttackBias+random(-6,6);
+    if(value>best){best=value;chosen=dest;}
+   }
+   if(chosen){p.roamTarget=chosen;p.roamNext=now+random(1.0,2.1);}
+   else {p.roamTarget=null;p.roamNext=now+.5;continue;}
+  }
+  moveTowards(p,p.roamTarget,dt,pace*(isHolder?.30:1));
+ }
+}
+// 外場必須沿 ㄇ 字走，不能用穿過敵方內場的直線距離選擇追球者。
+function pickupTravelEstimate(p,x,y){
+ const direct=Math.hypot(p.x-x,p.y-y);
+ if(p.zone!=='outer')return direct;
+ const source=outerWing(p),dest=y<165?'top':y>535?'bottom':'side';
+ if(source===dest)return direct;
+ const sideX=p.team==='blue'?913:187;
+ const upper={x:sideX,y:146},lower={x:sideX,y:556};
+ if(source==='top')return Math.hypot(p.x-upper.x,p.y-upper.y)+(dest==='bottom'?410+Math.hypot(sideX-x,556-y):Math.hypot(sideX-x,146-y));
+ if(source==='bottom')return Math.hypot(p.x-lower.x,p.y-lower.y)+(dest==='top'?410+Math.hypot(sideX-x,146-y):Math.hypot(sideX-x,556-y));
+ const waypoint=dest==='top'?upper:lower;
+ return Math.hypot(p.x-waypoint.x,p.y-waypoint.y)+Math.hypot(waypoint.x-x,waypoint.y-y);
+}
+// 唯一撿球入口：人球靠近且同屬該片內場或外場，就能撿起仍在滾動的球。
+// 不依賴球已停下；玩家搖桿、拖曳以及 AI 自動移動都使用同一套判定。
+// Remember the last legal landing area while a ball rolls across an unassigned
+// boundary strip. A neutral strip must never silently award possession to the
+// opposite team simply because no zone was returned.
+function groundPickupZone(){
+ const z=zoneAt(ball.x,ball.y);
+ if(z){ball.groundZone=z;return z;}
+ if(ball.groundZone)return ball.groundZone;
+ let best=null,dist=Infinity;
+ for(const team of ['blue','orange'])for(const zone of ['inner','outer'])for(const r of OWN[team][zone]){
+  const dx=ball.x-clamp(ball.x,r[0],r[1]),dy=ball.y-clamp(ball.y,r[2],r[3]);
+  const d=dx*dx+dy*dy;if(d<dist){dist=d;best={team,zone};}
+ }
+ return dist<100*100?best:null;
+}
+function tryPickupGroundBall(){
+ if(state!=='playing'||ball.mode!=='ground')return false;
+ const z=groundPickupZone();
+ if(!z)return false;
+ const radius=27; // 球員半徑 15 + 球半徑約 7，額外容許少量觸控/影格誤差
+ let nearest=null,min=radius;
+ for(const p of players){
+  if(p.team!==z.team||p.zone!==z.zone)continue;
+  const d=Math.hypot(p.x-ball.x,p.y-ball.y);
+  if(d<min){min=d;nearest=p;}
+ }
+ if(!nearest)return false;
+ gameStats.pickups[nearest.team]++;burst(nearest.x,nearest.y,'#d6f0ae',6);setHeld(nearest,(nearest.team==='blue'?'藍隊 ':'橘隊 ')+nearest.num+' 號撿到球');
+ return true;
+}
+function catchChanceAt(p,speed,flightTime,ballX,ballY){
+ const st=roleStats[p.role],incoming=Math.atan2(ballY-p.y,ballX-p.x);
+ const angle=Math.abs(angleDelta(p.angle,incoming)),cone=Math.PI*50/180;
+ if(angle>cone)return 0;
+ const face=Math.pow(Math.max(0,1-angle/cone),1.18);
+ const timeToRead=clamp((flightTime-.13)/.75,0,1),speedPenalty=clamp((710-speed)/440,.19,1);
+ const skill=clamp(.065+st.c*.080,.09,.51),profile=tacticsProfile(p);
+ const trained=st.c>=5?.07:0;
+ const readiness=.50+timeToRead*.48;
+ return clamp((skill*(.26+.74*face)*speedPenalty*readiness+trained*timeToRead)*profile.catchBias*cpuCatchBoost(p),0,p.team==='orange'&&cpuHard()?.92:settings.catchCap);
+}
+function catchChance(p,speed){return catchChanceAt(p,speed,ball.t,ball.x,ball.y);}
+// Teammate passes are easier than hostile throws, but role, angle, pace and reaction still matter.
+// The intended recipient gets a preparation bonus, never a guaranteed catch.
+function passCatchChance(p,speed){
+ const friendly=p.team===ball.team,assigned=p.id===ball.targetId;
+ const skill=roleStats[p.role].c;
+ const facing=Math.abs(angleDelta(p.angle,Math.atan2(ball.y-p.y,ball.x-p.x)));
+ const face=clamp(1-facing/Math.PI,0,1);
+ const readiness=clamp(ball.t/.35,.25,1);
+ const movement=Math.hypot(p.moveVx||0,p.moveVy||0);
+ const speedFactor=clamp((800-speed)/420,.72,1);
+ const paceFactor=clamp(1-movement/1050,.82,1);
+ const probability=(friendly?(assigned?.49:.24):.10)+skill*(friendly?.073:.075)
+   +(face-.50)*(friendly?.16:.23)+(readiness-.5)*.09;
+ return clamp(probability*speedFactor*paceFactor*(p.team==='orange'&&cpuHard()?1.18:1),friendly?.14:.04,friendly?.95:.82);
+}
+
+function finalizeShotDefense(){
+ // Only credit an actual dodge when the same throw had threatened the player's
+ // original position, the player attempted a dodge, and their final location
+ // clearly left the projected threat corridor. Natural misses aren't successes.
+ if(ball?.kind==='throw'){
+  const speed2=(ball.vx||0)**2+(ball.vy||0)**2;
+  for(const [id,rec] of shotDefenseMap){
+   const p=players.find(q=>q.id===id);if(!p||!rec.dodged||pending.some(h=>h.id===id)||speed2<100)continue;
+   const tt=clamp(((p.x-ball.x)*ball.vx+(p.y-ball.y)*ball.vy)/speed2,0,.48);
+   const near=Math.hypot(ball.x+ball.vx*tt-p.x,ball.y+ball.vy*tt-p.y);
+   const moved=Math.hypot(p.x-rec.x,p.y-rec.y);
+   if(moved>=9&&near>=25){gameStats.dodgeConfirmed[p.team]++;gameStats.dodgeSuccess[p.team]++;}
+  }
+ }
+ shotDefenseMap.clear();
+}
+function clearAttackClock(){attackClockTeam=null;attackClockStart=now;}
+function setAttackClock(team){
+ if(team!==attackClockTeam){attackClockTeam=team;attackClockStart=now;}
+}
+function updateAttackClockDisplay(){
+ const node=$('attackClock');if(!node)return;
+ if(state==='setup'||state==='ended'){node.textContent='進攻限時 15 秒';node.classList.remove('warning');return;}
+ if(!attackClockTeam){node.textContent='球權待定 · 15 秒進攻';node.classList.remove('warning');return;}
+ const remain=Math.max(0,ATTACK_LIMIT-(now-attackClockStart));
+ node.textContent=(attackClockTeam==='blue'?'藍隊':'橘隊')+'進攻剩 '+Math.ceil(remain)+' 秒';
+ node.classList.toggle('warning',remain<=5);
+}
+function enforceAttackClock(){
+ if(state!=='playing'||!attackClockTeam||now-attackClockStart<ATTACK_LIMIT)return false;
+ const offender=attackClockTeam;
+ // A launched attack has already cleared the clock. An in-flight pass still belongs
+ // to its original team and must not reset the 15-second allowance.
+ const otherTeam=other(offender);
+ const candidates=players.filter(p=>p.team===otherTeam&&p.zone==='inner');
+ const eligible=candidates.length?candidates:players.filter(p=>p.team===otherTeam);
+ const receiver=eligible.sort((a,b)=>Math.hypot(a.x-ball.x,a.y-ball.y)-Math.hypot(b.x-ball.x,b.y-ball.y))[0];
+ if(!receiver)return false;
+ attackClockViolations[offender]++;
+ gameStats.stallViolations[offender]++;
+ gameStats.turnovers++;
+ if(modeActive&&offender==='blue')missionStats.blueTurnovers++;
+ queuedShot=null;
+ setHeld(receiver,(offender==='blue'?'藍隊':'橘隊')+'超過 15 秒未攻擊，交換球權！');
+ decisiveMoment('15 秒未攻擊！交換球權','warning',1.7);
+ return true;
+}
+function setHeld(p,message){if(!p)return;setAttackClock(p.team);queuedShot=null;tacticalModeKey='';finalizeShotDefense();p.angle=p.team==='blue'?0:Math.PI;cpuHeldSince=now;cpuDecisionAt=now+.27;cpuLastTarget=null;if(p.team!=='orange'){cpuPassChain=0;cpuSupportId=null;}pickupAssignment=null;ball={mode:'held',owner:p.id,x:p.x,y:p.y,z:14,vx:0,vy:0,t:0,flight:0,team:p.team,origin:p.id,power:0};pending=[];aiCooldown=p.team==='orange'?random(.9,1.6):1.2;if(message)displayNotice(message);sync();}
+function transfer(to,forced=false){
+ if(queuedShot||now<passReadyAt)return false;
+ const from=players.find(p=>p.id===ball.owner);
+ if(!from||!to||from.team!==to.team||from.id===to.id||ball.mode!=='held'||state!=='playing')return false;
+ // Every pass now travels on court, including same-zone passes.
+ // A modest lead avoids routinely missing a walking target.
+ const dx=to.x-from.x,dy=to.y-from.y,dist=Math.hypot(dx,dy);
+ if(dist<1)return false;
+ if(from.zone==='inner'&&to.zone==='inner'){
+  // Same-team inner-court exchange: visible, deliberately slower animation;
+  // the specified recipient always catches when the ball arrives.
+  const speed=295, len=dist||1;
+  passReadyAt=now+settings.passCooldown;
+  launchFlight(from,dx/len*speed,dy/len*speed,'pass',to.id);
+  if(ball.mode==='air'){
+   ball.safeInnerPass=true;
+   ball.startX=ball.x;ball.startY=ball.y;
+   ball.flight=clamp(dist/speed+.17,.30,1.8);
+   ball.vx=dx/len*speed;ball.vy=dy/len*speed;ball.power=speed;
+  }
+  displayNotice('內場互傳：隊友接應中',.65);
+  return true;
+ }
+ const travel=clamp(dist/440,.10,1.8),lead=clamp(travel*.38,0,.32);
+ const target=allowed(to,to.x+(to.moveVx||0)*lead,to.y+(to.moveVy||0)*lead);
+ const ax=target.x-from.x,ay=target.y-from.y,len=Math.hypot(ax,ay)||1;
+ passReadyAt=now+settings.passCooldown;
+ startFlight(from,ax/len*440,ay/len*440,'pass',to.id);
+ displayNotice('傳球飛行中：隊友接應／敵方可攔截',.8);
+ return true;
+}
+function sameWing(a,b){const wing=p=>p.y<165?'top':p.y>535?'bottom':p.team==='blue'?'right':'left';return wing(a)===wing(b)}
+function startFlight(from,vx,vy,kind='throw',targetId=null){
+ if(!from||state!=='playing'||ball.mode!=='held'||queuedShot)return;
+ if(kind==='throw'){
+  queuedShot={fromId:from.id,team:from.team,vx,vy,kind,targetId,at:now+.14};
+  if(from.team==='blue')tacticalModeKey='';return;
+ }
+ launchFlight(from,vx,vy,kind,targetId);
+}
+function launchFlight(from,vx,vy,kind='throw',targetId=null){if(!from||state!=='playing'||ball.mode!=='held')return;if(kind==='throw')clearAttackClock();shotId++;if(kind==='throw')gameStats.shots[from.team]++;else gameStats.passes[from.team]++;missionOnLaunch(from,kind);shotDefenseMap.clear();pending=[];if(kind==='throw')triggerAttackFx(from);if(kind==='throw'){const strength=roleStats[from.role]?.a??3;const boost=1+(strength-3)*.030;const base=Math.hypot(vx,vy);const actual=clamp(base*boost,settings.throwMin,settings.throwMax);vx=vx/(base||1)*actual;vy=vy/(base||1)*actual;}let speed=Math.hypot(vx,vy);ball={mode:'air',owner:null,team:from.team,origin:from.id,x:from.x+Math.cos(Math.atan2(vy,vx))*21,y:from.y+Math.sin(Math.atan2(vy,vx))*21,z:16,vx,vy,t:0,flight:kind==='pass'?Math.max(.15,Math.min(2.15,Math.hypot(players.find(p=>p.id===targetId)?.x-from.x||250,players.find(p=>p.id===targetId)?.y-from.y||0)/440+.07)):(.62+speed/900),kind,targetId,power:speed,attackSkill:roleStats[from.role]?.a??3,groundTime:0,impacts:0,history:[]};sync();}
+function collidePlayer(p,dt){if(ball.mode!=='air'||p.id===ball.origin&&ball.t<.11||pending.some(h=>h.id===p.id)||(ball.kind==='pass'&&ball.passTouched?.has(p.id)))return false;
+ // 己方進攻球不會被隊友擋住；真正的傳球仍依路徑判定接球
+ if(p.team===ball.team && ball.kind==='throw' && p.zone!=='outer')return false;let dx=ball.x-p.x,dy=ball.y-p.y,dist=Math.hypot(dx,dy);if(dist>22.5)return false;
+ let speed=Math.hypot(ball.vx,ball.vy),friendly=p.team===ball.team;
+ // Our outer-court catch must not erase a previously confirmed enemy hit.
+ if(friendly&&p.zone==='outer'&&pending.length&&ball.kind==='throw')return false;
+ if(ball.kind==='pass'){
+  // Passing is a separate possession exchange: never award an elimination or
+  // maths points for a pass, even if the enemy touches it.
+  const chance=passCatchChance(p,speed);
+  if(Math.random()<chance){
+   if(p.team===ball.team)gameStats.passCaught[ball.team]++;
+   else {gameStats.passIntercepted[ball.team]++;gameStats.turnovers++;if(modeActive&&ball.team==='blue')missionStats.blueTurnovers++;}
+   triggerShieldFx(p);burst(p.x,p.y,'#8dd3ff',9);
+   setHeld(p,p.team===ball.team?'傳球接應成功':'傳球遭攔截！');return true;
+  }
+  // Don't allow repeated instant catch rolls at the same crossing.
+  if(!ball.passTouched)ball.passTouched=new Set();
+  ball.passTouched.add(p.id);
+  return false;
+ }
+ if(!friendly)gameStats.catchAttempts[p.team]++;
+ let chance=isBlocker(p)&&ball.kind==='throw'&&ball.team==='orange'?0:catchChance(p,speed);if(friendly){chance=clamp(chance+(p.zone==='outer'?.50:.27),0,p.zone==='outer'?.93:.90);if(ball.kind==='pass'&&p.id===ball.targetId)chance=Math.min(.96,chance+.34);}
+ if(Math.random()<chance){if(!friendly)gameStats.catch[p.team]++;else gameStats.recoveries[p.team]++;triggerShieldFx(p);burst(p.x,p.y,'#8dd3ff',11);eventFlash(friendly?'接應成功！':'接住了！','goal',.9);setHeld(p,(friendly?'傳球成功':'成功接球！球權轉換'));return true;}
+ if(!friendly)gameStats.catchFailed[p.team]++;if(!friendly&&p.zone==='inner'){gameStats.shotImpacts[ball.team]++;gameStats.hits[ball.team]++;pending.push({id:p.id,team:p.team,num:p.num});triggerHitFx(p);burst(p.x,p.y,'#ffb470',9);eventFlash(p.num+' 號被擊中！','warning',.85);displayNotice(p.num+' 號被擊中！等待球落地',.9)}
+ // 接球失敗，球向外反彈且速度損耗；避免重疊下一幀重複碰撞
+ let n=dist>0?{x:dx/dist,y:dy/dist}:{x:random(-1,1),y:random(-1,1)};let dot=ball.vx*n.x+ball.vy*n.y;ball.vx=(ball.vx-1.55*Math.min(dot,0)*n.x)*.67;ball.vy=(ball.vy-1.55*Math.min(dot,0)*n.y)*.67;ball.x=p.x+n.x*23;ball.y=p.y+n.y*23;ball.flight=Math.max(ball.flight,ball.t+.17);ball.impacts++;return true;}
+function resolveHits(){if(!pending.length)return false;let victimTeam=pending[0].team,attack=other(victimTeam),list=[...pending];pending=[];for(const h of list){let p=players.find(p=>p.id===h.id);if(p&&p.zone==='inner'){p.zone='outer';let xy=chooseOuterSpot(p);p.x=p.anchorX=xy.x;p.y=p.anchorY=xy.y;if(p.team==='orange')cpuBaseSlots.set(p.id,{x:p.x,y:p.y,zone:p.zone,index:nums.indexOf(p.num)});let before=scores[attack],result=calc(scores[attack],p.num);scores[attack]=result.score;missionOnHit(attack,p,players.find(q=>q.id===ball.origin));gameStats.scores[attack]++;pulseScore(attack);
+ const num=p.num;let op=num==='×2'?'× 2':num==='÷2'?'÷ 2':num.startsWith('−')?'− '+num.slice(1):'+ '+num;
+ scoreReason=`${before} ${op} → ${result.score}`;
+ burst(p.x,p.y,'#f8d16c',14);
+ triggerScoreFx(p.x,p.y,before,result.score,list.length);
+ eventFlash(result.win?`剛好 30 分！  ${scoreReason}`:`${scoreReason}`,'goal',result.win?2.1:1.25);
+ if(result.win){scoreReason=`剛好 30 分｜${scoreReason}`;finishGame(attack+'win','exact30');break;}}}
+ if(state!=='ended'&&players.filter(p=>p.team===victimTeam&&p.zone==='inner').length===0)finishGame(attack+'win','clear');
+ // 外場射手得分後，如果外場仍保留至少 3 人，可回內場
+ const shooter=players.find(p=>p.id===ball.origin);if(shooter&&shooter.team===attack&&shooter.zone==='outer'&&players.filter(p=>p.team===attack&&p.zone==='outer').length>3){shooter.zone='inner';const spot=allowed(shooter,attack==='blue'?420:680,350);shooter.x=shooter.anchorX=spot.x;shooter.y=shooter.anchorY=spot.y;if(shooter.team==='orange')cpuBaseSlots.set(shooter.id,{x:shooter.x,y:shooter.y,zone:shooter.zone,index:nums.indexOf(shooter.num)});}
+ if(list.length>=2){decisiveMoment(`連續擊中 ×${list.length}！`,'critical',1.65);}
+ sync();if(state==='ended')return true;
+ let receiver=players.find(p=>p.team===victimTeam&&p.zone==='inner')||players.find(p=>p.team===victimTeam);setHeld(receiver,(attack==='blue'?'藍隊':'橘隊')+' 得分！'+list.map(h=>h.num).join('、')+' 號出場');return true;}
+function hitGround(){if(!isBallInCourt(ball.x,ball.y)){ballOutOfBounds();return;}clearAttackClock();finalizeShotDefense();if(resolveHits())return;burst(ball.x,ball.y,'#d8effb',5);ball.mode='ground';ball.z=0;ball.groundTime=0;ball.groundZone=zoneAt(ball.x,ball.y);ball.vx*=.43;ball.vy*=.43;displayNotice('球落地，前往撿球',.7);sync();}
+function updateBall(dt){
+ if(ball.mode==='air'&&ball.safeInnerPass){
+  const target=players.find(p=>p.id===ball.targetId);
+  if(target&&target.team===ball.team&&target.zone==='inner'){
+   ball.t=Math.min(ball.flight,ball.t+dt);
+   const progress=clamp(ball.t/ball.flight,0,1);
+   // The projectile visibly traverses the court, with gentle target tracking
+   // so a moving receiver cannot accidentally be missed.
+   ball.x=ball.startX+(target.x-ball.startX)*progress;
+   ball.y=ball.startY+(target.y-ball.startY)*progress;
+   ball.z=12+22*Math.sin(Math.PI*progress);
+   if(!ball.history)ball.history=[];
+   ball.history.unshift({x:ball.x,y:ball.y,z:ball.z});
+   if(ball.history.length>9)ball.history.length=9;
+   if(progress>=1){
+    gameStats.passCaught[ball.team]++;
+    triggerShieldFx(target);burst(target.x,target.y,'#8dd3ff',7);
+    setHeld(target,'內場傳球成功');
+   }
+   return;
+  }
+  // Recipient was moved out of the inner court during the flight.
+  ball.safeInnerPass=false;
+ }
+ if(ball.mode==='air'){
+  let sub=Math.max(1,Math.min(12,Math.ceil(Math.hypot(ball.vx,ball.vy)*dt/11))),step=dt/sub;
+  for(let i=0;i<sub&&ball.mode==='air';i++){
+    ball.x+=ball.vx*step;ball.y+=ball.vy*step;ball.t+=step;
+    if(!ball.history)ball.history=[];
+    if(!Number.isFinite(ball.traceT))ball.traceT=0;
+    ball.traceT+=step; // Airborne travel across yellow is legal; landing decides out-of-bounds.
+    if(ball.traceT>=.024){ball.history.unshift({x:ball.x,y:ball.y,z:ball.z||0});ball.history.length=Math.min(9,ball.history.length);ball.traceT=0;}
+    // Progressive air resistance: distant max-power throws slow down enough to react to.
+    if(ball.kind==='throw'){let strength=clamp((ball.power-490)/240,0,1);const atk=ball.attackSkill??3;let factor=Math.exp(-settings.flyResistance*(1+strength*.58)*(1-(atk-3)*.045)*step);ball.vx*=factor;ball.vy*=factor;}
+    let progress=clamp(ball.t/ball.flight,0,1);ball.z=12+22*Math.sin(Math.PI*progress);if(ball.t>=ball.flight){
+      // Landing on yellow is an out; a ball that crossed yellow in flight is not.
+      // Out-of-bounds statistics are handled by ballOutOfBounds (avoid double counting).
+      if(isBallInCourt(ball.x,ball.y)){
+        if(ball.kind==='pass')gameStats.passMissed[ball.team]++;
+        else if(!pending.length)gameStats.shotMissed[ball.team]++;
+      }
+      hitGround();break}
+    // 在整個飛行段進行次步進，降低高速穿過球員的問題
+    for(const p of players){if(collidePlayer(p,step))break}
+    if(ball.mode!=='air')break;
+     // Out-of-bounds is checked only on landing or while rolling on the floor.
+  }
+  }else if(ball.mode==='ground'){
+   // Rolling into yellow ground is a turnover, never a bounce
+   // or an automatic pickup by the team whose outer court is nearby.
+   const slices=clamp(Math.ceil(Math.hypot(ball.vx,ball.vy)*dt/8),1,18);
+   for(let i=0;i<slices;i++){
+    ball.x+=ball.vx*dt/slices;ball.y+=ball.vy*dt/slices;
+    if(ballOutOfBounds())return;
+   }
+   let drag=Math.pow(.33,dt);ball.vx*=drag;ball.vy*=drag;ball.groundTime+=dt;
+  if(tryPickupGroundBall())return;
+  let z=groundPickupZone();
+  if(Math.hypot(ball.vx,ball.vy)<14 && ball.groundTime>9 && z){
+   const team=z.team;
+   const options=players.filter(p=>p.team===team&&p.zone===z.zone);
+   const receiver=(options.length?options:players.filter(p=>p.team===team))
+     .sort((a,b)=>pickupTravelEstimate(a,ball.x,ball.y)-pickupTravelEstimate(b,ball.x,ball.y))[0];
+   if(receiver)setHeld(receiver,(team==='blue'?'藍隊':'橘隊')+'場區無人撿到球，由該隊重新開球');
+  }
+ }
+}
+// CPU only estimates visible player motion and visible geometry. No result oracle.
+function cpuShotLine(p,q,flight){
+ const rawVx=clamp(q.visualVx||0,-130,130),rawVy=clamp(q.visualVy||0,-130,130);
+ const aimX=q.x+rawVx*flight*.45,aimY=q.y+rawVy*flight*.45;
+ const dx=aimX-p.x,dy=aimY-p.y,len=Math.max(1,Math.hypot(dx,dy));
+ let interception=0,blocker=null;
+ for(const d of players){
+  if(d.team!=='blue'||d.zone!=='inner'||d.id===q.id)continue;
+  const t=clamp(((d.x-p.x)*dx+(d.y-p.y)*dy)/(len*len),0,1);
+  if(t<.12||t>.93)continue;
+  const distance=Math.hypot(d.x-(p.x+dx*t),d.y-(p.y+dy*t));
+  if(distance>35)continue;
+  const facing=Math.abs(angleDelta(d.angle,Math.atan2(p.y-d.y,p.x-d.x)));
+  const catchReadiness=facing<1.1?.55:0;
+  const risk=clamp((35-distance)/35,0,1)*(.30+roleStats[d.role].c*.115+catchReadiness);
+  if(risk>interception){interception=risk;blocker=d;}
+ }
+ return {x:aimX,y:aimY,interception,blocker:blocker?.num||null};
+}
+function cpuShootQuality(p,q,diff){
+ const dx=q.x-p.x,dy=q.y-p.y,dist=Math.hypot(dx,dy);
+ const speed=clamp(350+dist*.31,340,560);
+ const travel=dist/Math.max(310,speed*.88);
+ const line=cpuShotLine(p,q,travel);
+ const motion=Math.hypot(q.visualVx||0,q.visualVy||0);
+ const face=Math.abs(angleDelta(q.angle,Math.atan2(p.y-q.y,p.x-q.x)));
+ const catchReadiness=clamp(roleStats[q.role].c/5*(face<.95?.83:.37),0,1);
+ const op=calc(scores.orange,q.num),gain=op.score-scores.orange;
+ const win=op.win;
+ const window=clamp(1-dist/880,.13,1),difficulty=diff==='hard'?1.06:diff==='easy'?.83:1;
+ const accuracy=clamp((.78-motion*.00145-catchReadiness*.18-line.interception*.23)*window*(diff==='hard'?1.22:difficulty),.075,diff==='hard'?.97:.87);
+ // Small lookahead: how many currently available values could yield 30 afterwards?
+ const followUps=players.filter(n=>n.team==='blue'&&n.zone==='inner'&&n!==q&&calc(op.score,n.num).win).length;
+ const late=remaining<48,behind=scores.orange<scores.blue;
+ const gainValue=gain>0?gain*1.45:gain*1.85;
+ const future=win?0:Math.min(3,followUps)*(late?1.6:2.3);
+ const urgency=late&&behind?1.22:1;
+ let value=(win?150:gainValue+future)*urgency+accuracy*(49+stageCpuLevel()*3)-dist*.016-line.interception*(31+stageCpuLevel()*2);
+ const style=stageAiStyle();
+ if(style==='math')value+=win?28:(followUps*2.5+gain*.30);
+ if(style==='guard')value+=accuracy*12-line.interception*8;
+ if(style==='press')value+=accuracy*9+Math.min(6,gain)*.25;
+ if(style==='pass')value+=accuracy*6-line.interception*5;
+ if(style==='evade')value+=accuracy*3;
+
+ return {value,accuracy,dist,travel,op,line,aimX:line.x,aimY:line.y,interception:line.interception};
+}
+function cpuPassDecision(holder,best,diff){
+ if(diff==='easy')return null;
+ if(cpuPassChain>=1||now<passReadyAt||remaining<14)return null;
+ // One pass at most before a shot. Compare expected positions rather than
+ // passing randomly whenever a CPU shot looks poor.
+ let winner=null;
+ const candidates=players.filter(p=>p.team==='orange'&&p.id!==holder.id&&p.zone===holder.zone&&p.role==='attack');
+ const targets=players.filter(q=>q.team==='blue'&&q.zone==='inner');
+ for(const rec of candidates){
+  const dist=Math.hypot(rec.x-holder.x,rec.y-holder.y);
+  if(dist<45||dist>250)continue;
+  const lane=cpuShotLine(holder,rec,dist/440);
+  // Passing through enemy court is possible but is intentionally less safe.
+  const chance=passCatchChanceEstimate(rec,holder,dist);
+  if(chance<.55||lane.interception>.48)continue;
+  const recBest=targets.map(q=>cpuShootQuality(rec,q,diff)).sort((a,b)=>b.value-a.value)[0];
+  if(!recBest)continue;
+  const gain=recBest.value-best.value;
+  const opportunity=gain*chance-(1-chance)*26-(dist/440)*5;
+  if(gain>(stageAiStyle()==='pass'?7:12)&&opportunity>(stageAiStyle()==='pass'?1:4)&&(!winner||opportunity>winner.score))winner={rec,score:opportunity,chance,gain};
+ }
+ return winner;
+}
+function passCatchChanceEstimate(rec,holder,dist){
+ const facing=Math.abs(angleDelta(rec.angle,Math.atan2(holder.y-rec.y,holder.x-rec.x)));
+ const face=clamp(1-facing/Math.PI,0,1),skill=roleStats[rec.role].c;
+ const readiness=clamp(dist/440/.35,.25,1);
+ const movement=Math.hypot(rec.moveVx||0,rec.moveVy||0);
+ const probability=.49+skill*.073+(face-.5)*.16+(readiness-.5)*.09;
+ return clamp(probability*clamp(360/420,.72,1)*clamp(1-movement/1050,.82,1),.14,.95);
+}
+function autoAttack(dt){
+ if(ball.mode!=='held'||state!=='playing')return;
+ const p=players.find(p=>p.id===ball.owner);if(!p||p.team!=='orange')return;
+ aiCooldown=Math.max(-2,aiCooldown-dt);
+ const wait=now-cpuHeldSince;
+ if(aiCooldown>0||now<cpuDecisionAt)return;
+ const diff=$('difficulty').value;
+ const targets=players.filter(q=>q.team==='blue'&&q.zone==='inner');if(!targets.length)return;
+ const choices=targets.map(q=>({q,...cpuShootQuality(p,q,diff)})).sort((a,b)=>b.value-a.value);
+ const best=choices[0];if(!best)return;
+ const behind=scores.orange<scores.blue;
+ const urgency=remaining<32&&behind;
+ const maxWait=(diff==='hard'?1.35:diff==='normal'?2.05:2.80)*(urgency?.55:1)*(1-stageCpuFactor()*.16)*(stageAiStyle()==='press'?.72:stageAiStyle()==='guard'?1.13:1);
+ const forced=wait>=maxWait;
+ const poor=best.accuracy<(.32+(diff==='hard'?.03:0))||best.interception>.43;
+ const pass=(!forced&&wait>(stageAiStyle()==='pass'?.36:.55)&&(poor||stageAiStyle()==='pass'))?cpuPassDecision(p,best,diff):null;
+ if(pass&&transfer(pass.rec)){
+  cpuPassChain++;cpuLastDecision={type:'pass',to:pass.rec.num,score:pass.score,time:now};gameStats.cpuDecisions.pass++;return;
+ }
+ // Short, measurable repositioning instead of changing location every frame.
+ if(!urgency&&!forced&&poor&&p.zone==='inner'){
+  cpuDecisionAt=now+.30;gameStats.cpuDecisions.reposition++;
+  if(best.interception>.57)gameStats.cpuDecisions.blockedLane++;
+  // Shift towards a nearby clear lateral lane, but keep formation bounds and spacing.
+  let candidate=null;
+  for(const offset of [-30,30,-55,55]){
+   const dest=allowed(p,p.x,p.y+offset);
+   const separation=players.filter(q=>q!==p&&q.team==='orange'&&q.zone==='inner')
+    .reduce((n,q)=>Math.min(n,Math.hypot(q.x-dest.x,q.y-dest.y)),999);
+   if(separation<36)continue;
+   const proxy={...p,x:dest.x,y:dest.y};
+   const score=cpuShootQuality(proxy,best.q,diff).value-Math.abs(offset)*.085;
+   if(!candidate||score>candidate.score)candidate={dest,score};
+  }
+  if(candidate&&candidate.score>best.value+2){
+   p.anchorY=clamp(candidate.dest.y,p.anchorY-23,p.anchorY+23);p.roamTarget=null;
+  }
+  return;
+ }
+ const q=best.q;
+ const lead=(diff==='hard'?.88:diff==='normal'?.38:0)*(1+stageCpuFactor()*.22);
+ // Only predict from observed displacement; AI never knows the player's next input.
+ const vx=clamp(q.visualVx||0,-130,130),vy=clamp(q.visualVy||0,-130,130);
+ const ax=q.x+vx*best.travel*lead,ay=q.y+vy*best.travel*lead;
+ const skill=roleStats[p.role].a,baseError=(diff==='easy'?.32:diff==='hard'?.026:.135)*(1-stageCpuFactor()*.16);
+ const err=random(-baseError,baseError)*(1.32-.11*skill);
+ const angle=Math.atan2(ay-p.y,ax-p.x)+err;
+ const spread=diff==='easy'?77:diff==='hard'?14:42;
+ const speed=clamp((350+best.dist*.32+random(-spread,spread))*(diff==='hard'?1.17:diff==='easy'?.89:1),285,diff==='hard'?690:590);
+ cpuDecisionAt=now+.35;
+ cpuLastDecision={type:'shot',target:q.num,quality:best.value,accuracy:best.accuracy,interception:best.interception,forced,time:now};
+ gameStats.cpuDecisions.shot++;if(forced)gameStats.cpuDecisions.forced++;
+ // End the chain after each offensive shot, irrespective of whether it hits.
+ cpuPassChain=0;
+ startFlight(p,Math.cos(angle)*speed,Math.sin(angle)*speed,'throw');
+ displayNotice('橘隊 '+p.num+' 號投球！',.8);
+}
+function gameTick(dt){if(state!=='playing')return;remaining-=dt;if(remaining<=0){remaining=0;
+ if(modeActive){
+  // Challenge completion takes precedence over ordinary scoreboard ranking.
+  const success=missionCompleted()&&!missionLostShots();
+  finishGame(success?'bluewin':'orangewin',success?'mission-timeout-success':'mission-timeout');return;
+ }
+ if(phase==='normal'&&scores.blue===scores.orange){phase='extra';remaining=60;$('period').textContent='延長賽';decisiveMoment('同分！延長 1 分鐘','critical',2.4)}else{finishGame(scores.blue===scores.orange?'draw':scores.blue>scores.orange?'bluewin':'orangewin');return;}}
+ now+=dt;
+ if(enforceAttackClock()){updateAttackClockDisplay();updateEffects(dt);tickNotice();debugUpdate(dt);return;}
+ if(queuedShot&&now>=queuedShot.at){const q=queuedShot;queuedShot=null;const from=players.find(p=>p.id===q.fromId);if(from&&ball.mode==='held'&&ball.owner===from.id)launchFlight(from,q.vx,q.vy,q.kind,q.targetId);}
+ updateAutoTactics();updateCpuFormation(dt);updatePlayerFormation(dt);updateAI(dt);updateIdleMotion(dt);resolvePlayerCrowding(dt);if(ball.mode==='ground')tryPickupGroundBall();updateBall(dt);autoAttack(dt);missionTick();if(state!=='playing')return;if(ball.mode==='held'){let p=players.find(p=>p.id===ball.owner);if(p&&p.team==='blue')p.angle=Number.isFinite(p.angle)?p.angle:0;}
+ if(remaining<=30 && phase==='normal'&&!last30Announced){last30Announced=true;decisiveMoment('最後 30 秒！','critical',1.7);}
+ $('timer').classList.toggle('last30',remaining<=30);
+ updateAttackClockDisplay();updateEffects(dt);tickNotice();debugUpdate(dt);}
+function moveJoystickPlayer(p,dt,direction=null,multiplier=1){
+ if((!joystick.active&&!direction)||p.team!=='blue'||p.id!==selected)return;
+ let dx=direction?.x??joystick.x,dy=direction?.y??joystick.y;
+ if(Math.hypot(dx,dy)<.12)return;
+ const speed=settings.playerSpeed*multiplier*Math.min(1,Math.hypot(dx,dy));
+ const target={x:p.x+dx*speed*.12,y:p.y+dy*speed*.12};
+ if(p.zone==='outer'){
+  // Connected U-shaped movement lanes, including the two corners. Never jump
+  // from one wing to the other or across the enemy's inner court.
+  const r=p.team==='blue'?[[722,943,122,158],[862,943,155,545],[722,943,542,578]]:[[157,378,122,158],[157,238,155,545],[157,378,542,578]];
+  const nx=p.x+dx*speed*dt,ny=p.y+dy*speed*dt;
+  let best={x:p.x,y:p.y},dist=1e20;
+  for(const box of r){let x=clamp(nx,box[0],box[1]),y=clamp(ny,box[2],box[3]);let d=(nx-x)**2+(ny-y)**2;if(d<dist){dist=d;best={x,y};}}
+  p.x=best.x;p.y=best.y;
+ }else moveTowards(p,target,dt,speed);
+ p.anchorX=p.x;p.anchorY=p.y;p.goal=null;
+ if(ball.mode==='ground')tryPickupGroundBall();
+}
+function stopJoystick(){joystick.active=false;joystick.pointer=null;joystick.x=0;joystick.y=0;let k=$('joyKnob');if(k)k.style.transform='translate(-50%,-50%)';}
+function joystickInput(e){
+ const pad=$('joystick'),r=pad.getBoundingClientRect();
+ let cx=(r.left+r.right)/2,cy=(r.top+r.bottom)/2,max=r.width*.31;
+ let dx=(e.clientX-cx)/max,dy=(e.clientY-cy)/max,mag=Math.hypot(dx,dy);
+ if(mag>1){dx/=mag;dy/=mag;}
+ joystick.x=dx;joystick.y=dy;
+ $('joyKnob').style.transform=`translate(calc(-50% + ${dx*max}px),calc(-50% + ${dy*max}px))`;
+}
+const joy=$('joystick');
+joy.addEventListener('pointerdown',e=>{if(state==='paused'||state==='ended')return;const p=players.find(q=>q.id===selected);if(!p||p.team!=='blue')return;joystick.active=true;joystick.pointer=e.pointerId;joy.setPointerCapture(e.pointerId);joystickInput(e);e.preventDefault();});
+joy.addEventListener('pointermove',e=>{if(!joystick.active||joystick.pointer!==e.pointerId)return;joystickInput(e);e.preventDefault();});
+for(const ev of ['pointerup','pointercancel','lostpointercapture'])joy.addEventListener(ev,e=>{if(joystick.active&&joystick.pointer===e.pointerId)stopJoystick();});
+function formatTime(s){let sec=Math.max(0,Math.ceil(s));return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
+function loop(ts){let dt=last?clamp((ts-last)/1000,0,.045):0;last=ts;if(state==='playing')gameTick(dt);else if(state==='setup'){if(joystick.active){let p=players.find(q=>q.id===selected);if(p)moveJoystickPlayer(p,dt);}updatePlayerFormation(dt);if(setupReposition){const p=players.find(q=>q.id===setupReposition.id);if(p&&p.zone==='outer'){moveTowards(p,setupReposition.target,dt,settings.playerSpeed);p.anchorX=p.x;p.anchorY=p.y;}}for(const p of players.filter(q=>q.team==='blue'&&q.zone==='outer'&&q.goal)){if(Math.hypot(p.x-p.goal.x,p.y-p.goal.y)<3){p.goal=null;rememberLineup();}else{moveTowards(p,p.goal,dt,settings.playerSpeed);p.anchorX=p.x;p.anchorY=p.y;}}}if(state!=='setup'&&state!=='ended')$('timer').textContent=formatTime(remaining);updateDashButton();render();raf=requestAnimationFrame(loop)}
+function finishGame(result,reason=''){if(state==='ended')return;missionStats.blueInnerAtFinish=players.filter(p=>p.team==='blue'&&p.zone==='inner').length;queuedShot=null;clearAttackClock();state='ended';updateAttackClockDisplay();normalizeBlueOuterToThree();$('pause').disabled=true;$('start').disabled=false;$('start').textContent='▶ 再玩一局';$('period').textContent='比賽結束';winMessage=result==='draw'?'平手！':result==='bluewin'?'藍隊獲勝！':'橘隊獲勝！';displayNotice(winMessage,999);$('victory').classList.add('moment-win');if(reason==='clear')scoreReason='清空對方內場，直接獲勝！';if(reason==='exact30')scoreReason=scoreReason||'剛好 30 分獲勝！';
+ $('victoryTitle').textContent=winMessage;
+ $('victoryScore').textContent=`${scores.blue} ： ${scores.orange}`;
+ $('victoryReason').textContent=scoreReason|| (result==='draw'?'延長賽後仍平手':'本局結束');
+ $('victory').classList.add('show');missionFinish(result,reason);
+ burst(ball.x,ball.y,'#ffe38a',23);sync();}
+function startGame(){if(state==='ended'){reset();return}if(state==='setup'){if(players.filter(p=>p.team==='blue'&&p.zone==='outer').length!==3){displayNotice('外場必須剛好 3 人才能開賽');return;}rememberLineup();state='playing';$('difficulty').disabled=true;setAttackClock(players.find(p=>p.id===ball.owner)?.team||'blue');updateAttackClockDisplay();syncStage();$('period').textContent='一般賽';missionStart();$('start').textContent='● 比賽中';$('start').disabled=true;$('pause').disabled=false;displayNotice('比賽開始！橘隊採 '+cpuPlans[cpuPlan].label+' 布陣',2.1);sync();return}}
+function pos(e){let pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;let m=svg.getScreenCTM();return m?pt.matrixTransform(m.inverse()):{x:0,y:0}}
+function hitPlayer(x,y){let nearest=null,dist=24;for(let p of [...players].reverse()){let d=Math.hypot(p.x-x,p.y-y);if(d<dist){dist=d;nearest=p}}return nearest}
+function selectPlayer(p){if(p.team!=='blue')return;let old=players.find(q=>q.id===selected);if(old&&old!==p){old.anchorX=old.x;old.anchorY=old.y;old.goal=null;old.manualUntil=now+settings.manualGrace;}if(dash.playerId&&dash.playerId!==p.id)dash.until=now;selected=p.id;p.goal=null;p.roamTarget=null;p.anchorX=p.x;p.anchorY=p.y;p.manualUntil=0;sync();render();}
+function setupSelection(p){if(!p||p.team!=='blue')return;selectPlayer(p);/* switching player never implicitly passes the ball; use the explicit pass button */}
+svg.addEventListener('pointerdown',e=>{if(state==='paused'||state==='ended'||drag)return;let xy=pos(e),p=hitPlayer(xy.x,xy.y),isBall=Math.hypot(xy.x-ball.x,xy.y-ball.y)<12;
+ if(isBall&&ball.mode==='held'&&state==='playing'&&players.find(p=>p.id===ball.owner)?.team==='blue'){let owner=players.find(p=>p.id===ball.owner);selected=owner.id;sync();drag={kind:'throw',sx:xy.x,sy:xy.y,dx:0,dy:0,ptr:e.pointerId};svg.setPointerCapture(e.pointerId);return}
+ if(p&&p.team==='blue'){
+  // A tap on another teammate may be a pass. Do not select until pointer-up;
+  // otherwise a drag to move that teammate would accidentally change control.
+  drag={kind:'player',id:p.id,sx:xy.x,sy:xy.y,x0:p.x,y0:p.y,lastX:xy.x,lastY:xy.y,ptr:e.pointerId,moved:false};
+  svg.setPointerCapture(e.pointerId);return;
+ }
+});
+svg.addEventListener('pointermove',e=>{if(!drag||drag.ptr!==e.pointerId)return;let xy=pos(e);
+ if(drag.kind==='throw'){drag.dx=clamp((drag.sx-xy.x)*1.6,-270,270);drag.dy=clamp((drag.sy-xy.y)*1.6,-270,270);render();return}
+ if(drag.kind==='player'){let p=players.find(p=>p.id===drag.id);if(!p)return;let delta=Math.hypot(xy.x-drag.sx,xy.y-drag.sy);if(delta>7)drag.moved=true;if(!drag.moved)return;if(p.team!=='blue'&&state!=='setup')return;if(state==='setup'&&p.team==='blue'){let v=allowed(p,xy.x,xy.y);if(p.zone==='outer'){setupReposition={id:p.id,target:v};}else{p.x=p.anchorX=v.x;p.y=p.anchorY=v.y;}}else if(state==='playing'){p.manualUntil=now+.30;p.goal=allowed(p,xy.x,xy.y); }render();}}
+);
+svg.addEventListener('pointerup',e=>{if(!drag||drag.ptr!==e.pointerId)return;let current=drag;drag=null;
+ if(current.kind==='throw'){let m=Math.hypot(current.dx,current.dy);if(m>18){let shooter=players.find(p=>p.id===ball.owner);let sp=clamp(m*3.3,settings.throwMin,settings.throwMax);startFlight(shooter,current.dx/m*sp,current.dy/m*sp,'throw');displayNotice('藍隊投球！',.6); }return}
+ if(current.kind==='player'){let p=players.find(p=>p.id===current.id);if(!p)return;
+  if(!current.moved){
+   const holder=players.find(q=>q.id===ball?.owner);
+   // Tap the teammate to pass; numeric keys are still select-only.
+   if(state==='playing'&&ball.mode==='held'&&holder?.team==='blue'&&holder.id!==p.id){
+    if(!transfer(p))displayNotice('目前無法傳球，請稍後再試',.65);
+   }else setupSelection(p);
+  }else if(state==='setup'&&p.team==='blue'){if(p.zone==='outer'&&setupReposition?.id===p.id){p.goal=setupReposition.target;setupReposition=null;}else{p.anchorX=p.x;p.anchorY=p.y;}playerFormationBase.set(p.id,{x:p.x,y:p.y,zone:p.zone});rememberLineup()} else{p.manualUntil=now+.5;if(p.team==='blue'){p.anchorX=p.x;p.anchorY=p.y;if(state==='setup')rememberLineup();}}sync();render();}
+});svg.addEventListener('pointercancel',e=>{if(drag?.ptr===e.pointerId)drag=null});
+$('start').onclick=startGame;$('pause').onclick=()=>{if(state==='playing'){state='paused';$('pause').textContent='▶ 繼續';$('period').textContent='已暫停'}else if(state==='paused'){state='playing';last=0;$('pause').textContent='Ⅱ 暫停';$('period').textContent=phase==='normal'?'一般賽':'延長賽'}};
+$('reset').onclick=()=>{reset();displayNotice('已保留我方配置，重新開局',1.4)};
+$('toInner').onclick=()=>changePreGameZone('inner');$('toOuter').onclick=()=>changePreGameZone('outer');$('introClose').onclick=()=>$('intro').classList.add('hide');$('victoryAgain').onclick=()=>{if(modeStage){showMissionBrief(modeStage.id,'victory');}else{reset();startGame();}};
+document.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>setRole(b.dataset.role));
+setupTacticsUI();
+const squad=$('joySquad');for(const num of nums){const btn=document.createElement('button');btn.type='button';btn.textContent=num;btn.dataset.num=num;btn.title='控制藍隊 '+num+' 號';btn.onclick=()=>{const p=players.find(q=>q.team==='blue'&&q.num===num);if(p){stopJoystick();selectPlayer(p);}};squad.append(btn);}
+$('showSquad').onclick=()=>{const hide=squad.classList.toggle('fold');$('showSquad').textContent=hide?'球員選擇 ▾':'球員名單 ▴';$('showSquad').setAttribute('aria-expanded',String(!hide));};
+$('dashButton').onclick=()=>useDash();
+$('quickPass').onclick=()=>{const p=players.find(q=>q.id===selected);if(p)transfer(p);};
+$('jumpHolder').onclick=()=>{const p=players.find(q=>q.id===ball?.owner);if(p?.team==='blue'){stopJoystick();selectPlayer(p);}};
+updateSquad();
+
+
+$('openModes').onclick=()=>{if(state==='playing'||state==='paused'){displayNotice('請先結束或重來，再選擇其他模式',1.8);return;}modeOpen()};
+$('modeClose').onclick=()=>modeClose();
+document.querySelectorAll('.mode-tabs button').forEach(b=>b.onclick=()=>{modeTab=b.dataset.tab;modeSelection=modeChoices(modeTab)[0].id;modeRender()});
+$('modePlay').onclick=()=>showMissionBrief(modeSelection,'select');
+$('modeRandom').onclick=()=>{
+ if(state==='playing'||state==='paused'||modeTab==='classic')return;
+ const choices=modeChoices(modeTab);if(!choices.length)return;
+ const pick=choices[Math.floor(Math.random()*choices.length)];
+ modeSelection=pick.id;modeRender();showMissionBrief(pick.id,'select');
+};
+document.querySelectorAll('#modeDifficultyOptions button').forEach(b=>b.onclick=()=>setModeDifficulty(b.dataset.diff));
+$('briefBack').onclick=cancelMissionBrief;$('briefConfirm').onclick=confirmMissionBrief;
+$('victoryModes').onclick=()=>{reset();modeOpen()};
+$('victoryNext').onclick=()=>{if($('victoryNext').dataset.next)showMissionBrief($('victoryNext').dataset.next,'victory')};
+$('introClose').addEventListener('click',()=>modeOpen('levels'));
+window.__dodgeModes={clearStrategy:()=>{if(!debugMode)return false;clearTacticalSelections();return true},difficultyProfile:()=>debugMode?{level:cpuLevel(),easyMove:.84,easyCatch:.72,easyReaction:1.42,normalMove:1,normalCatch:1,hardMove:1.34}:null,levels:LEVELS,specials:SPECIALS,survivals:SURVIVALS,validate:id=>validateMissionSetup(modeById(id)),criteria:id=>criteriaFor(modeById(id)).map(a=>a[0]),select:id=>{if(debugMode)modeSelectAndStart(id)},status:()=>({type:modeType,stage:modeStage?.id,active:modeActive,round:missionRound,remaining,lineup:{blueInner:players.filter(p=>p.team==='blue'&&p.zone==='inner').length,orangeInner:players.filter(p=>p.team==='orange'&&p.zone==='inner').length},cpuTier:stageCpuLevel(),stats:{...missionStats},progress:JSON.parse(JSON.stringify(progress)),outcome:lastMissionResult}),forceComplete:()=>{if(debugMode)finishGame('bluewin','mission')},
+ debugSetRemaining:value=>{if(!debugMode||state!=='playing')return false;remaining=Math.max(0,Number(value));return true},
+ debugSetScore:(team,value)=>{if(!debugMode||!['blue','orange'].includes(team))return false;scores[team]=Number(value);return true},
+ debugHit:(team,num)=>{if(!debugMode||!modeActive)return false;const p=players.find(q=>q.team===other(team)&&q.num===num);if(!p)return false;missionOnHit(team,p,players.find(q=>q.id===ball.origin));return true},
+ debugShotEvent:(hit=false)=>{if(!debugMode||!modeActive)return false;missionStats.blueShots++;missionShotSerial++;if(hit){missionLastHitSerial=missionShotSerial;missionStats.consecutive++;missionStats.bestConsecutive=Math.max(missionStats.bestConsecutive,missionStats.consecutive);}missionFinalizeShot();return true},
+ debugEvaluate:()=>{if(!debugMode||state!=='playing')return false;missionTick();return true},
+ debugMissionSummary:()=>debugMode?{assessment:starAssessment(missionCompleted()),finished:state==='ended',round:missionRound,completed:missionCompleted(),lostShots:missionLostShots(),result:lastMissionResult,blueInner:missionStats.blueInnerAtFinish??players.filter(p=>p.team==='blue'&&p.zone==='inner').length}:null,
+ debugFinalize:()=>{if(!debugMode||state!=='playing')return false;remaining=0;gameTick(0);return true}
+};
+
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&state==='playing')$('pause').click()});
+reset();
+window.__dodgeV39={snapshot:()=>({attackClock:{team:attackClockTeam,elapsed:attackClockTeam?now-attackClockStart:0,remaining:attackClockTeam?Math.max(0,ATTACK_LIMIT-(now-attackClockStart)):null,violations:{...attackClockViolations}},state,remaining,scores:{...scores},ball:{...ball},players:players.map(p=>({id:p.id,team:p.team,num:p.num,role:p.role,zone:p.zone,x:p.x,y:p.y,anchorX:p.anchorX,anchorY:p.anchorY})),lineup:playerLineup?.map(x=>({...x})),stats:JSON.parse(JSON.stringify(gameStats)),strategy:bluePhase(),attackTargets:[...tacticalPicks.attack],defenseTargets:[...tacticalPicks.defense],blockTargets:[...tacticalPicks.block],autoTactics:true,tacticAnchors:players.filter(p=>p.team==='blue').map(p=>({id:p.id,x:p.anchorX,y:p.anchorY})),queuedShot:queuedShot?{fromId:queuedShot.fromId,at:queuedShot.at}:null}),
+ testGround:(x,y,team='blue',zone='inner',seconds=0)=>{
+  if(!debugMode||state!=='playing')return false;
+  queuedShot=null;clearAttackClock();ball={mode:'ground',owner:null,team,origin:null,x,y,z:0,vx:0,vy:0,t:0,groundTime:seconds,groundZone:{team,zone}};pickupAssignment=null;sync();return true;
+ },
+ testMovePlayer:(num,x,y)=>{if(!debugMode)return false;let p=players.find(p=>p.team==='blue'&&p.num===num);if(!p)return false;let target=allowed(p,x,y);p.x=p.anchorX=target.x;p.y=p.anchorY=target.y;sync();return true;},
+ // 分離測試 API：僅 debug 模式開放，方便檢查球路、策略及重新開局。
+ dash:()=>debugMode?{readyAt:dash.readyAt,until:dash.until,playerId:dash.playerId,now,selected}:null,
+ debugShot:(team,targetNum,speed=520)=>{if(!debugMode||state!=='playing'||ball.mode!=='held')return false;let p=players.find(p=>p.id===ball.owner);if(!p||p.team!==team)return false;
+ const q=players.find(q=>q.team!==team&&q.zone==='inner'&&q.num===targetNum);if(!q)return false;
+ const a=Math.atan2(q.y-p.y,q.x-p.x);startFlight(p,Math.cos(a)*speed,Math.sin(a)*speed,'throw');return true;},
+ forceFinish:(result='bluewin')=>{if(debugMode)finishGame(result)},
+ estimateCatch:(role,speed,angleDeg,flightTime=.5)=>{if(!debugMode)return null;
+  const p={id:'test',team:'orange',role,num:'1',x:0,y:0,angle:0},saved=ball;
+  ball={x:100*Math.cos(angleDeg*Math.PI/180),y:100*Math.sin(angleDeg*Math.PI/180),t:flightTime,kind:'throw',team:'blue'};
+  const value=catchChance(p,speed);ball=saved;return value;},
+ debugPass:(team,fromNum,toNum)=>{if(!debugMode||state!=='playing')return false;const from=players.find(p=>p.team===team&&p.num===fromNum),to=players.find(p=>p.team===team&&p.num===toNum);if(!from||!to)return false;setHeld(from);return transfer(to);},
+ estimatePass:(role,speed,angleDeg=.0,flightTime=.45,assigned=true)=>{if(!debugMode)return null;const p={id:'test',team:'blue',role,num:'1',x:0,y:0,angle:0,moveVx:0,moveVy:0},saved=ball;ball={x:100*Math.cos(angleDeg*Math.PI/180),y:100*Math.sin(angleDeg*Math.PI/180),t:flightTime,kind:'pass',team:'blue',targetId:assigned?'test':'else'};const value=passCatchChance(p,speed);ball=saved;return value;},
+ roleStats:()=>debugMode?JSON.parse(JSON.stringify(roleStats)):null,
+ cpuPlans:()=>debugMode?JSON.parse(JSON.stringify(cpuPlans)):null,
+ cpuMode:()=>debugMode?{plan:cpuPlan,possession:cpuPossessionMode(),strategy:strategy('orange'),lastDecision:cpuLastDecision,passChain:cpuPassChain}:null,
+ cpuShotRanking:()=>debugMode?(()=>{const p=players.find(p=>p.id===ball.owner);return p?.team==='orange'?players.filter(q=>q.team==='blue'&&q.zone==='inner').map(q=>({number:q.num,...cpuShootQuality(p,q,$('difficulty').value)})).sort((a,b)=>b.value-a.value):[];})():null,
+ estimateThrowSpeed:(role,power)=>{if(!debugMode)return null;return clamp(power*(1+((roleStats[role]||roleStats.none).a-3)*.030),settings.throwMin,settings.throwMax);},
+ reset:()=>{if(debugMode)reset()},step:gameTick, start:()=>{if(debugMode)startGame()},debugSetClock:(team,elapsed)=>{if(!debugMode||state!=='playing'||!['blue','orange'].includes(team))return false;attackClockTeam=team;attackClockStart=now-Math.max(0,elapsed);updateAttackClockDisplay();return true;},setOwner:(team,num)=>{if(!debugMode)return;const p=players.find(q=>q.team===team&&q.num===num);if(p)setHeld(p);},setCpuPlan:(plan)=>{if(debugMode&&cpuPlans[plan])cpuPlan=plan},applyCpuPlan:(plan)=>{if(!debugMode||!cpuPlans[plan]||state!=='setup')return false;setupCpuTeam(plan);sync();render();return true}};
+window.__dodgeV37=window.__dodgeV39;window.__dodgeV36=window.__dodgeV39;window.__dodgeV35=window.__dodgeV39;window.__dodgeV34=window.__dodgeV39;window.__dodgeV33=window.__dodgeV39;window.__dodgeV28=window.__dodgeV39;
+if(debugMode){$('diagnostics').hidden=false;debugUpdate(1);}
+
+})();
+</script></body></html>
