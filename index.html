@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>躲數球｜遊戲版 </title><style>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>躲數球V3.42</title><style>
 :root{font-family:'Microsoft JhengHei','Noto Sans TC',system-ui,sans-serif;color:#243a4d;background:#eaf0f3}*{box-sizing:border-box}body{margin:0;overflow:hidden}button,select{font:inherit}button{border:1px solid #48667d;border-radius:9px;background:#25485f;color:white;padding:9px 6px;cursor:pointer;min-height:36px}button:disabled{opacity:.38;cursor:default}button.active{background:#f5d16e;color:#243b4c;border-color:#e8bb4c}button.primary{background:#2c926e;border-color:#8cceaf}button.red{background:#9b5155;border-color:#ce8887}button.secondary{background:#f2f5f7;color:#284459;border:1px solid #b8cad5}.shell{display:grid;grid-template-columns:158px minmax(0,1fr);height:100dvh;min-height:330px}.tools{background:#172e42;color:white;padding:9px 8px;overflow-y:auto;display:flex;flex-direction:column;gap:7px;scrollbar-width:thin}.brand{font-size:14px;font-weight:900;line-height:1.4;text-align:center;margin:3px 0}.tiny{font-size:11px;color:#bcd0db;line-height:1.35;text-align:center}.heading{font-size:11px;font-weight:800;color:#b5d4e7;padding-top:7px;border-top:1px solid #466174}.toolrow{display:grid;grid-template-columns:1fr 1fr;gap:5px}.tools button{font-size:12px;font-weight:750}.tools .role{display:grid;grid-template-columns:1fr 1fr;gap:5px}.role button{font-size:11px;padding:8px 3px}.main{min-width:0;display:flex;flex-direction:column;padding:8px;gap:7px}.scoreboard{display:flex;align-items:center;justify-content:center;gap:clamp(9px,3vw,45px);background:white;border:1px solid #d5e1e8;border-radius:13px;padding:4px 14px;flex:0 0 auto}.scorecol{min-width:70px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}.scorecol b{font-size:clamp(21px,3vw,35px);font-variant-numeric:tabular-nums}.blue{color:#286f9f}.orange{color:#cf843b}.clock{font-size:clamp(22px,3.1vw,34px);font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}.centered{text-align:center}.meta{font-size:11px;color:#667d8a;font-weight:750}.boardbox{background:#fff;border:1px solid #dbe5eb;border-radius:12px;padding:5px;flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}svg{display:block;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none}svg text{pointer-events:none;font-weight:700}.hint{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #d5e1e8;border-radius:10px;min-height:35px;padding:5px 12px;gap:12px;font-size:13px;font-weight:700;flex:0 0 auto}.hint small{color:#68818e;font-size:11px;font-weight:500}.chips{display:flex;gap:5px;flex-wrap:wrap}.chip{font-size:10px;border:1px solid #d0dee6;border-radius:15px;padding:3px 6px;white-space:nowrap;color:#536b7a}.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.swatch{padding:0;min-height:25px;border-radius:6px;background:var(--c);border:2px solid white}.swatch.active{outline:2px solid #ffd26d}.slots{display:none;flex-direction:column;gap:5px}.slots.open{display:flex}.slot{background:#27485b;padding:6px 4px;border-radius:8px}.slotlabel{font-size:11px;text-align:center;margin-bottom:4px}.slotbuttons{display:grid;grid-template-columns:1fr 1fr;gap:4px}.slotbuttons button{font-size:11px;min-height:30px;padding:3px}.field{display:flex;flex-direction:column;gap:4px}.field select{min-width:0;width:100%;border-radius:8px;border:1px solid #a2b8c6;background:#f5f8fa;padding:7px;font-size:12px}.sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0)}#toast{position:absolute;top:12px;left:50%;transform:translateX(-50%);background:#173e58ec;color:white;border-radius:10px;padding:8px 15px;font-size:13px;font-weight:750;pointer-events:none;z-index:10;max-width:85%;text-align:center;opacity:0;transition:opacity .15s}#toast.show{opacity:1}#aimHelp{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:11px;color:#47687b;background:#ffffffde;border-radius:15px;padding:5px 12px;pointer-events:none;white-space:nowrap}.hide{display:none!important}#intro{position:absolute;inset:0;background:#102d44b8;z-index:20;display:flex;align-items:center;justify-content:center;padding:16px}#intro.hide{display:none}.introcard{background:#fff;border-radius:16px;max-width:375px;padding:21px;box-shadow:0 8px 30px #0003;text-align:center}.introcard h2{margin:0 0 8px;font-size:22px}.introcard p{line-height:1.65;color:#506775;font-size:14px}.introcard button{min-width:170px;background:#257b61}#popup{position:absolute;top:14px;right:12px;max-width:280px;background:#fff;border:1px solid #a7becb;border-radius:10px;padding:10px;display:none;z-index:6;font-size:13px;box-shadow:0 4px 16px #0002}#popup.show{display:block}@media(max-width:740px){.shell{grid-template-columns:108px minmax(0,1fr)}.tools{padding:6px 4px;gap:5px}.tools button{font-size:10px;min-height:30px;padding:6px 2px}.role button{font-size:10px}.brand{font-size:11px}.main{padding:4px;gap:3px}.scoreboard{padding:3px;gap:8px}.meta{font-size:9px}.scorecol{min-width:45px}.hint{font-size:10px;padding:4px;min-height:29px}.hint small,.chips{display:none}.boardbox{padding:0}.tiny{font-size:9px}#aimHelp{font-size:9px}}
 
 /* 遊戲版：簡化左側操作，球場在任何桌面／平板橫向視窗均完整縮放 */
@@ -398,9 +398,587 @@ body.mission-card-active .tools .mode-shortcut{order:-1;position:sticky;top:0;z-
 .mode-random{background:#e7f0f9;color:#1f5272;border:1px solid #a3c4dd;cursor:pointer}
 .mode-random:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:780px){.shared-pad-tip{font-size:12px;margin:6px 10px}.mode-play-actions{gap:5px}.mode-play-actions>button{padding:8px 9px;font-size:12px}}
+
+/* V3.27 iPad landscape control overhaul: 3 columns and a pop-out settings drawer */
+html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;-webkit-text-size-adjust:100%;touch-action:manipulation}
+button,select,summary{touch-action:manipulation}
+.shell{display:grid!important;grid-template-columns:clamp(146px,16vw,188px) minmax(0,1fr) clamp(136px,15vw,176px)!important;gap:0!important;width:100vw;height:100dvh;max-height:100dvh;overflow:hidden;position:relative}
+.shell>.touch-actions{grid-column:1;grid-row:1;z-index:20;display:flex;flex-direction:column;align-items:center;gap:6px;background:#162f44;color:white;padding:8px 7px;overflow-y:auto;min-height:0;min-width:0}
+.shell>.main{grid-column:2;grid-row:1;min-width:0;min-height:0;padding:3px!important;gap:3px!important;overflow:hidden}
+.shell>.joybar{grid-column:3;grid-row:1;z-index:20;position:static!important;width:100%!important;max-width:none!important;height:100%!important;min-height:0;display:flex!important;flex-direction:column;align-items:center;justify-content:center!important;gap:8px!important;background:#162f44;border:0;border-radius:0!important;padding:10px 6px!important;overflow:visible!important}
+.shell>.tools{position:fixed!important;z-index:70;top:0;bottom:0;left:0;width:min(310px,86vw)!important;max-width:none!important;min-height:0;overflow-y:auto;display:none!important;background:#142d40;padding:12px!important;box-shadow:10px 0 40px #081d2cb8}
+body.settings-open .shell>.tools{display:flex!important}
+.shell .play-area{flex:1 1 0;display:flex!important;flex-direction:column!important;min-height:0;gap:0!important}
+.shell .boardbox{flex:1 1 0;min-height:0;min-width:0;border-radius:7px;padding:0!important}
+.shell .boardbox>svg{width:100%;height:100%;max-width:none;max-height:none;touch-action:none}
+.shell .scoreboard{min-height:40px!important;max-height:49px;padding:2px 6px!important;border-radius:8px;gap:9px!important}
+.shell .scorecol b{font-size:clamp(19px,2.7vw,30px)!important}
+.shell .clock{font-size:clamp(19px,2.7vw,27px)!important}
+.shell .scorecol{gap:5px;min-width:0!important}
+.shell .hint{min-height:22px!important;max-height:26px;padding:1px 5px!important;font-size:10px!important}
+.shell .hint .chips{display:none!important}
+.touch-header{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.touch-header button,.close-settings{font-weight:850;font-size:12px;min-height:39px;border-radius:9px;padding:5px 3px;background:#365a72;color:white;border:1px solid #6e99b0}
+.close-settings{width:100%;margin:0 0 8px}
+.aim-title{font-size:clamp(11px,1.6vw,15px);font-weight:900;text-align:center;white-space:nowrap;margin-top:3px}
+#aimPad{position:relative;flex:0 0 auto;width:min(100%,160px,26dvh);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#31566b 0%,#25465e 65%,#1a3b50 100%);border:3px solid #a8cadb;box-shadow:inset 0 0 0 1px #6d91a5,0 4px 12px #06172366;touch-action:none;user-select:none;-webkit-user-select:none}
+#aimPad::before,#aimPad::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none}
+#aimPad::before{width:65%;height:65%;border:1px dashed #a2bdcc77}
+#aimPad::after{width:11px;height:11px;background:#c1efff;box-shadow:0 0 0 3px #42768f}
+#aimPointer{position:absolute;left:50%;top:50%;width:30px;height:30px;border-radius:50%;background:white;border:4px solid #f1c566;transform:translate(-50%,-50%);box-shadow:0 1px 9px #071f2a77;pointer-events:none;z-index:2}
+#aimPad[aria-disabled="true"]{filter:grayscale(.65);opacity:.58}
+#aimCaption{font-size:11px;line-height:1.35;text-align:center;color:#c7e6f5;min-height:30px}
+.left-controls{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:5px}
+.left-controls .dashbar{width:100%;margin:0;padding:0;gap:3px}
+.left-controls .dashbutton{width:100%!important;min-height:47px!important;font-size:16px!important;border-radius:11px!important}
+.left-controls .dash-caption{font-size:10px}
+.left-controls .joytoggle{width:100%;min-height:43px;font-size:14px;font-weight:850}
+.left-controls .joysquad{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;max-height:min(28dvh,160px);overflow:auto}
+.left-controls .joysquad.fold{display:none}
+.left-controls .joysquad button,.left-controls .joysquad button:where(:not(.active)){min-height:32px!important;font-size:13px!important;padding:4px 0!important;border-radius:7px}
+.left-controls .joywho,.left-controls .joypossession{width:100%;font-size:11px}
+.left-controls .joypass,.left-controls #jumpHolder{min-height:38px!important;width:100%!important;font-size:12px!important}
+.shell>.joybar #joystick{width:min(100%,155px,26dvh)!important;max-width:155px!important;min-width:108px!important;flex:0 0 auto;touch-action:none}
+.shell>.joybar::before{content:'🕹 移動球員';font-size:clamp(12px,1.6vw,16px);font-weight:900;color:white;text-align:center}
+body.left-handed .shell{grid-template-columns:clamp(136px,15vw,176px) minmax(0,1fr) clamp(146px,16vw,188px)!important}
+body.left-handed .shell>.joybar{grid-column:1;grid-row:1}
+body.left-handed .shell>.touch-actions{grid-column:3;grid-row:1}
+body.left-handed .shell>.main{grid-column:2}
+body.left-handed .shell>.tools{left:auto;right:0;box-shadow:-10px 0 40px #081d2cb8}
+#aimHelp{font-size:10px!important;bottom:3px!important}
+.landscape-warning{display:none}
+@media (max-height:560px){
+ .shell>.touch-actions{gap:3px;padding:4px 5px}
+ #aimPad{width:min(100%,125px,23dvh)}
+ #aimCaption{min-height:17px;font-size:10px}
+ .left-controls{gap:3px}
+ .left-controls .dashbutton{min-height:37px!important}
+ .left-controls .joytoggle{min-height:33px!important}
+ .left-controls .joysquad button,.left-controls .joysquad button:where(:not(.active)){min-height:26px!important}
+ .left-controls .joysquad{max-height:23dvh}
+ .shell>.joybar #joystick{width:min(100%,132px,26dvh)!important}
+ .shell .scoreboard{min-height:33px!important;max-height:41px}
+}
+@media (orientation:portrait) and (max-width:1050px){
+ .landscape-warning{display:flex;position:fixed;inset:0;background:#132f46;color:white;z-index:250;align-items:center;justify-content:center;flex-direction:column;text-align:center;font-size:24px;font-weight:900;padding:30px;gap:15px}
+ .landscape-warning small{font-size:14px;font-weight:500}
+}
+
+/* iPad V3.27 controls revision: lower thumb zones, selection above aim, dash below. */
+.shell>.touch-actions{overflow:hidden!important;justify-content:flex-start!important;gap:0!important;padding:8px 7px 12px!important}
+.touch-header{flex:0 0 auto}
+.touch-control-stack{width:100%;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;margin-top:auto;padding-bottom:16px;position:relative}
+.select-dock{order:0;width:100%;position:relative;flex:0 0 auto}
+.select-dock .joytoggle{min-height:45px!important;font-size:15px!important}
+.select-dock .joysquad{position:absolute;z-index:45;left:0;bottom:calc(100% + 5px);width:100%;max-height:min(43dvh,280px);padding:5px;background:#263e52;border:2px solid #89acc0;border-radius:10px;box-shadow:0 6px 20px #0008;overflow-y:auto;grid-template-columns:repeat(4,minmax(0,1fr))}
+.select-dock .joysquad.fold{display:none}
+.touch-control-stack .aim-title{margin-top:1px;font-size:clamp(11px,1.55vw,14px)}
+.touch-control-stack #aimPad{width:min(100%,172px,24dvh)}
+.touch-control-stack #aimCaption{min-height:17px;font-size:10px;line-height:1.2}
+.dash-dock{width:100%;flex:0 0 auto}
+.dash-dock .dashbar{margin:0!important}
+.dash-dock .dashbutton{min-height:49px!important;font-size:17px!important}
+.secondary-dock{flex:0 0 auto;gap:3px!important}
+.secondary-dock .joywho,.secondary-dock .joypossession{font-size:10px!important}
+.secondary-dock .joypossession{gap:3px}
+.secondary-dock .joypass,.secondary-dock #jumpHolder{min-height:34px!important;font-size:11px!important}
+.shell>.joybar{justify-content:flex-end!important;padding-bottom:43px!important}
+.shell>.joybar #joystick{width:min(100%,167px,26dvh)!important;max-width:167px!important}
+@media(max-height:650px){
+ .shell>.touch-actions{padding:5px 5px 4px!important}
+ .touch-control-stack{gap:2px;padding-bottom:2px}
+ .select-dock .joytoggle{min-height:34px!important;font-size:12px!important}
+ .touch-control-stack #aimPad{width:min(100%,140px,22dvh)}
+ .touch-control-stack .aim-title{font-size:11px}
+ .touch-control-stack #aimCaption{min-height:13px;font-size:9px}
+ .dash-dock .dashbutton{min-height:34px!important;font-size:13px!important;padding:3px!important}
+ .dash-dock .dash-caption{font-size:9px}
+ .secondary-dock .joywho{display:none}
+ .secondary-dock .joypossession{display:none}
+ .secondary-dock #quickPass{min-height:29px!important}
+ .shell>.joybar{padding-bottom:20px!important}
+ .shell>.joybar #joystick{width:min(100%,132px,24dvh)!important}
+}
+@media(max-height:480px){
+ .touch-control-stack .aim-title{display:none}
+ .touch-control-stack #aimCaption{display:none}
+ .touch-control-stack #aimPad{width:min(100%,118px,20dvh)}
+ .shell>.joybar #joystick{width:min(100%,118px,22dvh)!important}
+}
+
+/* V3.27 MOBA iPad revision: persistent right-side squad + movement, reverse pull-to-throw */
+.shell>.touch-actions{justify-content:flex-start!important;}
+.touch-control-stack{margin-top:auto;padding-bottom:clamp(10px,2.4dvh,25px)!important;gap:6px!important;}
+.touch-control-stack .aim-title{font-size:clamp(12px,1.6vw,15px);}
+.touch-control-stack #aimPad{width:min(100%,162px,25dvh)!important;}
+.touch-control-stack #aimCaption{min-height:18px;font-size:11px!important;}
+.dash-dock{margin-top:3px;}
+.dash-dock .dashbutton{min-height:49px!important;}
+/* Action cluster stays with movement stick when swapping handedness. */
+.shell>.joybar{justify-content:flex-end!important;gap:5px!important;padding:7px 6px clamp(12px,2.4dvh,25px)!important;overflow:hidden!important;}
+.shell>.joybar::before{display:none!important;}
+.right-select-dock,.right-actions-dock{flex:0 0 auto;width:100%;min-width:0;display:flex;flex-direction:column;gap:4px;align-items:stretch;}
+.right-select-dock .joytoggle{font-size:13px!important;font-weight:850;min-height:24px!important;padding:2px!important;margin:0!important;opacity:1!important;background:#31536b!important;}
+.right-select-dock .joytoggle:disabled{opacity:1!important;cursor:default;}
+.shell>.joybar .right-select-dock .joysquad{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important;width:100%;max-height:none!important;overflow:visible!important;}
+.shell>.joybar .right-select-dock .joysquad button{min-height:39px!important;font-size:13px!important;padding:3px 0!important;border-radius:7px!important;}
+.right-select-dock .joywho{font-size:11px!important;line-height:1.2;text-align:center;min-height:15px;}
+.right-actions-dock .joypossession{display:flex!important;gap:4px!important;width:100%;align-items:center;justify-content:space-between;}
+.right-actions-dock #joyHolder{font-size:10px!important;line-height:1.1;min-width:0;flex:1;}
+.right-actions-dock #jumpHolder{min-height:34px!important;padding:3px!important;font-size:11px!important;flex:0 0 auto;}
+.right-actions-dock #quickPass{width:100%!important;min-height:38px!important;font-size:12px!important;padding:3px!important;}
+.shell>.joybar #joystick{width:min(100%,148px,24dvh)!important;min-width:0!important;max-width:148px!important;margin-top:5px!important;flex-shrink:0;}
+@media(max-height:650px){
+ .shell>.joybar{gap:3px!important;padding:4px 5px 9px!important;}
+ .shell>.joybar .right-select-dock .joysquad{gap:2px!important;}
+ .shell>.joybar .right-select-dock .joysquad button{min-height:31px!important;font-size:11px!important;padding:1px!important;}
+ .right-select-dock .joytoggle{min-height:20px!important;font-size:11px!important;}
+ .right-select-dock .joywho{display:none!important;}
+ .right-actions-dock #jumpHolder{min-height:28px!important;font-size:10px!important;}
+ .right-actions-dock #quickPass{min-height:32px!important;font-size:11px!important;}
+ .shell>.joybar #joystick{width:min(100%,125px,23dvh)!important;margin-top:2px!important;}
+ .touch-control-stack #aimPad{width:min(100%,138px,23dvh)!important;}
+}
+@media(max-height:480px){
+ .right-actions-dock #joyHolder{display:none!important;}
+ .right-actions-dock #jumpHolder{width:100%!important;}
+ .shell>.joybar .right-select-dock .joysquad button{min-height:26px!important;font-size:10px!important;}
+ .shell>.joybar #joystick{width:min(100%,108px,21dvh)!important;}
+ .touch-control-stack #aimPad{width:min(100%,114px,20dvh)!important;}
+}
+
+/* iPad tactics quick bar & larger number selector */
+.quick-action-row{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;flex:0 0 auto;margin-top:5px}
+.quick-action-row button{padding:5px 1px!important;min-width:0;min-height:40px;font-size:11px!important;font-weight:850;line-height:1.2;border-radius:8px;white-space:nowrap}
+.quick-action-row #quickTactics{background:#32725c;border-color:#78b7a3}
+.shell>.joybar .right-select-dock .joysquad{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important}
+.shell>.joybar .right-select-dock .joysquad button{min-height:46px!important;font-size:16px!important;padding:5px 1px!important;font-weight:900!important;border-radius:9px!important}
+.shell>.joybar #joystick{width:min(100%,140px,22dvh)!important;margin-top:2px!important}
+.quick-tactic-drawer{position:fixed;z-index:67;top:60px;left:clamp(146px,16vw,188px);width:min(330px,65vw);max-height:calc(100dvh - 70px);overflow-y:auto;background:#16344b;color:#fff;border:2px solid #91c0d5;border-radius:13px;padding:11px;box-shadow:0 10px 30px #0007;touch-action:pan-y}
+.quick-tactic-drawer[hidden]{display:none!important}
+.tactic-drawer-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.tactic-drawer-head button{min-height:35px;font-size:12px;background:#345971}
+.quick-tactic-drawer .tactical-panel{display:flex;flex-direction:column;gap:7px}
+.quick-tactic-drawer .tactics-group summary{min-height:38px!important;font-size:14px!important}
+.quick-tactic-drawer .tactics-picks{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:5px!important}
+.quick-tactic-drawer .tactics-picks button{min-height:40px!important;font-size:14px!important}
+.quick-tactic-hint{font-size:11px;line-height:1.45;color:#c8deea;margin:8px 0 0}
+body.left-handed .quick-tactic-drawer{left:auto;right:clamp(146px,16vw,188px)}
+@media(max-height:700px){
+ .shell>.joybar .right-select-dock .joysquad button{min-height:39px!important;font-size:14px!important}
+ .shell>.joybar #joystick{width:min(100%,125px,22dvh)!important}
+ .quick-action-row button{min-height:34px;font-size:10px!important}
+ .quick-tactic-drawer{top:48px;max-height:calc(100dvh - 52px)}
+}
+@media(max-height:570px){
+ .shell>.joybar .right-select-dock .joysquad button{min-height:32px!important;font-size:13px!important}
+ .shell>.joybar #joystick{width:min(100%,105px,20dvh)!important}
+ .quick-action-row button{min-height:30px;font-size:9px!important}
+}
+
+/* iPad 戰術快速設定：利用面板下方空間放大單一戰術的選號區 */
+.quick-tactic-drawer{
+  display:flex;flex-direction:column;
+  height:calc(100dvh - 76px);max-height:none;
+  width:clamp(300px,34vw,370px);
+  overflow:hidden;padding:10px;
+}
+.quick-tactic-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;flex:0 0 auto;margin-bottom:8px}
+.quick-tactic-tabs button{min-width:0;min-height:47px;padding:7px 2px!important;font-size:15px!important;font-weight:850;background:#35566b;border:1px solid #7195ab;border-radius:9px;color:white;touch-action:manipulation}
+.quick-tactic-tabs button.active{background:#efc36b!important;border-color:#ffebac!important;color:#223647!important}
+.quick-tactic-drawer #quickTacticContent{min-height:0;flex:1;display:flex;flex-direction:column}
+.quick-tactic-drawer .tactical-panel{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px!important}
+.quick-tactic-drawer .tactical-panel>.section-title{display:none}
+.quick-tactic-drawer .tactics-phase{flex:0 0 auto;font-size:13px!important;padding:8px 5px!important}
+.quick-tactic-drawer .tactics-group{display:none;min-height:0;flex:1;flex-direction:column;overflow:hidden}
+.quick-tactic-drawer .tactics-group.tactic-visible{display:flex}
+.quick-tactic-drawer .tactics-group summary{flex:0 0 auto;min-height:41px!important;font-size:15px!important}
+.quick-tactic-drawer .tactics-group summary::before{display:none}
+.quick-tactic-drawer .tactics-picks{
+  display:grid!important;flex:1;min-height:0;overflow-y:auto;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-rows:repeat(5,minmax(65px,1fr));
+  gap:7px!important;padding:8px!important;
+  align-content:stretch;
+}
+.quick-tactic-drawer .tactics-picks button{
+  width:100%;min-height:65px!important;height:100%;padding:3px!important;
+  font-size:clamp(16px,2.4dvh,21px)!important;font-weight:900;
+  border-radius:10px;touch-action:manipulation;
+}
+.quick-tactic-drawer #clearTactics{min-height:38px!important;font-size:13px!important;flex:0 0 auto}
+.quick-tactic-drawer .quick-tactic-hint{font-size:10px;line-height:1.3;margin:5px 0 0;flex:0 0 auto}
+@media(max-height:700px){
+ .quick-tactic-drawer{top:46px;height:calc(100dvh - 53px);max-height:none}
+ .quick-tactic-tabs button{min-height:38px;font-size:12px!important}
+ .quick-tactic-drawer .tactics-picks{grid-template-rows:repeat(5,minmax(39px,1fr));gap:4px!important;padding:5px!important}
+ .quick-tactic-drawer .tactics-picks button{min-height:39px!important;font-size:15px!important}
+ .quick-tactic-drawer .tactics-phase{padding:4px!important}
+ .quick-tactic-drawer .quick-tactic-hint{display:none}
+}
+
+/* V3.28: 戰術常駐於投球搖桿上方的空間；不再遮擋球場 */
+.shell>.touch-actions{overflow:hidden!important;}
+.shell>.touch-actions>.quick-tactic-drawer{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  z-index:1!important;width:100%!important;max-width:none!important;
+  height:auto!important;max-height:none!important;min-height:0!important;
+  flex:1 1 auto!important;align-self:stretch!important;
+  display:flex!important;flex-direction:column!important;
+  padding:5px 4px!important;margin:5px 0 0!important;
+  box-sizing:border-box!important;border:1px solid #557c93!important;
+  border-radius:10px!important;box-shadow:none!important;
+  overflow:hidden!important;touch-action:pan-y;
+}
+.shell>.touch-actions>.quick-tactic-drawer[hidden]{display:none!important;}
+.shell>.touch-actions .tactic-drawer-head{display:none!important;}
+.shell>.touch-actions .quick-tactic-tabs{gap:2px!important;margin:0 0 4px!important;flex:0 0 auto;}
+.shell>.touch-actions .quick-tactic-tabs button{min-height:31px!important;padding:2px 0!important;font-size:11px!important;border-radius:6px!important;}
+.shell>.touch-actions #quickTacticContent{flex:1 1 auto;min-height:0;}
+.shell>.touch-actions .tactical-panel{gap:3px!important;min-height:0;}
+.shell>.touch-actions .tactics-phase{font-size:10px!important;padding:3px 1px!important;line-height:1.2!important;}
+.shell>.touch-actions .tactics-group{min-height:0;flex:1 1 auto!important;border:0!important;background:transparent!important;}
+.shell>.touch-actions .tactics-group summary{min-height:22px!important;padding:2px!important;font-size:11px!important;}
+.shell>.touch-actions .tactics-group summary .pick-count{font-size:9px!important;padding:1px 3px!important;}
+.shell>.touch-actions .tactics-picks{
+  display:grid!important;flex:1 1 auto!important;min-height:0!important;
+  overflow-y:auto!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-rows:repeat(5,minmax(26px,1fr))!important;
+  gap:3px!important;padding:3px 1px!important;align-content:stretch!important;
+}
+.shell>.touch-actions .tactics-picks button{
+  width:100%!important;height:100%!important;min-height:26px!important;
+  font-size:clamp(12px,1.8dvh,16px)!important;padding:0!important;border-radius:6px!important;
+}
+.shell>.touch-actions #clearTactics{min-height:29px!important;padding:3px!important;font-size:11px!important;}
+.shell>.touch-actions .quick-tactic-hint{display:none!important;}
+.shell>.touch-actions .touch-control-stack{flex:0 0 auto!important;margin-top:3px!important;padding-bottom:clamp(4px,1.3dvh,14px)!important;gap:4px!important;}
+.shell>.touch-actions .quick-action-row{margin-top:4px!important;}
+.shell>.touch-actions #quickTactics{background:#32725c!important;}
+@media (max-height:700px){
+  .shell>.touch-actions>.quick-tactic-drawer{padding:3px!important;margin-top:3px!important;}
+  .shell>.touch-actions .quick-tactic-tabs button{min-height:26px!important;font-size:10px!important;}
+  .shell>.touch-actions .tactics-phase{display:none!important;}
+  .shell>.touch-actions .tactics-group summary{min-height:18px!important;font-size:10px!important;}
+  .shell>.touch-actions .tactics-picks{grid-template-rows:repeat(5,minmax(23px,1fr))!important;gap:2px!important;}
+  .shell>.touch-actions .tactics-picks button{min-height:23px!important;font-size:12px!important;}
+  .shell>.touch-actions #clearTactics{min-height:24px!important;}
+  .shell>.touch-actions .touch-control-stack{gap:2px!important;padding-bottom:2px!important;}
+}
+@media (max-height:560px){
+  .shell>.touch-actions .tactics-picks{grid-template-rows:repeat(5,23px)!important;}
+  .shell>.touch-actions>.quick-tactic-drawer{overflow-y:auto!important;}
+  .shell>.touch-actions .quick-tactic-tabs button{min-height:24px!important;}
+  .shell>.touch-actions #clearTactics{min-height:22px!important;}
+  .shell>.touch-actions #aimPad{width:min(100%,105px,19dvh)!important;}
+  .shell>.touch-actions .aim-title,.shell>.touch-actions #aimCaption{display:none!important;}
+  .shell>.touch-actions .dash-dock .dashbutton{min-height:32px!important;}
+}
+
+/* V3.29: anchor aim controls at bottom even when the tactic panel collapses. */
+.shell>.touch-actions>.touch-control-stack{
+  margin-top:auto!important;
+  flex:0 0 auto!important;
+  justify-content:flex-end!important;
+}
+/* Remove helper captions under the left aim pad and sprint control. */
+.shell>.touch-actions #aimCaption,
+.shell>.touch-actions .dash-dock .dash-caption{display:none!important;}
+/* Keep the two right-hand actions equally prominent, side by side. */
+.shell>.joybar .right-actions-dock .right-button-row{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:5px;
+  width:100%;
+  align-items:stretch;
+}
+.shell>.joybar .right-actions-dock .right-button-row #jumpHolder,
+.shell>.joybar .right-actions-dock .right-button-row #quickPass{
+  width:100%!important;
+  min-width:0!important;
+  min-height:48px!important;
+  height:100%!important;
+  padding:5px 3px!important;
+  font-size:clamp(11px,1.15vw,14px)!important;
+  font-weight:850!important;
+  line-height:1.2!important;
+  white-space:normal!important;
+  border-radius:9px!important;
+}
+.shell>.joybar .right-actions-dock .joypossession{justify-content:center!important;}
+.shell>.joybar .right-actions-dock #joyHolder{text-align:center!important;}
+@media(max-height:650px){
+  .shell>.joybar .right-actions-dock .right-button-row #jumpHolder,
+  .shell>.joybar .right-actions-dock .right-button-row #quickPass{min-height:39px!important;font-size:11px!important;}
+}
+@media(max-height:480px){
+  .shell>.joybar .right-actions-dock .right-button-row #jumpHolder,
+  .shell>.joybar .right-actions-dock .right-button-row #quickPass{min-height:33px!important;font-size:10px!important;}
+}
+
+/* V3.30: enlarge left tactical controls and action buttons for easier iPad tapping. */
+.shell>.touch-actions .tactics-phase#strategyHint{display:none!important;}
+.shell>.touch-actions>.quick-tactic-drawer{
+  padding:7px 6px 6px!important;
+  margin-top:6px!important;
+  border-width:2px!important;
+}
+.shell>.touch-actions .quick-tactic-tabs{
+  gap:5px!important;
+  margin:0 0 6px!important;
+}
+.shell>.touch-actions .quick-tactic-tabs button{
+  min-height:46px!important;
+  padding:6px 2px!important;
+  font-size:14px!important;
+  font-weight:900!important;
+  border-radius:9px!important;
+}
+.shell>.touch-actions .tactical-panel{gap:6px!important;}
+.shell>.touch-actions .tactics-group summary{
+  min-height:33px!important;
+  padding:5px 6px!important;
+  font-size:14px!important;
+}
+.shell>.touch-actions .tactics-group summary .pick-count{
+  font-size:11px!important;
+  padding:2px 5px!important;
+}
+.shell>.touch-actions .tactics-picks{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-rows:none!important;
+  grid-auto-rows:minmax(44px,1fr)!important;
+  gap:5px!important;
+  padding:4px 2px!important;
+}
+.shell>.touch-actions .tactics-picks button{
+  min-height:44px!important;
+  font-size:16px!important;
+  font-weight:900!important;
+  border-radius:8px!important;
+}
+.shell>.touch-actions #clearTactics{
+  min-height:42px!important;
+  padding:6px 4px!important;
+  font-size:14px!important;
+  font-weight:850!important;
+}
+.shell>.touch-actions .quick-action-row{
+  margin-top:6px!important;
+  gap:6px!important;
+}
+.shell>.touch-actions .quick-action-row button{
+  min-height:52px!important;
+  padding:7px 3px!important;
+  font-size:14px!important;
+  font-weight:900!important;
+  border-radius:10px!important;
+}
+.shell>.touch-actions .touch-control-stack{margin-top:4px!important;gap:5px!important;}
+@media (max-height:700px){
+  .shell>.touch-actions>.quick-tactic-drawer{padding:5px!important;}
+  .shell>.touch-actions .quick-tactic-tabs button{min-height:40px!important;font-size:13px!important;}
+  .shell>.touch-actions .tactics-group summary{min-height:29px!important;font-size:12px!important;}
+  .shell>.touch-actions .tactics-picks{gap:4px!important;grid-auto-rows:minmax(38px,1fr)!important;}
+  .shell>.touch-actions .tactics-picks button{min-height:38px!important;font-size:14px!important;}
+  .shell>.touch-actions #clearTactics{min-height:36px!important;font-size:12px!important;}
+  .shell>.touch-actions .quick-action-row button{min-height:46px!important;font-size:13px!important;}
+}
+@media (max-height:560px){
+  .shell>.touch-actions .quick-tactic-tabs button{min-height:34px!important;font-size:12px!important;}
+  .shell>.touch-actions .tactics-group summary{min-height:26px!important;font-size:11px!important;}
+  .shell>.touch-actions .tactics-picks{grid-auto-rows:minmax(32px,1fr)!important;gap:3px!important;}
+  .shell>.touch-actions .tactics-picks button{min-height:32px!important;font-size:13px!important;}
+  .shell>.touch-actions #clearTactics{min-height:31px!important;font-size:11px!important;}
+  .shell>.touch-actions .quick-action-row button{min-height:40px!important;font-size:12px!important;}
+}
+
+/* V3.31: Explicit four-row grid keeps the throw pad anchored
+   regardless of tactic panel expansion/collapse. */
+.shell>.touch-actions{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:auto auto minmax(0,1fr) auto!important;
+  align-items:stretch!important;
+  align-content:stretch!important;
+  gap:0!important;
+  min-height:0!important;
+}
+.shell>.touch-actions>.touch-header{grid-row:1;min-width:0;}
+.shell>.touch-actions>.quick-action-row{grid-row:2;min-width:0;}
+.shell>.touch-actions>.quick-tactic-drawer{
+  grid-row:3!important;
+  min-height:0!important;
+  max-height:100%!important;
+  margin-bottom:0!important;
+}
+.shell>.touch-actions>.touch-control-stack{
+  grid-row:4!important;
+  position:relative!important;
+  align-self:end!important;
+  justify-self:stretch!important;
+  width:100%!important;
+  margin-top:0!important;
+  margin-bottom:0!important;
+  flex:none!important;
+}
+/* Time stays by itself; secondary indicators sit to the left of blue score. */
+.shell .scoreboard{justify-content:space-between!important;}
+.shell .scoreboard .match-status{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  flex:0 1 125px;min-width:74px;max-width:125px;
+  gap:0;text-align:center;
+}
+.shell .scoreboard .match-status .meta,
+.shell .scoreboard .match-status .attack-clock{
+  font-size:clamp(9px,1.1vw,12px)!important;
+  line-height:1.2!important;
+  white-space:nowrap;
+}
+.shell .scoreboard .centered{flex:0 0 auto;}
+#aimHelp{display:none!important;}
+
+/* V3.33 — persistent tactical selectors and an Arena-style throw-cancel target. */
+.shell>.touch-actions>.quick-tactic-drawer{display:flex!important;}
+.shell>.touch-actions .quick-action-row #quickTactics{white-space:nowrap;}
+#aimCancelZone{
+  position:fixed;left:-200px;top:-200px;z-index:92;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:88px;height:88px;box-sizing:border-box;
+  border:3px solid #ff8989;border-radius:50%;
+  background:rgba(114,27,34,.90);color:#fff;
+  box-shadow:0 4px 20px #0008, inset 0 0 0 3px #fff2;
+  font-size:12px;font-weight:900;line-height:1.4;
+  opacity:0;visibility:hidden;transform:scale(.85);
+  transition:transform .12s,opacity .12s;
+  pointer-events:none;touch-action:none;user-select:none;
+}
+#aimCancelZone.visible{opacity:1;visibility:visible;transform:scale(1);}
+#aimCancelZone.active{
+  border-color:#fff3a2;background:#d7353c;
+  box-shadow:0 0 0 6px #ff4c4c55,0 4px 22px #0009;
+  transform:scale(1.08);
+}
+#aimCancelZone .cancel-cross{font-size:29px;line-height:1.05;}
+#aimPad.aim-cancelling{border-color:#ffb0b0;box-shadow:0 0 0 4px #fa5b5b66;}
+@media(max-height:560px){#aimCancelZone{width:76px;height:76px;font-size:11px;}}
+
+/* V3.34 scoreboard: court-centered time, scores immediately flanking it,
+   attack countdown on left. Neither panel widths nor status text shift the timer. */
+.shell>.main>.scoreboard{
+ position:relative!important;
+ display:block!important;
+ width:100%!important;
+ min-height:52px!important;
+ max-height:57px!important;
+ padding:0 8px!important;
+ overflow:hidden!important;
+}
+.shell>.main>.scoreboard>.centered{
+ position:absolute!important;
+ left:50%!important;
+ top:50%!important;
+ transform:translate(-50%,-50%)!important;
+ margin:0!important;
+ width:auto!important;
+ white-space:nowrap!important;
+}
+.shell>.main>.scoreboard>.scorecol{
+ position:absolute!important;
+ top:50%!important;
+ transform:translateY(-50%)!important;
+ display:flex!important;
+ gap:5px!important;
+ flex:none!important;
+ min-width:0!important;
+ white-space:nowrap!important;
+}
+.shell>.main>.scoreboard>.scorecol.blue{
+ right:calc(50% + clamp(65px,9vw,104px))!important;
+}
+.shell>.main>.scoreboard>.scorecol.orange{
+ left:calc(50% + clamp(65px,9vw,104px))!important;
+}
+.shell>.main>.scoreboard>.match-status{
+ position:absolute!important;
+ left:8px!important;
+ top:50%!important;
+ transform:translateY(-50%)!important;
+ width:max-content!important;
+ min-width:0!important;
+ max-width:clamp(92px,13vw,175px)!important;
+ display:flex!important;
+ flex-direction:column!important;
+ align-items:flex-start!important;
+ text-align:left!important;
+ gap:2px!important;
+}
+.shell>.main>.scoreboard .match-status .meta{font-size:10px!important;}
+.shell>.main>.scoreboard .match-status .attack-clock{
+ font-size:clamp(10px,1.2vw,13px)!important;
+ font-weight:900!important;
+ margin:0!important;
+}
+@keyframes attackClockRedPulse{
+ 0%,100%{color:#e3322f;opacity:1;text-shadow:0 0 4px #ff424250;}
+ 50%{color:#a91d1b;opacity:.28;text-shadow:none;}
+}
+.shell>.main>.scoreboard .attack-clock.critical-flash{
+ animation:attackClockRedPulse .55s ease-in-out infinite!important;
+}
+@media(max-width:850px){
+ .shell>.main>.scoreboard>.scorecol.blue{
+   right:calc(50% + 60px)!important;
+ }
+ .shell>.main>.scoreboard>.scorecol.orange{
+   left:calc(50% + 60px)!important;
+ }
+ .shell>.main>.scoreboard>.scorecol{gap:3px!important;}
+ .shell>.main>.scoreboard .scorecol span{font-size:10px!important;}
+ .shell>.main>.scoreboard .scorecol b{font-size:21px!important;}
+ .shell>.main>.scoreboard>.match-status{left:4px!important;max-width:92px!important;}
+ .shell>.main>.scoreboard .match-status .meta{font-size:9px!important;}
+ .shell>.main>.scoreboard .match-status .attack-clock{font-size:9px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+ .shell>.main>.scoreboard .attack-clock.critical-flash{animation:none!important;color:#d71920!important;}
+}
+
+/* V3.35: non-interfering player-control feedback */
+#controlSwitchHint{
+ position:absolute;left:50%;transform:translate(-50%,-5px);
+ bottom:calc(100% + 5px);z-index:6;
+ color:#173850;background:#ffde8c;border:2px solid #fff7dc;
+ border-radius:10px;padding:6px 9px;font-size:12px;font-weight:900;
+ white-space:nowrap;max-width:190px;pointer-events:none;
+ opacity:0;visibility:hidden;transition:opacity .15s,transform .15s;
+}
+#controlSwitchHint.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.shell>.joybar .right-select-dock{position:relative}
+/* Ensure the throw cancel zone remains an easy-to-see thumb target on iPad. */
+#aimCancelZone{border-width:4px;backdrop-filter:blur(2px)}
+#aimCancelZone.active{outline:3px solid #fff3a2;outline-offset:3px;}
+@media (max-height:620px){#controlSwitchHint{font-size:11px;padding:5px 7px}}
+@media (prefers-reduced-motion:reduce){#controlSwitchHint{transition:none!important}}
+
+/* V3.42: movement stability + tactical emphasis */
+.player-marker-ring{pointer-events:none}
 </style></head><body class="is-setup">
-<div class="shell"><aside class="tools" aria-label="遊戲操作">
-  <div class="brand">躲數球 <span class="brand-version">V3.27</span></div>
+<div class="landscape-warning">請將 iPad 轉成橫向，即可使用雙手操作躲數球。<small>建議使用 Safari 的全螢幕檢視</small></div>
+<div class="quick-tactic-drawer" id="quickTacticDrawer" hidden><div class="tactic-drawer-head"><strong>戰術指定</strong><button id="closeQuickTactics" type="button">✕ 關閉</button></div><div class="quick-tactic-tabs" role="tablist" aria-label="戰術分類"><button type="button" id="tacticTabAttack" data-tactic-tab="atkGroup" class="active" aria-selected="true">🎯 進攻</button><button type="button" id="tacticTabDefense" data-tactic-tab="defGroup" aria-selected="false">🛡 保護</button><button type="button" id="tacticTabBlock" data-tactic-tab="blockGroup" aria-selected="false">🧱 擋球</button></div><div id="quickTacticContent"></div><p class="quick-tactic-hint">每種戰術最多指定 3 個號碼，僅作用於仍在內場的球員；操控中的球員不受 AI 接管。橘隊會依比分自行選擇進攻、防護和擋球目標。</p></div>
+<div class="shell"><div class="touch-actions" aria-label="投球與左手操作">
+  <div class="touch-header"><button id="openSettings" type="button">☰ 設定</button><button id="swapHands" type="button" title="交換左右手控制">⇄ 左右手</button></div>
+  <div class="quick-action-row" id="quickActionRow"><button id="quickTactics" type="button" aria-expanded="false">🎯 戰術</button></div>
+  <div class="touch-control-stack">
+    <div id="selectDock" class="left-controls select-dock"></div>
+    <div class="aim-title">🎯 向後拉球投出</div>
+    <div id="aimPad" role="application" aria-label="拖曳投球；拖到紅色取消區後放開可取消投球"><div class="aim-ring"></div><div id="aimPointer"></div></div><div id="aimCancelZone" aria-hidden="true"><span class="cancel-cross">✕</span><span>取消投球</span></div>
+    <div id="aimCaption">向後拉球，放開反方向投出</div>
+    <div id="dashDock" class="left-controls dash-dock"></div>
+    <div id="leftControls" class="left-controls secondary-dock"></div>
+  </div>
+</div><aside class="tools" aria-label="遊戲操作">
+  <div class="brand">躲數球 <span class="brand-version">V3.42</span></div><button id="closeSettings" type="button" class="close-settings">✕ 關閉設定</button>
   <section class="sidebar-section main-actions" aria-label="比賽控制">
     <button id="start" class="primary">▶ 開始比賽</button>
     <div class="toolrow"><button id="pause" disabled>Ⅱ 暫停</button><button id="reset">↻ 重來</button></div>
@@ -420,7 +998,7 @@ body.mission-card-active .tools .mode-shortcut{order:-1;position:sticky;top:0;z-
     <div class="role" id="roles" aria-label="球員角色"><button data-role="attack">進攻</button><button data-role="defend">防守</button><button data-role="evade">閃避</button><button data-role="none">一般</button></div>
     <div class="mini-label setup-label">內／外場</div>
     <div class="toolrow"><button id="toInner" class="secondary">進內場</button><button id="toOuter" class="secondary">到外場</button></div>
-    <div id="lineupHint" class="mini-note">外場至少 3 人</div>
+    <div id="lineupHint" class="mini-note">外場需剛好 3 人</div>
   </section>
   <section class="sidebar-section tactical-panel" aria-label="戰術設定">
     <div class="section-title">戰術</div>
@@ -435,11 +1013,11 @@ body.mission-card-active .tools .mode-shortcut{order:-1;position:sticky;top:0;z-
     <div class="field"><select id="difficulty"><option value="easy">練習</option><option value="normal" selected>一般</option><option value="hard">挑戰（極難）</option></select></div>
   </section>
 </aside>
-<main class="main"><div class="scoreboard"><div class="scorecol blue"><span>藍隊</span><b id="blueScore">0</b></div><div class="centered"><div id="timer" class="clock">05:00</div><div class="meta" id="period">賽前排陣</div><div id="attackClock" class="attack-clock" aria-live="off">進攻限時 15 秒</div></div><div class="scorecol orange"><b id="orangeScore">0</b><span>橘隊</span></div></div>
-<div class="play-area"><div class="boardbox"><svg id="court" viewBox="125 90 850 520" preserveAspectRatio="xMidYMid meet" aria-label="加減乘除躲數球互動球場"></svg><div id="toast"></div><div id="eventBanner" aria-live="polite"></div><div id="victory"><div class="victory-card"><div style="font-size:38px">🏆</div><h2 id="victoryTitle">比賽結束</h2><div class="vscore" id="victoryScore">0 : 0</div><p id="victoryReason"></p><div id="missionResult" class="mission-result" hidden></div><button id="victoryAgain">再玩一局</button><button id="victoryNext" class="mission-next" hidden>下一關 ▶</button><button id="victoryModes" class="mission-modes">選擇模式</button></div></div><div id="aimHelp">點隊友傳球｜拖球員移動｜拖白球投球</div><div id="popup"></div>
-<div id="intro"><div class="introcard"><h2>🏐 躲數球遊戲 V3.27</h2><p>賽前可先排陣、設定角色與戰術。<br>可直接點藍隊隊友傳球；搖桿上方號碼只負責切換操控球員。<br>拖曳<strong>球員身體</strong>移動（持球時也可以），拖曳<strong>白球</strong>投球；右側「衝刺」可短暫加速。<br>持球或傳球超過 15 秒仍未進攻，就交換球權。</p><button id="introClose">開始排陣</button></div></div>
+<main class="main"><div class="scoreboard"><div class="match-status"><div class="meta" id="period">賽前排陣</div><div id="attackClock" class="attack-clock" aria-live="off">進攻限時 15 秒</div></div><div class="scorecol blue"><span>藍隊</span><b id="blueScore">0</b></div><div class="centered"><div id="timer" class="clock">05:00</div></div><div class="scorecol orange"><b id="orangeScore">0</b><span>橘隊</span></div></div>
+<div class="play-area"><div class="boardbox"><svg id="court" viewBox="125 90 850 520" preserveAspectRatio="xMidYMid meet" aria-label="加減乘除躲數球互動球場"></svg><div id="toast"></div><div id="eventBanner" aria-live="polite"></div><div id="victory"><div class="victory-card"><div style="font-size:38px">🏆</div><h2 id="victoryTitle">比賽結束</h2><div class="vscore" id="victoryScore">0 : 0</div><p id="victoryReason"></p><div id="missionResult" class="mission-result" hidden></div><button id="victoryAgain">再玩一局</button><button id="victoryNext" class="mission-next" hidden>下一關 ▶</button><button id="victoryModes" class="mission-modes">選擇模式</button></div></div><div id="aimHelp" hidden></div><div id="popup"></div>
+<div id="intro"><div class="introcard"><h2>🏐 躲數球遊戲 V3.31</h2><p>賽前可先排陣、設定角色與戰術。<br>可直接點藍隊隊友傳球；搖桿上方常駐的號碼只負責切換操控球員。<br>拖曳<strong>球員身體</strong>移動（持球時也可以），使用投球側<strong>圓形瞄準盤</strong>向後拖曳、反方向投球；投球側「衝刺」可短暫加速，按「左右手」可對調。<br>持球或傳球超過 15 秒仍未進攻，就交換球權。</p><button id="introClose">開始排陣</button></div></div>
 </div>
-</div><div class="hint"><span id="status">藍：左內右外｜橘：右內左外</span><small id="ballStatus">球權：藍隊</small><div class="chips"><span class="chip" id="countBlue">藍 內11／外3</span><span class="chip" id="countOrange">橘 內11／外3</span></div></div></main><div class="joybar" aria-label="快速選擇球員與虛擬搖桿"><button class="joytoggle" id="showSquad" type="button" aria-expanded="true">球員名單 ▴</button><div class="joysquad" id="joySquad" aria-label="快速選擇藍隊球員"></div><div class="joywho" id="joyWho">操控：1 號</div><div class="joypossession"><span id="joyHolder">持球：—</span><button id="jumpHolder" type="button" title="切換控制到藍隊持球者">切到持球</button></div><button id="quickPass" class="joypass" type="button" title="把球傳給目前選取的藍隊球員">傳球</button><div class="dashbar"><button id="dashButton" class="dashbutton" type="button" disabled aria-label="目前操控球員衝刺">⚡ 衝刺</button><div class="dash-meter" aria-hidden="true"><span id="dashMeter"></span></div><div class="dash-caption" id="dashCaption">冷卻 4 秒</div></div><div id="joystick" role="application" aria-label="拖曳控制所選球員方向"><div class="cross"></div><div id="joyKnob"></div></div></div></div>
+</div><div class="hint"><span id="status">藍：左內右外｜橘：右內左外</span><small id="ballStatus">球權：藍隊</small><div class="chips"><span class="chip" id="countBlue">藍 內11／外3</span><span class="chip" id="countOrange">橘 內11／外3</span></div></div></main><div class="joybar" aria-label="快速選擇球員與虛擬搖桿"><div id="rightSelectDock" class="right-select-dock"></div><div id="rightActionsDock" class="right-actions-dock"></div><button class="joytoggle" id="showSquad" type="button" aria-expanded="true">球員名單 ▴</button><div class="joysquad" id="joySquad" aria-label="快速選擇藍隊球員"></div><div class="joywho" id="joyWho">操控：1 號</div><div id="controlSwitchHint" role="status" aria-live="polite"></div><div class="joypossession"><span id="joyHolder">持球：—</span><button id="jumpHolder" type="button" title="切換控制到藍隊持球者">切到持球</button></div><button id="quickPass" class="joypass" type="button" title="把球傳給目前選取的藍隊球員">傳球</button><div class="dashbar"><button id="dashButton" class="dashbutton" type="button" disabled aria-label="目前操控球員衝刺">⚡ 衝刺</button><div class="dash-meter" aria-hidden="true"><span id="dashMeter"></span></div><div class="dash-caption" id="dashCaption">冷卻 4 秒</div></div><div id="joystick" role="application" aria-label="拖曳控制所選球員方向"><div class="cross"></div><div id="joyKnob"></div></div></div></div>
 <div id="diagnostics" hidden></div>
 
 <div id="modeOverlay" class="mode-overlay" hidden role="dialog" aria-modal="true" aria-label="選擇遊戲模式">
@@ -697,6 +1275,7 @@ function modeSelectAndStart(id){
  $('difficulty').value=modeStage?.difficulty||selectedModeDifficulty;
  $('difficulty').disabled=!!modeStage;document.body.classList.toggle('mission-locked',!!modeStage);
  if(modeStage){startGame();}else{
+  document.body.classList.add('settings-open');
   // Classic is explicitly a preparation room: team positions/roles remain editable.
   syncStage();sync();render();
   displayNotice('經典對戰：先選球員調整角色與內外場，再按左側「開始比賽」',3.2);
@@ -812,7 +1391,7 @@ function assignMissionRoles(){
 }
 
 function missionStart(){
- lastMissionResult=null;modeActive=!!modeStage;ATTACK_LIMIT=modeStage?.attackLimit||15;
+ lastMissionResult=null;modeActive=!!modeStage;ATTACK_LIMIT=modeStage?.attackLimit||15;updateAttackClockDisplay();
  missionStats={hitNums:[],history:[],outerHits:0,consecutive:0,bestConsecutive:0,misses:0,blueShots:0,bluePasses:0,blueTurnovers:0,guardLost:false,scoreEvents:0,blueInnerAtFinish:null};
  missionShotSerial=0;missionLastHitSerial=0;missionShotEvaluated=0;
  missionRound=1;missionRoundBaseline=modeStage?.difficulty||'normal';
@@ -946,7 +1525,7 @@ function resetStats(){for(const key of Object.keys(gameStats)){
 function debugUpdate(dt){if(!debugMode)return;debugTime+=dt;if(debugTime<.35)return;debugTime=0;
  const ps=players.filter(p=>p.team==='orange'&&p.zone==='inner');let minGap=999;
  for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++)minGap=Math.min(minGap,Math.hypot(ps[i].x-ps[j].x,ps[i].y-ps[j].y));
- const el=$('diagnostics');el.hidden=false;el.textContent=`V3.25 教師測試（僅 debug=1）\n狀態：${state} / ${bluePhase()}
+ const el=$('diagnostics');el.hidden=false;el.textContent=`V3.36 教師測試（僅 debug=1）\n狀態：${state} / ${bluePhase()}
 進攻指定：${tacticalPicks.attack.join('、')||'自動'} / 防守指定：${tacticalPicks.defense.join('、')||'自動'}\n投球：藍${gameStats.shots.blue} / 橘${gameStats.shots.orange}\n接球：藍${gameStats.catch.blue}/${gameStats.catchAttempts.blue} / 橘${gameStats.catch.orange}/${gameStats.catchAttempts.orange}\n閃避動作：藍${gameStats.dodges.blue} / 橘${gameStats.dodges.orange}\n碰撞命中：藍${gameStats.hits.blue} / 橘${gameStats.hits.orange}\n得分結算：藍${gameStats.scores.blue} / 橘${gameStats.scores.orange}\n撿球：藍${gameStats.pickups.blue} / 橘${gameStats.pickups.orange}\n出界：${gameStats.out}\n威脅球路：藍${gameStats.defenseThreats.blue} / 橘${gameStats.defenseThreats.orange}\n判定閃避成功：藍${gameStats.dodgeConfirmed.blue} / 橘${gameStats.dodgeConfirmed.orange}（不含自然落空）\n接球失敗：藍${gameStats.catchFailed.blue} / 橘${gameStats.catchFailed.orange}\n傳球：藍${gameStats.passes.blue} / 橘${gameStats.passes.orange}｜成功：藍${gameStats.passCaught.blue} / 橘${gameStats.passCaught.orange}｜遭攔截：藍${gameStats.passIntercepted.blue} / 橘${gameStats.passIntercepted.orange}\n電腦內場最近距離：${minGap===999?'—':minGap.toFixed(0)}`;
 }
 
@@ -1032,7 +1611,7 @@ function updateTacticsPanel(){
 function clearTacticalSelections(){
  for(const side of ['attack','defense','block'])tacticalPicks[side].length=0;
  tacticalModeKey='';tacticalPlanNext=0;
- for(const id of ['atkGroup','defGroup','blockGroup']){const group=$(id);if(group)group.open=false;}
+ for(const id of ['atkGroup','defGroup','blockGroup']){const group=$(id);if(group)group.open=Boolean(group.classList.contains('tactic-visible') && document.querySelector('.touch-actions #quickTacticDrawer'));}
  updateTacticsPanel();
 }
 function setupTacticsUI(){
@@ -1047,99 +1626,206 @@ function setupTacticsUI(){
  $('clearTactics').onclick=()=>{clearTacticalSelections();displayNotice('已改為 AI 自動選擇攻防重點',1.1)};
  updateTacticsPanel();
 }
-function updateDualTactics(){
- if(state!=='playing')return;
- const phase=bluePhase();
- const key=[phase,tacticalPicks.attack.join(','),tacticalPicks.defense.join(','),tacticalPicks.block.join(','),scores.blue,scores.orange,
-    players.filter(p=>p.team==='orange'&&p.zone==='inner').map(p=>p.id).join(','),
-    players.filter(p=>p.team==='blue'&&p.zone==='inner').map(p=>p.id).join(',')].join('|');
- if(key!==tacticalModeKey || now>tacticalPlanNext){
-  tacticalModeKey=key;tacticalPlanNext=now+1.7;
-  const offense=phase==='attack',ready=phase==='ready',targets=availableTargets(offense?'attack':'defense');
-  const inner=players.filter(p=>p.team==='blue'&&p.zone==='inner');
-  const eligible=inner.filter(p=>p.id!==selected&&p.manualUntil<=now);
-  // Only the two best-placed attackers act as support runners; everyone else
-  // keeps spacing so the player still has room to aim and dodge.
-  const activeSupport=offense?eligible.filter(p=>p.role==='attack'||p.role==='none').map(p=>{
-    const nearest=targets.length?Math.min(...targets.map(q=>Math.hypot(q.x-p.x,q.y-p.y))):999;
-    return {p,rank:nearest-(p.role==='attack'?75:0)};
-  }).sort((a,b)=>a.rank-b.rank).slice(0,2).map(q=>q.p.id):[];
-  for(const p of eligible){
-   if(p.goal&&p.actUntil>now)continue;
-   const base=playerFormationBase.get(p.id)||{x:p.x,y:p.y};
-   let x=p.x,y=p.y;
-   if(offense){
-    if(activeSupport.includes(p.id)&&targets.length){
-     const goal=targets.slice().sort((a,b)=>Math.abs(a.y-p.y)-Math.abs(b.y-p.y))[0];
-     // Seek a throwing lane without crossing center court or chasing a target
-     // into the opponent's zone. Keep a safe gap from teammate receivers.
-     const nearestTeammate=inner.filter(q=>q!==p).reduce((best,q)=>Math.min(best,Math.hypot(q.x-p.x,q.y-p.y)),999);
-     const run=nearestTeammate<45?5:p.role==='attack'?19:11;
-     x+=run;
-     y+=clamp(goal.y-p.y,-30,30)*.40;
-    }else{
-     // Keeping a lane free is also an offensive contribution.
-     const near=inner.filter(q=>q!==p).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y))[0];
-     if(near&&Math.hypot(near.x-p.x,near.y-p.y)<56)y+=p.y>=near.y?6:-6;
-    }
-   }else{
-    const blockIntent=isBlocker(p)&&!ready;
-    if(blockIntent){x+=p.team==='blue'?16:-16;y+=clamp(350-p.y,-14,14)*.4;}
-    const protectedPlayer=targets.find(q=>q.id===p.id);
-    if(protectedPlayer){
-     // Protected numbers are NOT magically harder to hit. They make room for
-     // their own sidesteps, and never flee toward a corner without space.
-     const others=inner.filter(q=>q!==p);
-     const above=others.filter(q=>q.y<p.y&&Math.abs(q.x-p.x)<75).sort((a,b)=>b.y-a.y)[0];
-     const below=others.filter(q=>q.y>=p.y&&Math.abs(q.x-p.x)<75).sort((a,b)=>a.y-b.y)[0];
-     const gapUp=above?p.y-above.y:80,gapDown=below?below.y-p.y:80;
-     const side=gapDown>gapUp?1:-1;
-     x-=ready?6:14;
-     if(Math.max(gapUp,gapDown)<58)y+=side*(ready?5:11);
-    }else if(p.role==='defend'){
-     const near=targets.filter(q=>q.id!==p.id).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y))[0];
-     if(near&&Math.hypot(near.x-p.x,near.y-p.y)<140){
-      // Support from the SIDE instead of standing directly in front of a
-      // protected teammate and taking the hit instead.
-      x+=clamp(near.x-p.x,-9,9)*.35;
-      y+=clamp(near.y-p.y,-22,22)*.38;
-     }else x-=4;
-    }else x-=ready?2:5;
-   }
-   // Clamp around the last pre-game location. This creates intent without
-   // warping anyone across the court, even after many possession changes.
-   x=clamp(x,base.x-44,base.x+44);
-   y=clamp(y,base.y-53,base.y+53);
-   const dest=allowed(p,x,y);
-   if(Math.hypot(dest.x-p.anchorX,dest.y-p.anchorY)>5){
-     p.anchorX=dest.x;p.anchorY=dest.y;p.roamTarget=null;
+// V3.27 tactics refinement: mirrored, bounded tactics for both teams.
+// Explicit blue tactical picks stay authoritative; orange picks its own
+// mathematically useful targets, vulnerable players and sacrificial blockers.
+let orangeTacticNext=0,orangeTacticKey='',cpuBlockerIds=new Set(),cpuProtectedIds=new Set(),cpuAttackIds=new Set();
+function activeHolder(team){return ball?.mode==='held'?players.find(q=>q.id===ball.owner&&q.team===team):null;}
+function tacticalValue(score,num){
+ const out=calc(score,num),delta=out.score-score;
+ return (out.win?180:0)+delta*1.48+(out.score>=23&&out.score<=29?5:0);
+}
+function orangePriorityTargets(){
+ const team=players.filter(p=>p.team==='blue'&&p.zone==='inner');
+ return team.sort((a,b)=>tacticalValue(scores.orange,b.num)-tacticalValue(scores.orange,a.num)).slice(0,3);
+}
+function orangeProtectedTargets(){
+ const team=players.filter(p=>p.team==='orange'&&p.zone==='inner');
+ // Protect numbers with the highest value to the opposing scorer, including
+ // a number that would immediately make exactly 30.
+ const sorted=team.sort((a,b)=>tacticalValue(scores.blue,b.num)-tacticalValue(scores.blue,a.num));
+ return sorted.slice(0,Math.min(cpuPlan==='cautious'?2:1,sorted.length));
+}
+function orangeSacrificeTargets(protectedIds){
+ // A deliberate hit only makes sense when it hurts the opposing score.
+ // Do not step in front for an apparently useful hit or an enemy exact-30 win.
+ if(!activeHolder('blue'))return [];
+ return players.filter(p=>p.team==='orange'&&p.zone==='inner'&&!protectedIds.has(p.id))
+  .map(p=>({p,change:calc(scores.blue,p.num).score-scores.blue,win:calc(scores.blue,p.num).win}))
+  .filter(q=>!q.win&&q.change<=-Math.max(3,Math.floor(scores.blue*.17)))
+  .sort((a,b)=>a.change-b.change).slice(0,cpuPlan==='cautious'?2:1).map(q=>q.p);
+}
+function tacticalPosition(team,player,x,y){
+ // The inner court should keep a margin from every boundary; only legally
+ // clamped destinations are used, never instantaneous position changes.
+ const box=OWN[team].inner[0],margin=18;
+ return allowed(player,clamp(x,box[0]+margin,box[1]-margin),clamp(y,box[2]+margin,box[3]-margin));
+}
+// V3.36: receivers move into separate lanes, with the holder and manual input protected.
+// Choose by proximity and role; destinations stay within the existing allowed() zones.
+function supportAssignments(team,holder,active){
+ const eligible=active.filter(p=>p.zone==='inner'&&p.id!==holder.id&&
+   !(p.goal&&now<p.actUntil+.22)&&!(p.act==='dodge'||p.act==='block')&&
+   Math.hypot(p.x-holder.x,p.y-holder.y)<360);
+ const ranked=eligible.map(p=>({p,score:(p.role==='attack'?45:p.role==='evade'?12:0)
+    -Math.hypot(p.x-holder.x,p.y-holder.y)*.19
+    -Math.abs(p.y-holder.y)*.035})).sort((a,b)=>b.score-a.score||a.p.id.localeCompare(b.p.id));
+ const desiredCount=Math.min(3,ranked.length,holder.role==='attack'?3:2);
+ const chosen=ranked.slice(0,desiredCount).map(q=>q.p);
+ const result=new Map();
+ const forward=team==='blue'?1:-1;
+ const box=OWN[team].inner[0],centerY=(box[2]+box[3])/2;
+ const laneSets={1:[0],2:[-82,82],3:[-108,0,108]};
+ for(let i=0;i<chosen.length;i++){
+  const p=chosen[i];
+  const others=players.filter(q=>q.team===team&&q.zone==='inner'&&q.id!==p.id);
+  const preferred=(laneSets[chosen.length]||[0])[i]??0;
+  const offsets=[preferred,preferred-34,preferred+34,-preferred].filter((v,idx,arr)=>arr.indexOf(v)===idx);
+  let choice=null;
+  for(const offset of offsets){
+   const y=clamp(holder.y+offset,box[2]+27,box[3]-27);
+   const x=clamp(holder.x+forward*(p.role==='attack'?96:p.role==='evade'?74:64),box[0]+25,box[1]-25);
+   const dest=tacticalPosition(team,p,x,y);
+   const minGap=others.reduce((best,q)=>Math.min(best,Math.hypot(q.x-dest.x,q.y-dest.y)),999);
+   const distance=Math.hypot(p.x-dest.x,p.y-dest.y);
+   const score=Math.min(120,minGap)*.76-distance*.12+Math.abs(y-centerY)*.012+(p.role==='attack'?8:0)+(Math.abs(offset)<18?3:0);
+   if(!choice||score>choice.score)choice={dest,score};
+  }
+  if(choice)result.set(p.id,choice.dest);
+ }
+ return result;
+}
+function applyTacticalAnchors(team,attackList,protectList,blockList,mode){
+ const f=team==='blue'?1:-1,opp=other(team),holder=activeHolder(team),enemyHolder=activeHolder(opp);
+ const own=players.filter(p=>p.team===team&&p.zone==='inner');
+ const active=own.filter(p=>!(team==='blue'&&(p.id===selected||p.manualUntil>now)));
+ const protectedSet=new Set(protectList.map(p=>p.id)),blockSet=new Set(blockList.map(p=>p.id));
+ const protectors=active.filter(p=>protectedSet.has(p.id));
+ const blockers=active.filter(p=>blockSet.has(p.id));
+ const guards=active.filter(p=>!protectedSet.has(p.id)&&!blockSet.has(p.id)&&p!==holder);
+ // Choose up to two nearest guards per protected player; the remainder keep
+ // their base formation so the whole team cannot pile into one corner.
+ const assignment=new Map(),counts=new Map();
+ if(mode==='defense'&&protectors.length){
+  const order=[...guards].sort((a,b)=>a.id.localeCompare(b.id));
+  const perProtectee=protectors.length<=1?3:2;
+  for(const guard of order){
+   const p=protectors.filter(q=>(counts.get(q.id)||0)<perProtectee)
+    .sort((a,b)=>Math.hypot(a.x-guard.x,a.y-guard.y)-Math.hypot(b.x-guard.x,b.y-guard.y))[0];
+   if(p){const slot=counts.get(p.id)||0;counts.set(p.id,slot+1);assignment.set(guard.id,{p,slot});}
+  }
+ }
+ const box=OWN[team].inner[0],front=f>0?box[1]-36:box[0]+36,back=f>0?box[0]+36:box[1]-36;
+ const ownCenter=(box[0]+box[1])/2;
+ // Protectees withdraw opposite the actual ball source, including outer-court attacks.
+ const protectX=enemyHolder?(enemyHolder.x>ownCenter?back:front):back;
+ const innerOpp=attackList.filter(q=>q.zone==='inner');
+ const support=mode==='attack'&&holder?supportAssignments(team,holder,active):new Map();
+ const baseMap=team==='blue'?playerFormationBase:cpuBaseSlots;
+ for(const p of active){
+  if((p.goal&&now<p.actUntil+.22)||ball.mode==='ground'||(mode==='defense'&&p.roamTarget&&p.actUntil>now))continue;
+  const base=baseMap.get(p.id)||{x:p.anchorX,y:p.anchorY};
+  let x=base.x,y=base.y,kind='base';
+  if(mode==='attack'&&support.has(p.id)){
+   const lane=support.get(p.id);
+   x=lane.x;y=lane.y;kind='support';
+  }else if(mode==='attack'&&innerOpp.length){
+   const target=[...innerOpp].sort((a,b)=>Math.abs(a.y-p.y)-Math.abs(b.y-p.y))[0];
+   // Move to a throwing lane, not the opposing player/border. Other attackers
+   // stagger vertically rather than chasing the very same coordinate.
+   const idx=own.indexOf(p),stagger=((idx%3)-1)*48;
+   if(p===holder){x=front-f*25;y=target.y+stagger*.34;kind='holder';}
+   else if(p.role==='attack'){x=front-f*(45+(idx%2)*22);y=target.y+stagger;kind='attack';}
+   else if(p.role==='defend'){x=ownCenter-f*25;y=base.y;kind='base';}
+  }else if(mode==='defense'){
+   if(protectedSet.has(p.id)){
+    const idx=protectors.indexOf(p),n=protectors.length;
+    x=protectX;y=350+(idx-(n-1)/2)*103;kind='protected';
+   }else if(blockSet.has(p.id)&&enemyHolder){
+    const idx=blockers.indexOf(p),n=blockers.length;
+    // Move towards the holder's Y lane but stop INSIDE the field. The blocker
+    // intercepts in front of teammates, not inside the opposing half.
+    x=enemyHolder.x>ownCenter?box[1]-36:box[0]+36;
+    y=enemyHolder.y+(idx-(n-1)/2)*60;kind='blocker';
+   }else if(assignment.has(p.id)){
+    const {p:q,slot}=assignment.get(p.id);
+    const n=protectors.indexOf(q),count=protectors.length;
+    const protectY=clamp(350+(n-(count-1)/2)*103,box[2]+40,box[3]-40);
+    x=protectX+f*(slot===0?56:32);
+    y=protectY+(slot===0?-46:46);
+    kind='guard';
    }
   }
-  spaceTargets('blue',43);
-  updateTacticsPanel();
+  if(kind==='base'){
+   // Small roam allowed, but preserve original student deployment / CPU slots.
+   x=clamp(p.anchorX,base.x-42,base.x+42);
+   y=clamp(p.anchorY,base.y-48,base.y+48);
+  }
+  const goal=tacticalPosition(team,p,x,y);
+  const delta=Math.hypot(goal.x-p.anchorX,goal.y-p.anchorY);
+  // Bounded anchor shifts avoid jitter, long chase and snapping to borders.
+  const maxMove=kind==='base'?24:kind==='support'?Math.min(100,Math.max(42,delta*.80)):Math.min(84,Math.max(38,delta*.70));
+  if(delta>3){
+   const k=Math.min(1,maxMove/delta);
+   const next=tacticalPosition(team,p,p.anchorX+(goal.x-p.anchorX)*k,p.anchorY+(goal.y-p.anchorY)*k);
+   p.anchorX=next.x;p.anchorY=next.y;p.roamTarget=null;
+  }
  }
+ spaceTargets(team,43);
 }
-function isBlocker(p){return p?.team==='blue'&&p.zone==='inner'&&tacticalPicks.block.includes(p.num);}
+function updateDualTactics(){
+ if(state!=='playing')return;
+ const phase=bluePhase(),mode=phase==='attack'?'attack':'defense';
+ const attackTargets=tacticalPicks.attack.length?selectedTargets('attack'):availableTargets('attack');
+ const defendTargets=tacticalPicks.defense.length?selectedTargets('defense'):availableTargets('defense');
+ const enemyHolder=activeHolder('orange');
+ const blueHolder=activeHolder('blue');
+ const key=[phase,tacticalPicks.attack.join(','),tacticalPicks.defense.join(','),tacticalPicks.block.join(','),
+ enemyHolder?.id||'',enemyHolder?.zone||'',attackTargets.map(p=>p.id).join(','),defendTargets.map(p=>p.id).join(','),
+ blueHolder?.id||'',blueHolder?Math.floor(blueHolder.x/48):'',blueHolder?Math.floor(blueHolder.y/48):'',
+ players.filter(p=>p.team==='blue'&&p.zone==='inner').length].join('|');
+ if(key===tacticalModeKey&&now<tacticalPlanNext)return;
+ tacticalModeKey=key;tacticalPlanNext=now+.85;
+ const blockers=players.filter(p=>p.team==='blue'&&p.zone==='inner'&&tacticalPicks.block.includes(p.num));
+ applyTacticalAnchors('blue',attackTargets,defendTargets,blockers,mode);
+ updateTacticsPanel();
+}
+function updateOrangeTactics(){
+ if(state!=='playing')return;
+ const phase=cpuPossessionMode(),mode=phase==='attack'?'attack':'defense';
+ const holder=activeHolder('blue');
+ const orangeHolder=activeHolder('orange');
+ const key=[phase,holder?.id||'',holder?.zone||'',orangeHolder?.id||'',
+  orangeHolder?Math.floor(orangeHolder.x/48):'',orangeHolder?Math.floor(orangeHolder.y/48):'',scores.blue,scores.orange,
+  players.filter(p=>p.team==='blue'&&p.zone==='inner').map(p=>p.id).join(','),
+  players.filter(p=>p.team==='orange'&&p.zone==='inner').map(p=>p.id).join(',')].join('|');
+ if(key===orangeTacticKey&&now<orangeTacticNext)return;
+ orangeTacticKey=key;orangeTacticNext=now+.95;
+ const attackTargets=orangePriorityTargets(),protectedTargets=orangeProtectedTargets();
+ const protectSet=new Set(protectedTargets.map(p=>p.id));
+ const blockers=mode==='defense'?orangeSacrificeTargets(protectSet):[];
+ cpuBlockerIds=new Set(blockers.map(p=>p.id));
+ cpuProtectedIds=protectSet;
+ cpuAttackIds=new Set(attackTargets.map(p=>p.id));
+ applyTacticalAnchors('orange',attackTargets,protectedTargets,blockers,mode);
+}
+function isBlocker(p){return p?.zone==='inner'&&(p.team==='blue'?tacticalPicks.block.includes(p.num):p.team==='orange'&&cpuBlockerIds.has(p.id));}
 function blockerMove(p,dt){
- // Intercept only shots from the opposing side, and only when the incoming
- // trajectory passes close to a different blue inner-court teammate.
- if(!isBlocker(p)||ball.mode!=='air'||ball.team!=='orange'||ball.kind!=='throw'||pending.some(h=>h.id===p.id))return false;
+ // Block a REAL incoming shot only, never predict an unthrown player attack.
+ if(!isBlocker(p)||ball.mode!=='air'||ball.team===p.team||ball.kind!=='throw'||pending.some(h=>h.id===p.id))return false;
  const v2=ball.vx*ball.vx+ball.vy*ball.vy;if(v2<30000)return false;
- const otherBlue=players.filter(q=>q.team==='blue'&&q.zone==='inner'&&q!==p);
+ const teammates=players.filter(q=>q.team===p.team&&q.zone==='inner'&&q!==p);
  let best=null;
- for(const q of otherBlue){
+ for(const q of teammates){
   const t=clamp(((q.x-ball.x)*ball.vx+(q.y-ball.y)*ball.vy)/v2,0,.40);
   if(t<.08||t>.38||ball.t<.12)continue;
   const ix=ball.x+ball.vx*t,iy=ball.y+ball.vy*t;
   if(Math.hypot(q.x-ix,q.y-iy)>24)continue;
-  const threatened=calc(scores.orange,q.num),sacrifice=calc(scores.orange,p.num);
-  // Never sacrifice a player if that hit would immediately win the game for orange
-  // while the protected player's hit would not. Otherwise allow a deliberate trade.
-  if(sacrifice.win&&!threatened.win)continue;
+  const incoming=calc(scores[ball.team],q.num),sacrifice=calc(scores[ball.team],p.num);
+  if(sacrifice.win&&!incoming.win)continue;
   const intended=allowed(p,ix-ball.vx/Math.sqrt(v2)*25,iy-ball.vy/Math.sqrt(v2)*25);
   const distance=Math.hypot(intended.x-p.x,intended.y-p.y);
-  if(distance>settings.playerSpeed*t*.88+15||distance>58)continue;
-  // Never take the selected character away from manual control.
+  if(distance>settings.playerSpeed*cpuDifficultyBoost(p)*t*.88+15||distance>58)continue;
   if(!best||distance<best.distance)best={point:intended,distance,t};
  }
  if(!best)return false;
@@ -1149,7 +1835,7 @@ function scoreThreat(p){const enemy=scores[other(p.team)],result=calc(enemy,p.nu
  return result.win?2.2:(p.num==='×2'&&enemy>=10&&enemy<=18?1.0:0);
 }
 function tacticsProfile(p){
- const form=strategy(p.team),threat=scoreThreat(p)+(p.team==='blue'&&tacticalPicks.defense.includes(p.num)&&bluePhase()!=='attack'?1.4:0);
+ const form=strategy(p.team),threat=scoreThreat(p)+((p.team==='blue'&&tacticalPicks.defense.includes(p.num)&&bluePhase()!=='attack')||(p.team==='orange'&&cpuProtectedIds.has(p.id)&&cpuPossessionMode()!=='attack')?1.4:0);
  const opponent=other(p.team),ourScore=scores[p.team],theirScore=scores[opponent];
  const urgent=remaining<45&&ourScore<theirScore;
  const closeWin=theirScore>=24||threat>=2;
@@ -1225,7 +1911,7 @@ function updateCpuFormation(dt){
  if(state==='playing'){
   const key=cpuSituation();
   if(key!==cpuSituationKey){
-   cpuSituationKey=key;cpuMode=mode;
+   cpuSituationKey=key;cpuMode=mode;orangeTacticNext=0;
    const active=players.filter(p=>p.team==='orange');
    const enemies=players.filter(p=>p.team==='blue'&&p.zone==='inner');
    const orangeInner=active.filter(p=>p.zone==='inner');
@@ -1266,35 +1952,8 @@ function updateCpuFormation(dt){
    spaceTargets('orange',42);
   }
  }
- // When orange holds the ball, give ONE potential receiver a modest, stable
- // supporting run. This creates a pass lane without summoning every teammate.
- if(state==='playing'&&mode==='attack'&&ball.mode==='held'&&now>=cpuSupportAt){
-  const holder=players.find(p=>p.id===ball.owner);
-  if(holder?.team==='orange'){
-   const candidates=players.filter(p=>p.team==='orange'&&p.zone===holder.zone&&p.id!==holder.id&&p.role==='attack');
-   const enemies=players.filter(q=>q.team==='blue'&&q.zone==='inner');
-   let chosen=null;
-   for(const rec of candidates){
-    if(Math.hypot(holder.x-rec.x,holder.y-rec.y)>240)continue;
-    const best=enemies.reduce((score,q)=>Math.max(score,cpuShootQuality(rec,q,$('difficulty').value).value),-999);
-    const separation=Math.min(160,...players.filter(q=>q!==rec&&q.team==='orange'&&q.zone===rec.zone).map(q=>Math.hypot(q.x-rec.x,q.y-rec.y)));
-    const score=best+Math.min(12,separation*.11)-Math.hypot(holder.x-rec.x,holder.y-rec.y)*.06;
-    if(!chosen||score>chosen.score)chosen={rec,score};
-   }
-   if(chosen){
-    // Small lateral shift; avoid blocking holder or crossing other players.
-    const p=chosen.rec, toward=holder.y-p.y;
-    const shifts=[-24,24,-43,43].map(n=>allowed(p,p.x,p.y+n));
-    const ranked=shifts.map(dest=>({dest,score:Math.min(...players.filter(q=>q!==p&&q.team==='orange'&&q.zone===p.zone).map(q=>Math.hypot(q.x-dest.x,q.y-dest.y)))-Math.abs(dest.y-p.y)*.13})).sort((a,b)=>b.score-a.score);
-    const best=ranked[0];
-    if(best&&best.score>27&&Math.hypot(p.x-best.dest.x,p.y-best.dest.y)>10){
-      p.anchorX=best.dest.x;p.anchorY=best.dest.y;p.roamTarget=null;
-      cpuSupportId=p.id;gameStats.coordination.supportMoves++;
-    }
-   }
-  }
-  cpuSupportAt=now+.85;
- }
+ // Support lanes are assigned by applyTacticalAnchors() for BOTH teams.
+ // Avoid the older CPU-only support routine competing for those same anchors.
  // Move only while there is a pending tactical goal; do not repeatedly pull players home.
  for(const p of players.filter(p=>p.team==='orange')){
   if(p.manualUntil>now||p.goal&&now<p.actUntil+.25||ball.mode==='ground'||p.roamTarget)continue;
@@ -1345,7 +2004,7 @@ function resolvePlayerCrowding(dt){
   for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){
    const a=ps[i],b=ps[j];if(a.zone!==b.zone)continue;
    let dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
-   if(d>=40)continue;
+   if(d>=46)continue;
    if(d<.01){const spin=(i*31+j*7)%6;dx=Math.cos(spin);dy=Math.sin(spin);d=1;}
    const pa=crowdingPriority(a),pb=crowdingPriority(b);
    const winner=pa===pb?(a.id<b.id?a:b):(pa>pb?a:b);
@@ -1355,7 +2014,7 @@ function resolvePlayerCrowding(dt){
    // Use stable pair ordering and a short yield hold to prevent back-and-forth
    // correction when two teammates attempt to pass in a narrow outer lane.
    const recentYield=loser.yieldUntil>now;
-   const shift=Math.min((40-d)*.40,settings.playerSpeed*dt*(recentYield?.16:.28));
+   const shift=Math.min((46-d)*.44,settings.playerSpeed*dt*(recentYield?.18:.32));
    const proposed=allowed(loser,loser.x+nx*shift,loser.y+ny*shift);
    // Respect U-shaped outer court; never clip across the opposing inner court.
    const step=Math.hypot(proposed.x-loser.x,proposed.y-loser.y);
@@ -1412,6 +2071,7 @@ function restoreLineup(){
 function normalizeBlueOuterToThree(){
  const blue=players.filter(p=>p.team==='blue');
  if(!blue.length)return;
+ if(blue.filter(p=>p.zone==='outer').length===3)return;
  const preferred=(playerLineup||[]).filter(d=>d.zone==='outer').map(d=>d.id);
  const byId=new Map(blue.map(p=>[p.id,p]));
  let keep=[];
@@ -1441,7 +2101,7 @@ function normalizeBlueOuterToThree(){
  playerFormationBase=new Map(blue.map(p=>[p.id,{x:p.anchorX,y:p.anchorY,zone:p.zone}]));
  // 不覆寫開賽前記錄的球員配置；下局恢復賽前配置。
 }
-function reset(){modeActive=false;$('difficulty').disabled=false;ATTACK_LIMIT=15;updateMissionProgress();if(players.length&&state==='setup')rememberLineup();resetStats();dash={playerId:null,until:0,readyAt:0,dirX:1,dirY:0};attackClockTeam=null;attackClockStart=0;attackClockViolations={blue:0,orange:0};$('victory').classList.remove('show','moment-win');$('eventBanner').classList.remove('show');bannerUntil=0;last30Announced=false;scoreReason='';stopJoystick();cancelAnimationFrame(raf);players=makePlayers();setupCpuTeam();restoreLineup();scores={blue:0,orange:0};tacticalModeKey='';tacticalPlanNext=0;queuedShot=null;selected='blue-0';passReadyAt=0;controlLast=null;cpuHeldSince=0;cpuDecisionAt=0;cpuPassChain=0;cpuLastDecision=null;cpuSupportAt=0;cpuSupportId=null;pickupAssignment=null;state='setup';phase='normal';remaining=300;last=0;now=0;pending=[];shotId=0;aiCooldown=1.8;drag=null;setupReposition=null;ball={mode:'held',owner:'blue-0',x:players[0].x+22,y:players[0].y,z:14,vx:0,vy:0,t:0,flight:0,team:'blue',origin:'blue-0',power:0};$('start').textContent='▶ 開始比賽';$('start').disabled=false;$('pause').disabled=true;$('pause').textContent='Ⅱ 暫停';$('period').textContent='賽前排陣';$('timer').textContent='05:00';$('timer').classList.remove('last30');winMessage='';playerFormationBase=new Map(players.filter(p=>p.team==='blue').map(p=>[p.id,{x:p.anchorX,y:p.anchorY,zone:p.zone}]));formationTick=0;cpuSituationKey='';drawStatic();sync();updateDashButton();raf=requestAnimationFrame(loop);}
+function reset(){$('controlSwitchHint').classList.remove('show');controlSwitchHideAt=0;modeActive=false;$('difficulty').disabled=false;ATTACK_LIMIT=15;updateMissionProgress();if(players.length&&state==='setup')rememberLineup();resetStats();dash={playerId:null,until:0,readyAt:0,dirX:1,dirY:0};attackClockTeam=null;attackClockStart=0;attackClockViolations={blue:0,orange:0};$('victory').classList.remove('show','moment-win');$('eventBanner').classList.remove('show');bannerUntil=0;last30Announced=false;scoreReason='';stopJoystick();cancelAnimationFrame(raf);players=makePlayers();setupCpuTeam();restoreLineup();normalizeBlueOuterToThree();rememberLineup();scores={blue:0,orange:0};tacticalModeKey='';tacticalPlanNext=0;queuedShot=null;selected='blue-0';passReadyAt=0;controlLast=null;cpuHeldSince=0;cpuDecisionAt=0;cpuPassChain=0;cpuLastDecision=null;cpuSupportAt=0;cpuSupportId=null;pickupAssignment=null;state='setup';phase='normal';remaining=300;last=0;now=0;pending=[];shotId=0;aiCooldown=1.8;drag=null;setupReposition=null;ball={mode:'held',owner:'blue-0',x:players[0].x+22,y:players[0].y,z:14,vx:0,vy:0,t:0,flight:0,team:'blue',origin:'blue-0',power:0};$('start').textContent='▶ 開始比賽';$('start').disabled=false;$('pause').disabled=true;$('pause').textContent='Ⅱ 暫停';$('period').textContent='賽前排陣';$('timer').textContent='05:00';$('timer').classList.remove('last30');winMessage='';playerFormationBase=new Map(players.filter(p=>p.team==='blue').map(p=>[p.id,{x:p.anchorX,y:p.anchorY,zone:p.zone}]));formationTick=0;cpuSituationKey='';orangeTacticNext=0;orangeTacticKey='';cpuBlockerIds.clear();cpuProtectedIds.clear();cpuAttackIds.clear();drawStatic();sync();updateDashButton();raf=requestAnimationFrame(loop);}
 function zoneRectDist(x,y,rect){let [x1,x2,y1,y2]=rect,xx=clamp(x,x1,x2),yy=clamp(y,y1,y2);return Math.hypot(xx-x,yy-y)}
 function allowed(p,x,y){const arr=OWN[p.team][p.zone];let best=1e20,out=null;for(const r of arr){let nx=clamp(x,r[0],r[1]),ny=clamp(y,r[2],r[3]),d=(nx-x)**2+(ny-y)**2;if(d<best){best=d;out={x:nx,y:ny}}}return out;}
 // V3.12: Use the actual drawn court, not the distant SVG canvas boundary.
@@ -1484,7 +2144,7 @@ function ballOutOfBounds(){
  }else{
   clearAttackClock();
   const team=other(attackingTeam);
-  const receiver=players.find(p=>p.team===team&&p.zone==='inner')||players.find(p=>p.team===team);
+  const receiver=chooseTeamInnerPossession(team);
   setHeld(receiver,'球出界！'+(team==='blue'?'藍隊':'橘隊')+'取得球權');
  }
  return true;
@@ -1524,7 +2184,7 @@ function updateEffects(dt){
   e.x+=e.vx*dt;e.y+=e.vy*dt;e.vy+=75*dt;e.node.setAttribute('cx',e.x);e.node.setAttribute('cy',e.y);
   e.node.setAttribute('opacity',alpha);}
 }
-function syncStage(){document.body.classList.toggle('is-setup',state==='setup');document.body.classList.toggle('is-playing',state==='playing'||state==='paused'||state==='ended');}
+function syncStage(){if(state==='playing')document.body.classList.remove('settings-open');document.body.classList.toggle('is-setup',state==='setup');document.body.classList.toggle('is-playing',state==='playing'||state==='paused'||state==='ended');}
 
 function drawStatic(){svg.replaceChildren();playerNodes.clear();el('rect',{x:0,y:0,width:1100,height:690,rx:16,fill:'#f5e9b5'});el('rect',{x:120,y:85,width:860,height:530,fill:'none',stroke:'#b0a274','stroke-width':1.4});
  el('polygon',{points:'130,95 405,95 405,165 265,165 265,535 405,535 405,605 130,605',fill:'#edc9df',stroke:'#a87996','stroke-width':3,'stroke-linejoin':'round'});
@@ -1535,7 +2195,7 @@ function drawStatic(){svg.replaceChildren();playerNodes.clear();el('rect',{x:0,y
 
  t(407,216,'藍隊內場',17,'#255f80');t(691,216,'橘隊內場',17,'#255f80');t(210,123,'橘隊外場',16,'#80506d');t(890,123,'藍隊外場',16,'#80506d');t(210,591,'外場',15,'#80506d');t(890,591,'外場',15,'#80506d');
  const shadowLayer=el('g',{'pointer-events':'none'});shadowNode=el('ellipse',{cx:600,cy:350,rx:10,ry:5,fill:'#395065',opacity:.3},shadowLayer);
- const tokens=el('g',{});for(const p of players){let g=el('g',{'data-p':p.id,style:'cursor:grab'},tokens);let ghost2=el('circle',{r:14.6,fill:p.team==='blue'?'#53a9dc':'#efb16d',opacity:0},g);let ghost1=el('circle',{r:15.2,fill:p.team==='blue'?'#2f8ac1':'#e39a51',opacity:0},g);let attackAura=el('circle',{r:19,fill:'none',stroke:'#ff9e36','stroke-width':3.6,opacity:0},g);let attackFlame1=el('circle',{cx:14,cy:-9,r:4.5,fill:'#ffca55',opacity:0},g);let attackFlame2=el('circle',{cx:18,cy:-2,r:3.2,fill:'#ff7c3a',opacity:0},g);let sel=el('circle',{r:21,fill:'none',stroke:'#f8c951','stroke-width':4,opacity:0},g);el('ellipse',{cx:1,cy:4,rx:17,ry:16,fill:'#1b3b53',opacity:.16},g);let shield=el('path',{d:'M 0 -18 Q 15 -13 14 1 Q 13 16 0 20 Q -13 16 -14 1 Q -15 -13 0 -18 Z',fill:'#8ed1ff',stroke:'#d9f1ff','stroke-width':2,opacity:0},g);let motionRing=el('ellipse',{cx:0,cy:4,rx:16,ry:15,fill:'none',stroke:p.team==='blue'?'#64b3de':'#f3c184','stroke-width':2.4,opacity:0},g);let base=el('circle',{r:15,fill:p.team==='blue'?'#246da1':'#d88c37',stroke:'#fff','stroke-width':2.2},g);let facing=el('path',{d:'M 13.5 -11.5 A 18 18 0 0 1 13.5 11.5',fill:'none',stroke:'#34d8a2','stroke-width':4.3,'stroke-linecap':'round'},g);let label=t(0,4.5,p.num,12.6,'#fff',g);let tag=el('rect',{x:-18,y:16,width:36,height:13,rx:4.5,fill:'#263c4d'},g);let role=t(0,26,roleNames[p.role],9.5,'white',g);let hit=el('circle',{r:18,fill:'none',stroke:'#e3504a','stroke-width':2.8,opacity:0},g);let tacticMark=el('circle',{r:23,fill:'none',stroke:p.team==='orange'?'#ec9c2f':'#65b8fa','stroke-width':2.4,'stroke-dasharray':'5 4',opacity:0,'pointer-events':'none'},g);let blockMark=el('circle',{r:27,fill:'none',stroke:'#ed7955','stroke-width':3,'stroke-dasharray':'2 5',opacity:0,'pointer-events':'none'},g);playerNodes.set(p.id,{g,ghost1,ghost2,attackAura,attackFlame1,attackFlame2,shield,sel,base,motionRing,facing,label,tag,role,hit,tacticMark,blockMark});}
+ const tokens=el('g',{});for(const p of players){let g=el('g',{'data-p':p.id,style:'cursor:grab'},tokens);let ghost2=el('circle',{r:14.6,fill:p.team==='blue'?'#53a9dc':'#efb16d',opacity:0},g);let ghost1=el('circle',{r:15.2,fill:p.team==='blue'?'#2f8ac1':'#e39a51',opacity:0},g);let attackAura=el('circle',{r:19,fill:'none',stroke:'#ff9e36','stroke-width':3.6,opacity:0},g);let attackFlame1=el('circle',{cx:14,cy:-9,r:4.5,fill:'#ffca55',opacity:0},g);let attackFlame2=el('circle',{cx:18,cy:-2,r:3.2,fill:'#ff7c3a',opacity:0},g);let sel=el('circle',{r:21,fill:'none',stroke:'#f8c951','stroke-width':4,opacity:0},g);el('ellipse',{cx:1,cy:4,rx:17,ry:16,fill:'#1b3b53',opacity:.16},g);let shield=el('path',{d:'M 0 -18 Q 15 -13 14 1 Q 13 16 0 20 Q -13 16 -14 1 Q -15 -13 0 -18 Z',fill:'#8ed1ff',stroke:'#d9f1ff','stroke-width':2,opacity:0},g);let motionRing=el('ellipse',{cx:0,cy:4,rx:16,ry:15,fill:'none',stroke:p.team==='blue'?'#64b3de':'#f3c184','stroke-width':2.4,opacity:0},g);let base=el('circle',{r:15,fill:p.team==='blue'?'#246da1':'#d88c37',stroke:'#fff','stroke-width':2.2},g);let facing=el('path',{d:'M 13.5 -11.5 A 18 18 0 0 1 13.5 11.5',fill:'none',stroke:'#34d8a2','stroke-width':4.3,'stroke-linecap':'round'},g);let label=t(0,5.2,p.num,14.5,'#fff',g);let tag=el('rect',{x:-18,y:16,width:36,height:13,rx:4.5,fill:'#263c4d'},g);let role=t(0,26,roleNames[p.role],9.5,'white',g);let hit=el('circle',{r:18,fill:'none',stroke:'#e3504a','stroke-width':2.8,opacity:0},g);let tacticMark=el('circle',{r:23,fill:'none',stroke:p.team==='orange'?'#ec9c2f':'#65b8fa','stroke-width':2.4,'stroke-dasharray':'5 4',opacity:0,'pointer-events':'none'},g);let blockMark=el('circle',{r:27,fill:'none',stroke:'#ed7955','stroke-width':3,'stroke-dasharray':'2 5',opacity:0,'pointer-events':'none'},g);playerNodes.set(p.id,{g,ghost1,ghost2,attackAura,attackFlame1,attackFlame2,shield,sel,base,motionRing,facing,label,tag,role,hit,tacticMark,blockMark});}
  trailLayer=el('g',{'pointer-events':'none'});
  trailDots=[];for(let k=0;k<9;k++){let dot=el('circle',{r:5,fill:'#ffffff',opacity:0},trailLayer);trailDots.push(dot);}
  fxLayer=el('g',{'pointer-events':'none'});effects=[];
@@ -1550,15 +2210,25 @@ function render(){if(!ballNode)return;const attackOrigin=ball&&ball.origin?playe
  n.motionRing.setAttribute('rx',(16+movement*2).toFixed(2));
  n.motionRing.setAttribute('ry',(15-movement*.7).toFixed(2));
  n.motionRing.setAttribute('transform',`rotate(${clamp(Math.atan2(p.visualVy,p.visualVx)*180/Math.PI,-180,180)})`);
- n.blockMark.setAttribute('opacity',isBlocker(p)?(.7+.2*Math.sin(now*4)).toFixed(2):0);n.tacticMark.setAttribute('opacity',p.zone==='inner'&&(p.team==='orange'?tacticalPicks.attack:tacticalPicks.defense).includes(p.num)?(.55+.15*Math.sin(now*3)).toFixed(2):0);n.g.setAttribute('transform',`translate(${p.x.toFixed(2)} ${p.y.toFixed(2)})`);n.sel.setAttribute('opacity',selected===p.id?1:0);n.facing.setAttribute('transform',`rotate(${p.angle*180/Math.PI})`);n.hit.setAttribute('opacity',pending.some(h=>h.id===p.id)?0.9:0);n.role.textContent=roleNames[p.role];n.role.setAttribute('opacity',p.role==='none'?0:1);n.tag.setAttribute('opacity',p.role==='none'?0:1);p.prevX=p.x;p.prevY=p.y;}
- if(ball.mode==='held'){let p=players.find(p=>p.id===ball.owner);if(p){ball.x=p.x+22*Math.cos(p.angle);ball.y=p.y+22*Math.sin(p.angle);ball.z=15;}}ballNode.parentNode.setAttribute('transform',`translate(${ball.x.toFixed(2)} ${(ball.y-ball.z*.30).toFixed(2)})`);ballNode.setAttribute('r',ball.mode==='ground'?6.5:8);ballNode.setAttribute('stroke',attackBall?'#d85720':'#2d6a8b');ballNode.setAttribute('fill',attackBall?'#fff6dd':'#fff');if(ballFxNodes){if(attackBall){const pulse=.55+.45*Math.sin(now*22);ballFxNodes.ballFlame1.setAttribute('opacity',(0.24+pulse*.18).toFixed(2));ballFxNodes.ballFlame2.setAttribute('opacity',(0.34+pulse*.22).toFixed(2));ballFxNodes.ballFlame1.setAttribute('cx',(-ball.vx*.014).toFixed(2));ballFxNodes.ballFlame1.setAttribute('cy',(-ball.vy*.014).toFixed(2));ballFxNodes.ballFlame2.setAttribute('cx',(-ball.vx*.028).toFixed(2));ballFxNodes.ballFlame2.setAttribute('cy',(-ball.vy*.028).toFixed(2));}else{ballFxNodes.ballFlame1.setAttribute('opacity',0);ballFxNodes.ballFlame2.setAttribute('opacity',0);}}shadowNode.setAttribute('cx',ball.x);shadowNode.setAttribute('cy',ball.y+4);shadowNode.setAttribute('rx',ball.mode==='ground'?8:13);shadowNode.setAttribute('opacity',ball.mode==='held'?0:0.18+0.2*(1-ball.z/40));
+ n.blockMark.setAttribute('opacity',isBlocker(p)?(.7+.2*Math.sin(now*4)).toFixed(2):0);n.tacticMark.setAttribute('opacity',p.zone==='inner'&&(p.team==='orange'?cpuProtectedIds.has(p.id):tacticalPicks.defense.includes(p.num))?(.55+.15*Math.sin(now*3)).toFixed(2):0);n.g.setAttribute('transform',`translate(${p.x.toFixed(2)} ${p.y.toFixed(2)}) scale(1.19)`);n.sel.setAttribute('opacity',selected===p.id?1:0);
+ if(selected===p.id&&p.controlFlashUntil>now){
+  const pulse=.5+.5*Math.sin(now*19);
+  n.sel.setAttribute('r',(22+pulse*4).toFixed(1));
+  n.sel.setAttribute('stroke', '#ffe08c');
+  n.sel.setAttribute('stroke-width',(4+pulse*2).toFixed(1));
+ }else{
+  n.sel.setAttribute('r',21);
+  n.sel.setAttribute('stroke','#f8c951');
+  n.sel.setAttribute('stroke-width',4);
+ }n.facing.setAttribute('transform',`rotate(${p.angle*180/Math.PI})`);n.hit.setAttribute('opacity',pending.some(h=>h.id===p.id)?0.9:0);n.role.textContent=roleNames[p.role];n.role.setAttribute('opacity',p.role==='none'?0:1);n.tag.setAttribute('opacity',p.role==='none'?0:1);p.prevX=p.x;p.prevY=p.y;}
+ if(ball.mode==='held'){let p=players.find(p=>p.id===ball.owner);if(p){ball.x=p.x+22*Math.cos(p.angle);ball.y=p.y+22*Math.sin(p.angle);ball.z=15;}}ballNode.parentNode.style.visibility=state==='setup'?'hidden':'visible';ballNode.parentNode.setAttribute('transform',`translate(${ball.x.toFixed(2)} ${(ball.y-ball.z*.30).toFixed(2)})`);ballNode.setAttribute('r',ball.mode==='ground'?8.5:11);ballNode.setAttribute('stroke',attackBall?'#d85720':'#2d6a8b');ballNode.setAttribute('fill',attackBall?'#fff6dd':'#fff');if(ballFxNodes){if(attackBall){const pulse=.55+.45*Math.sin(now*22);ballFxNodes.ballFlame1.setAttribute('opacity',(0.24+pulse*.18).toFixed(2));ballFxNodes.ballFlame2.setAttribute('opacity',(0.34+pulse*.22).toFixed(2));ballFxNodes.ballFlame1.setAttribute('cx',(-ball.vx*.014).toFixed(2));ballFxNodes.ballFlame1.setAttribute('cy',(-ball.vy*.014).toFixed(2));ballFxNodes.ballFlame2.setAttribute('cx',(-ball.vx*.028).toFixed(2));ballFxNodes.ballFlame2.setAttribute('cy',(-ball.vy*.028).toFixed(2));}else{ballFxNodes.ballFlame1.setAttribute('opacity',0);ballFxNodes.ballFlame2.setAttribute('opacity',0);}}shadowNode.setAttribute('opacity',state==='setup'?0:0.2);shadowNode.setAttribute('cx',ball.x);shadowNode.setAttribute('cy',ball.y+4);shadowNode.setAttribute('rx',ball.mode==='ground'?8:13);shadowNode.setAttribute('opacity',ball.mode==='held'?0:0.18+0.2*(1-ball.z/40));
  for(let k=0;k<trailDots.length;k++){
   const dot=trailDots[k];let h=ball.history?.[k];
   if(ball.mode==='air'&&h){const speed=Math.hypot(ball.vx,ball.vy);dot.setAttribute('cx',h.x);dot.setAttribute('cy',h.y-h.z*.3);dot.setAttribute('r',Math.max(1.8,5.3-k*.43));dot.setAttribute('fill',attackBall?(k<3?'#ff9d36':'#ffd47e'):(speed>500?'#ffe6a8':'#ffffff'));dot.setAttribute('opacity',Math.max(.04,(attackBall ? .68 : .53)-k*(attackBall ? .07 : .055)));}
   else dot.setAttribute('opacity',0);
  }
 
- let aiming=drag?.kind==='throw';aimNodes.line.setAttribute('opacity',aiming?0.92:0);aimNodes.tip.setAttribute('opacity',aiming?1:0);aimNodes.power.setAttribute('opacity',aiming?1:0);if(aiming){let length=Math.hypot(drag.dx,drag.dy),k=Math.min(96,length*.49)/(length||1),ex=ball.x+drag.dx*k,ey=ball.y+drag.dy*k;aimNodes.line.setAttribute('x1',ball.x);aimNodes.line.setAttribute('y1',ball.y);aimNodes.line.setAttribute('x2',ex);aimNodes.line.setAttribute('y2',ey);aimNodes.tip.setAttribute('cx',ex);aimNodes.tip.setAttribute('cy',ey);aimNodes.power.setAttribute('x',ball.x);aimNodes.power.setAttribute('y',ball.y-29);aimNodes.power.textContent='力道 '+Math.round(clamp(length/215,0,1)*100)+'%';}
+ let aiming=drag?.kind==='throw'||drag?.kind==='throwPad';aimNodes.line.setAttribute('opacity',aiming?0.92:0);aimNodes.tip.setAttribute('opacity',aiming?1:0);aimNodes.power.setAttribute('opacity',aiming?1:0);if(aiming){let length=Math.hypot(drag.dx,drag.dy),k=Math.min(96,length*.49)/(length||1),ex=ball.x+drag.dx*k,ey=ball.y+drag.dy*k;aimNodes.line.setAttribute('x1',ball.x);aimNodes.line.setAttribute('y1',ball.y);aimNodes.line.setAttribute('x2',ex);aimNodes.line.setAttribute('y2',ey);aimNodes.tip.setAttribute('cx',ex);aimNodes.tip.setAttribute('cy',ey);aimNodes.power.setAttribute('x',ball.x);aimNodes.power.setAttribute('y',ball.y-29);aimNodes.power.textContent='力道 '+Math.round(clamp(length/215,0,1)*100)+'%';}
 }
 function updateSquad(){
  const root=$('joySquad');if(!root)return;
@@ -1631,12 +2301,35 @@ function cpuReactionBoost(p){
  return cpuHard()?.65*(1-stageCpuFactor()*.08):1;
 }
 
+function steerAutoDestination(p,target){
+ let dest=allowed(p,target.x,target.y);
+ const personal=p.zone==='outer'?40:48;
+ let pushX=0,pushY=0;
+ for(const q of players){
+  if(q===p||q.team!==p.team||q.zone!==p.zone)continue;
+  const refX=(q.goal&&Math.hypot(q.goal.x-q.x,q.goal.y-q.y)>10)?q.goal.x:q.x;
+  const refY=(q.goal&&Math.hypot(q.goal.x-q.x,q.goal.y-q.y)>10)?q.goal.y:q.y;
+  const dx=dest.x-refX,dy=dest.y-refY,d=Math.hypot(dx,dy)||1;
+  if(d>=personal)continue;
+  const force=(personal-d)/personal;
+  pushX+=dx/d*force*22;
+  pushY+=dy/d*force*26;
+ }
+ // Keep clear passing lanes around the current holder so support runners don't overlap.
+ const holder=ball?.mode==='held'?players.find(q=>q.id===ball.owner):null;
+ if(holder&&holder!==p&&holder.team===p.team&&p.zone==='inner'){
+  const dx=dest.x-holder.x,dy=dest.y-holder.y,d=Math.hypot(dx,dy)||1;
+  if(d<60){pushX+=dx/d*(60-d)*.34;pushY+=dy/d*(60-d)*.42;}
+ }
+ return allowed(p,dest.x+pushX,dest.y+pushY);
+}
 function moveTowards(p,target,dt,speed=145){
  speed*=cpuDifficultyBoost(p);
  let dest=allowed(p,target.x,target.y);
+ const auto=state==='playing'&&!(p.team==='blue'&&(p.id===selected||p.manualUntil>now));
+ if(auto)dest=steerAutoDestination(p,dest);
  if(p.zone==='outer')dest=outerNextWaypoint(p,dest);
  let dx=dest.x-p.x,dy=dest.y-p.y,len=Math.hypot(dx,dy);
- const auto=state==='playing'&&!(p.team==='blue'&&(p.id===selected||p.manualUntil>now));
  if(len<=.3){p.motionSpeed=0;p.moveVx=0;p.moveVy=0;return false;}
  if(auto){
   const desiredSpeed=Math.min(speed,Math.sqrt(2*570*len));
@@ -1764,7 +2457,7 @@ function updateAI(dt){let bx=ball.x,by=ball.y;let interceptors={},designatedCatc
     // No oracle: the AI knows the same probability model as the actual hit,
     // but never sees the random catch roll or a future, unthrown trajectory.
     const preferCatch=!isBlocker(p)&&!highRisk&&(designatedCatcher===null||designatedCatcher===p.id)&&estimateCatch>Math.max(.14,dodgeChance*.74)&&until>.11;
-    const wantsDodge=!preferCatch&&dodgeChance>.12;
+    const wantsDodge=!isBlocker(p)&&!preferCatch&&dodgeChance>.12;
     if(wantsDodge && miss<25 && room>7 && until>.09){
       const nx=-(ball.vy||1),ny=ball.vx||0,nn=Math.hypot(nx,ny);
       const side=((p.x-nearX)*nx+(p.y-nearY)*ny)>=0?1:-1;
@@ -1952,11 +2645,12 @@ function setAttackClock(team){
 }
 function updateAttackClockDisplay(){
  const node=$('attackClock');if(!node)return;
- if(state==='setup'||state==='ended'){node.textContent='進攻限時 15 秒';node.classList.remove('warning');return;}
- if(!attackClockTeam){node.textContent='球權待定 · 15 秒進攻';node.classList.remove('warning');return;}
+ if(state==='setup'||state==='ended'){node.textContent='進攻限時 '+ATTACK_LIMIT+' 秒';node.classList.remove('warning','critical-flash');return;}
+ if(!attackClockTeam){node.textContent='球權待定 · '+ATTACK_LIMIT+' 秒進攻';node.classList.remove('warning','critical-flash');return;}
  const remain=Math.max(0,ATTACK_LIMIT-(now-attackClockStart));
  node.textContent=(attackClockTeam==='blue'?'藍隊':'橘隊')+'進攻剩 '+Math.ceil(remain)+' 秒';
  node.classList.toggle('warning',remain<=5);
+ node.classList.toggle('critical-flash',remain<=5&&state==='playing');
 }
 function enforceAttackClock(){
  if(state!=='playing'||!attackClockTeam||now-attackClockStart<ATTACK_LIMIT)return false;
@@ -1966,18 +2660,32 @@ function enforceAttackClock(){
  const otherTeam=other(offender);
  const candidates=players.filter(p=>p.team===otherTeam&&p.zone==='inner');
  const eligible=candidates.length?candidates:players.filter(p=>p.team===otherTeam);
- const receiver=eligible.sort((a,b)=>Math.hypot(a.x-ball.x,a.y-ball.y)-Math.hypot(b.x-ball.x,b.y-ball.y))[0];
+ const receiver=otherTeam==='blue'?chooseBlueInnerForPossession():eligible.sort((a,b)=>Math.hypot(a.x-ball.x,a.y-ball.y)-Math.hypot(b.x-ball.x,b.y-ball.y))[0];
  if(!receiver)return false;
  attackClockViolations[offender]++;
  gameStats.stallViolations[offender]++;
  gameStats.turnovers++;
  if(modeActive&&offender==='blue')missionStats.blueTurnovers++;
  queuedShot=null;
- setHeld(receiver,(offender==='blue'?'藍隊':'橘隊')+'超過 15 秒未攻擊，交換球權！');
- decisiveMoment('15 秒未攻擊！交換球權','warning',1.7);
+ setHeld(receiver,(offender==='blue'?'藍隊':'橘隊')+'超過 '+ATTACK_LIMIT+' 秒未攻擊，交換球權！');
+ decisiveMoment(ATTACK_LIMIT+' 秒未攻擊！交換球權','warning',1.7);
  return true;
 }
-function setHeld(p,message){if(!p)return;setAttackClock(p.team);queuedShot=null;tacticalModeKey='';finalizeShotDefense();p.angle=p.team==='blue'?0:Math.PI;cpuHeldSince=now;cpuDecisionAt=now+.27;cpuLastTarget=null;if(p.team!=='orange'){cpuPassChain=0;cpuSupportId=null;}pickupAssignment=null;ball={mode:'held',owner:p.id,x:p.x,y:p.y,z:14,vx:0,vy:0,t:0,flight:0,team:p.team,origin:p.id,power:0};pending=[];aiCooldown=p.team==='orange'?random(.9,1.6):1.2;if(message)displayNotice(message);sync();}
+let controlSwitchHideAt=0;
+function setHeld(p,message){if(!p)return;setAttackClock(p.team);queuedShot=null;tacticalModeKey='';finalizeShotDefense();p.angle=p.team==='blue'?0:Math.PI;cpuHeldSince=now;cpuDecisionAt=now+.27;cpuLastTarget=null;if(p.team!=='orange'){cpuPassChain=0;cpuSupportId=null;}pickupAssignment=null;ball={mode:'held',owner:p.id,x:p.x,y:p.y,z:14,vx:0,vy:0,t:0,flight:0,team:p.team,origin:p.id,power:0};pending=[];aiCooldown=p.team==='orange'?random(.9,1.6):1.2;
+ // V3.34: whenever a blue player receives or picks up the ball, prioritize control of that holder.
+ // Keep the manual number-selection and explicit pass button behavior unchanged.
+ if(p.team==='blue'&&selected!==p.id){
+  selectPlayer(p);
+  if(state==='playing'){
+   p.controlFlashUntil=now+1.25;
+   const badge=$('controlSwitchHint');
+   badge.textContent='已切換：藍隊 '+p.num+' 號';
+   badge.classList.add('show');
+   controlSwitchHideAt=now+1.25;
+  }
+ }
+ if(message)displayNotice(message);sync();}
 function transfer(to,forced=false){
  if(queuedShot||now<passReadyAt)return false;
  const from=players.find(p=>p.id===ball.owner);
@@ -2041,7 +2749,7 @@ function collidePlayer(p,dt){if(ball.mode!=='air'||p.id===ball.origin&&ball.t<.1
   return false;
  }
  if(!friendly)gameStats.catchAttempts[p.team]++;
- let chance=isBlocker(p)&&ball.kind==='throw'&&ball.team==='orange'?0:catchChance(p,speed);if(friendly){chance=clamp(chance+(p.zone==='outer'?.50:.27),0,p.zone==='outer'?.93:.90);if(ball.kind==='pass'&&p.id===ball.targetId)chance=Math.min(.96,chance+.34);}
+ let chance=isBlocker(p)&&ball.kind==='throw'&&ball.team!==p.team?0:catchChance(p,speed);if(friendly){chance=clamp(chance+(p.zone==='outer'?.50:.27),0,p.zone==='outer'?.93:.90);if(ball.kind==='pass'&&p.id===ball.targetId)chance=Math.min(.96,chance+.34);}
  if(Math.random()<chance){if(!friendly)gameStats.catch[p.team]++;else gameStats.recoveries[p.team]++;triggerShieldFx(p);burst(p.x,p.y,'#8dd3ff',11);eventFlash(friendly?'接應成功！':'接住了！','goal',.9);setHeld(p,(friendly?'傳球成功':'成功接球！球權轉換'));return true;}
  if(!friendly)gameStats.catchFailed[p.team]++;if(!friendly&&p.zone==='inner'){gameStats.shotImpacts[ball.team]++;gameStats.hits[ball.team]++;pending.push({id:p.id,team:p.team,num:p.num});triggerHitFx(p);burst(p.x,p.y,'#ffb470',9);eventFlash(p.num+' 號被擊中！','warning',.85);displayNotice(p.num+' 號被擊中！等待球落地',.9)}
  // 接球失敗，球向外反彈且速度損耗；避免重疊下一幀重複碰撞
@@ -2058,7 +2766,7 @@ function resolveHits(){if(!pending.length)return false;let victimTeam=pending[0]
  const shooter=players.find(p=>p.id===ball.origin);if(shooter&&shooter.team===attack&&shooter.zone==='outer'&&players.filter(p=>p.team===attack&&p.zone==='outer').length>3){shooter.zone='inner';const spot=allowed(shooter,attack==='blue'?420:680,350);shooter.x=shooter.anchorX=spot.x;shooter.y=shooter.anchorY=spot.y;if(shooter.team==='orange')cpuBaseSlots.set(shooter.id,{x:shooter.x,y:shooter.y,zone:shooter.zone,index:nums.indexOf(shooter.num)});}
  if(list.length>=2){decisiveMoment(`連續擊中 ×${list.length}！`,'critical',1.65);}
  sync();if(state==='ended')return true;
- let receiver=players.find(p=>p.team===victimTeam&&p.zone==='inner')||players.find(p=>p.team===victimTeam);setHeld(receiver,(attack==='blue'?'藍隊':'橘隊')+' 得分！'+list.map(h=>h.num).join('、')+' 號出場');return true;}
+ let receiver=chooseTeamInnerPossession(victimTeam);setHeld(receiver,(attack==='blue'?'藍隊':'橘隊')+' 得分！'+list.map(h=>h.num).join('、')+' 號出場');return true;}
 function hitGround(){if(!isBallInCourt(ball.x,ball.y)){ballOutOfBounds();return;}clearAttackClock();finalizeShotDefense();if(resolveHits())return;burst(ball.x,ball.y,'#d8effb',5);ball.mode='ground';ball.z=0;ball.groundTime=0;ball.groundZone=zoneAt(ball.x,ball.y);ball.vx*=.43;ball.vy*=.43;displayNotice('球落地，前往撿球',.7);sync();}
 function updateBall(dt){
  if(ball.mode==='air'&&ball.safeInnerPass){
@@ -2123,7 +2831,7 @@ function updateBall(dt){
    const options=players.filter(p=>p.team===team&&p.zone===z.zone);
    const receiver=(options.length?options:players.filter(p=>p.team===team))
      .sort((a,b)=>pickupTravelEstimate(a,ball.x,ball.y)-pickupTravelEstimate(b,ball.x,ball.y))[0];
-   if(receiver)setHeld(receiver,(team==='blue'?'藍隊':'橘隊')+'場區無人撿到球，由該隊重新開球');
+   if(receiver)setHeld(team==='blue'?chooseBlueInnerForPossession():receiver,(team==='blue'?'藍隊':'橘隊')+'場區無人撿到球，由該隊重新開球');
   }
  }
 }
@@ -2141,7 +2849,7 @@ function cpuShotLine(p,q,flight){
   if(distance>35)continue;
   const facing=Math.abs(angleDelta(d.angle,Math.atan2(p.y-d.y,p.x-d.x)));
   const catchReadiness=facing<1.1?.55:0;
-  const risk=clamp((35-distance)/35,0,1)*(.30+roleStats[d.role].c*.115+catchReadiness);
+  const risk=clamp((35-distance)/35,0,1)*(.30+roleStats[d.role].c*.115+catchReadiness)*(isBlocker(d)?.28:1);
   if(risk>interception){interception=risk;blocker=d;}
  }
  return {x:aimX,y:aimY,interception,blocker:blocker?.num||null};
@@ -2165,6 +2873,9 @@ function cpuShootQuality(p,q,diff){
  const future=win?0:Math.min(3,followUps)*(late?1.6:2.3);
  const urgency=late&&behind?1.22:1;
  let value=(win?150:gainValue+future)*urgency+accuracy*(49+stageCpuLevel()*3)-dist*.016-line.interception*(31+stageCpuLevel()*2);
+ // Offensive runners and shooters pursue the same high-value priority target,
+ // but a safe exact-30 win always outweighs tactical preference.
+ if(cpuAttackIds.has(q.id))value+=win?0:11;
  const style=stageAiStyle();
  if(style==='math')value+=win?28:(followUps*2.5+gain*.30);
  if(style==='guard')value+=accuracy*12-line.interception*8;
@@ -2180,20 +2891,21 @@ function cpuPassDecision(holder,best,diff){
  // One pass at most before a shot. Compare expected positions rather than
  // passing randomly whenever a CPU shot looks poor.
  let winner=null;
- const candidates=players.filter(p=>p.team==='orange'&&p.id!==holder.id&&p.zone===holder.zone&&p.role==='attack');
+ const candidates=players.filter(p=>p.team==='orange'&&p.id!==holder.id&&p.zone===holder.zone);
  const targets=players.filter(q=>q.team==='blue'&&q.zone==='inner');
  for(const rec of candidates){
   const dist=Math.hypot(rec.x-holder.x,rec.y-holder.y);
-  if(dist<45||dist>250)continue;
+  if(dist<45||dist>285)continue;
   const lane=cpuShotLine(holder,rec,dist/440);
-  // Passing through enemy court is possible but is intentionally less safe.
   const chance=passCatchChanceEstimate(rec,holder,dist);
-  if(chance<.55||lane.interception>.48)continue;
+  if(chance<.50||lane.interception>.54)continue;
   const recBest=targets.map(q=>cpuShootQuality(rec,q,diff)).sort((a,b)=>b.value-a.value)[0];
   if(!recBest)continue;
   const gain=recBest.value-best.value;
-  const opportunity=gain*chance-(1-chance)*26-(dist/440)*5;
-  if(gain>(stageAiStyle()==='pass'?7:12)&&opportunity>(stageAiStyle()==='pass'?1:4)&&(!winner||opportunity>winner.score))winner={rec,score:opportunity,chance,gain};
+  const laneBonus=(rec.role==='attack'?8:rec.role==='evade'?4:1)+Math.max(0,.52-lane.interception)*12;
+  const opportunity=gain*chance+laneBonus-(1-chance)*24-(dist/440)*4.2-lane.interception*8;
+  const need=stageAiStyle()==='pass'?3.5:8.5;
+  if(gain>need&&opportunity>(stageAiStyle()==='pass'?0:2.5)&&(!winner||opportunity>winner.score))winner={rec,score:opportunity,chance,gain};
  }
  return winner;
 }
@@ -2219,8 +2931,9 @@ function autoAttack(dt){
  const urgency=remaining<32&&behind;
  const maxWait=(diff==='hard'?1.35:diff==='normal'?2.05:2.80)*(urgency?.55:1)*(1-stageCpuFactor()*.16)*(stageAiStyle()==='press'?.72:stageAiStyle()==='guard'?1.13:1);
  const forced=wait>=maxWait;
- const poor=best.accuracy<(.32+(diff==='hard'?.03:0))||best.interception>.43;
- const pass=(!forced&&wait>(stageAiStyle()==='pass'?.36:.55)&&(poor||stageAiStyle()==='pass'))?cpuPassDecision(p,best,diff):null;
+ const poor=best.accuracy<(.34+(diff==='hard'?.03:0))||best.interception>.40;
+ const pressured=players.some(q=>q.team==='blue'&&q.zone==='inner'&&Math.hypot(q.x-p.x,q.y-p.y)<62);
+ const pass=(!forced&&wait>(stageAiStyle()==='pass'?.28:.46)&&((poor&&pressured)||best.interception>.34||stageAiStyle()==='pass'))?cpuPassDecision(p,best,diff):null;
  if(pass&&transfer(pass.rec)){
   cpuPassChain++;cpuLastDecision={type:'pass',to:pass.rec.num,score:pass.score,time:now};gameStats.cpuDecisions.pass++;return;
  }
@@ -2272,10 +2985,12 @@ function gameTick(dt){if(state!=='playing')return;remaining-=dt;if(remaining<=0)
  now+=dt;
  if(enforceAttackClock()){updateAttackClockDisplay();updateEffects(dt);tickNotice();debugUpdate(dt);return;}
  if(queuedShot&&now>=queuedShot.at){const q=queuedShot;queuedShot=null;const from=players.find(p=>p.id===q.fromId);if(from&&ball.mode==='held'&&ball.owner===from.id)launchFlight(from,q.vx,q.vy,q.kind,q.targetId);}
- updateAutoTactics();updateCpuFormation(dt);updatePlayerFormation(dt);updateAI(dt);updateIdleMotion(dt);resolvePlayerCrowding(dt);if(ball.mode==='ground')tryPickupGroundBall();updateBall(dt);autoAttack(dt);missionTick();if(state!=='playing')return;if(ball.mode==='held'){let p=players.find(p=>p.id===ball.owner);if(p&&p.team==='blue')p.angle=Number.isFinite(p.angle)?p.angle:0;}
+ updateAutoTactics();updateCpuFormation(dt);updateOrangeTactics();updatePlayerFormation(dt);updateAI(dt);updateIdleMotion(dt);resolvePlayerCrowding(dt);if(ball.mode==='ground')tryPickupGroundBall();updateBall(dt);autoAttack(dt);missionTick();if(state!=='playing')return;if(ball.mode==='held'){let p=players.find(p=>p.id===ball.owner);if(p&&p.team==='blue')p.angle=Number.isFinite(p.angle)?p.angle:0;}
  if(remaining<=30 && phase==='normal'&&!last30Announced){last30Announced=true;decisiveMoment('最後 30 秒！','critical',1.7);}
  $('timer').classList.toggle('last30',remaining<=30);
- updateAttackClockDisplay();updateEffects(dt);tickNotice();debugUpdate(dt);}
+ updateAttackClockDisplay();updateEffects(dt);tickNotice();
+ if(controlSwitchHideAt&&now>=controlSwitchHideAt){$('controlSwitchHint').classList.remove('show');controlSwitchHideAt=0;}
+ debugUpdate(dt);}
 function moveJoystickPlayer(p,dt,direction=null,multiplier=1){
  if((!joystick.active&&!direction)||p.team!=='blue'||p.id!==selected)return;
  let dx=direction?.x??joystick.x,dy=direction?.y??joystick.y;
@@ -2309,15 +3024,23 @@ joy.addEventListener('pointermove',e=>{if(!joystick.active||joystick.pointer!==e
 for(const ev of ['pointerup','pointercancel','lostpointercapture'])joy.addEventListener(ev,e=>{if(joystick.active&&joystick.pointer===e.pointerId)stopJoystick();});
 function formatTime(s){let sec=Math.max(0,Math.ceil(s));return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
 function loop(ts){let dt=last?clamp((ts-last)/1000,0,.045):0;last=ts;if(state==='playing')gameTick(dt);else if(state==='setup'){if(joystick.active){let p=players.find(q=>q.id===selected);if(p)moveJoystickPlayer(p,dt);}updatePlayerFormation(dt);if(setupReposition){const p=players.find(q=>q.id===setupReposition.id);if(p&&p.zone==='outer'){moveTowards(p,setupReposition.target,dt,settings.playerSpeed);p.anchorX=p.x;p.anchorY=p.y;}}for(const p of players.filter(q=>q.team==='blue'&&q.zone==='outer'&&q.goal)){if(Math.hypot(p.x-p.goal.x,p.y-p.goal.y)<3){p.goal=null;rememberLineup();}else{moveTowards(p,p.goal,dt,settings.playerSpeed);p.anchorX=p.x;p.anchorY=p.y;}}}if(state!=='setup'&&state!=='ended')$('timer').textContent=formatTime(remaining);updateDashButton();render();raf=requestAnimationFrame(loop)}
-function finishGame(result,reason=''){if(state==='ended')return;missionStats.blueInnerAtFinish=players.filter(p=>p.team==='blue'&&p.zone==='inner').length;queuedShot=null;clearAttackClock();state='ended';updateAttackClockDisplay();normalizeBlueOuterToThree();$('pause').disabled=true;$('start').disabled=false;$('start').textContent='▶ 再玩一局';$('period').textContent='比賽結束';winMessage=result==='draw'?'平手！':result==='bluewin'?'藍隊獲勝！':'橘隊獲勝！';displayNotice(winMessage,999);$('victory').classList.add('moment-win');if(reason==='clear')scoreReason='清空對方內場，直接獲勝！';if(reason==='exact30')scoreReason=scoreReason||'剛好 30 分獲勝！';
+function finishGame(result,reason=''){if(state==='ended')return;$('controlSwitchHint').classList.remove('show');controlSwitchHideAt=0;missionStats.blueInnerAtFinish=players.filter(p=>p.team==='blue'&&p.zone==='inner').length;queuedShot=null;clearAttackClock();state='ended';updateAttackClockDisplay();normalizeBlueOuterToThree();$('pause').disabled=true;$('start').disabled=false;$('start').textContent='▶ 再玩一局';$('period').textContent='比賽結束';winMessage=result==='draw'?'平手！':result==='bluewin'?'藍隊獲勝！':'橘隊獲勝！';displayNotice(winMessage,999);$('victory').classList.add('moment-win');if(reason==='clear')scoreReason='清空對方內場，直接獲勝！';if(reason==='exact30')scoreReason=scoreReason||'剛好 30 分獲勝！';
  $('victoryTitle').textContent=winMessage;
  $('victoryScore').textContent=`${scores.blue} ： ${scores.orange}`;
  $('victoryReason').textContent=scoreReason|| (result==='draw'?'延長賽後仍平手':'本局結束');
  $('victory').classList.add('show');missionFinish(result,reason);
  burst(ball.x,ball.y,'#ffe38a',23);sync();}
-function startGame(){if(state==='ended'){reset();return}if(state==='setup'){if(players.filter(p=>p.team==='blue'&&p.zone==='outer').length!==3){displayNotice('外場必須剛好 3 人才能開賽');return;}rememberLineup();state='playing';$('difficulty').disabled=true;setAttackClock(players.find(p=>p.id===ball.owner)?.team||'blue');updateAttackClockDisplay();syncStage();$('period').textContent='一般賽';missionStart();$('start').textContent='● 比賽中';$('start').disabled=true;$('pause').disabled=false;displayNotice('比賽開始！橘隊採 '+cpuPlans[cpuPlan].label+' 布陣',2.1);sync();return}}
+function chooseBlueInnerForPossession(){
+ const inner=players.filter(p=>p.team==='blue'&&p.zone==='inner');
+ const controlled=inner.find(p=>p.id===selected);
+ return controlled||inner[Math.floor(Math.random()*inner.length)]||players.find(p=>p.team==='blue');
+}
+function chooseTeamInnerPossession(team){
+ return team==='blue'?chooseBlueInnerForPossession():(players.find(p=>p.team===team&&p.zone==='inner')||players.find(p=>p.team===team));
+}
+function startGame(){if(state==='ended'){reset();return}if(state==='setup'){if(players.filter(p=>p.team==='blue'&&p.zone==='outer').length!==3){displayNotice('外場必須剛好 3 人才能開賽');return;}rememberLineup();state='playing';$('difficulty').disabled=true;setHeld(chooseBlueInnerForPossession());updateAttackClockDisplay();syncStage();$('period').textContent='一般賽';missionStart();$('start').textContent='● 比賽中';$('start').disabled=true;$('pause').disabled=false;displayNotice('比賽開始！橘隊採 '+cpuPlans[cpuPlan].label+' 布陣',2.1);sync();return}}
 function pos(e){let pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;let m=svg.getScreenCTM();return m?pt.matrixTransform(m.inverse()):{x:0,y:0}}
-function hitPlayer(x,y){let nearest=null,dist=24;for(let p of [...players].reverse()){let d=Math.hypot(p.x-x,p.y-y);if(d<dist){dist=d;nearest=p}}return nearest}
+function hitPlayer(x,y){let nearest=null,dist=29;for(let p of [...players].reverse()){let d=Math.hypot(p.x-x,p.y-y);if(d<dist){dist=d;nearest=p}}return nearest}
 function selectPlayer(p){if(p.team!=='blue')return;let old=players.find(q=>q.id===selected);if(old&&old!==p){old.anchorX=old.x;old.anchorY=old.y;old.goal=null;old.manualUntil=now+settings.manualGrace;}if(dash.playerId&&dash.playerId!==p.id)dash.until=now;selected=p.id;p.goal=null;p.roamTarget=null;p.anchorX=p.x;p.anchorY=p.y;p.manualUntil=0;sync();render();}
 function setupSelection(p){if(!p||p.team!=='blue')return;selectPlayer(p);/* switching player never implicitly passes the ball; use the explicit pass button */}
 svg.addEventListener('pointerdown',e=>{if(state==='paused'||state==='ended'||drag)return;let xy=pos(e),p=hitPlayer(xy.x,xy.y),isBall=Math.hypot(xy.x-ball.x,xy.y-ball.y)<12;
@@ -2382,9 +3105,160 @@ window.__dodgeModes={clearStrategy:()=>{if(!debugMode)return false;clearTactical
  debugFinalize:()=>{if(!debugMode||state!=='playing')return false;remaining=0;gameTick(0);return true}
 };
 
+
+// V3.27 iPad MOBA-style layout: aiming and dash together; squad and movement together.
+// Reuse existing controls, IDs and handlers without re-binding their event callbacks.
+const leftDock=$('leftControls'), selectDock=$('selectDock'), dashDock=$('dashDock');
+const rightSelectDock=$('rightSelectDock'), rightActionsDock=$('rightActionsDock');
+rightSelectDock.append($('showSquad'),$('joySquad'),$('joyWho'));
+rightActionsDock.append($('joyHolder').closest('.joypossession'));
+const rightButtonRow=document.createElement('div');
+rightButtonRow.className='right-button-row';
+rightButtonRow.append($('jumpHolder'),$('quickPass'));
+rightActionsDock.append(rightButtonRow);
+dashDock.append($('dashButton').closest('.dashbar'));
+$('showSquad').textContent='選擇球員';
+$('showSquad').title='下方的號碼直接選擇操控球員，不會自動傳球';
+$('showSquad').disabled=true;
+$('showSquad').setAttribute('aria-expanded','true');
+$('showSquad').setAttribute('aria-hidden','true');
+$('joySquad').classList.remove('fold');
+$('quickPass').textContent='傳給所選球員';
+$('quickPass').title='按號碼選擇隊友後，按此鍵進行傳球';
+$('openSettings').onclick=()=>document.body.classList.add('settings-open');
+$('closeSettings').onclick=()=>document.body.classList.remove('settings-open');
+$('swapHands').onclick=()=>{
+ document.body.classList.toggle('left-handed');
+ const isLeft=document.body.classList.contains('left-handed');
+ $('swapHands').textContent=isLeft?'⇄ 左手慣用':'⇄ 右手慣用';
+ $('aimHelp').textContent=isLeft?'右側反向拉球投出｜左側選人與移動':'左側反向拉球投出｜右側選人與移動';
+ stopJoystick();resetAimPad();
+};
+$('start').addEventListener('click',()=>{if(state==='playing')document.body.classList.remove('settings-open')});
+$('introClose').addEventListener('click',()=>{document.body.classList.remove('settings-open')});
+$('reset').addEventListener('click',()=>{document.body.classList.remove('settings-open');});
+// Always-accessible match actions and a separate tactical drawer.
+// Reparent the original controls so all existing handlers and IDs remain intact.
+$('quickActionRow').prepend($('pause'),$('reset'));
+$('pause').textContent='Ⅱ 暫停';
+$('reset').textContent='↻ 重置';
+$('quickTacticContent').append(document.querySelector('.tactical-panel'));
+$('strategyHint').textContent='';
+$('strategyHint').hidden=true;
+// 將原本浮動的戰術設定區搬入左側投球搖桿上方，騰出場地空間。
+document.querySelector('.touch-control-stack').before($('quickTacticDrawer'));
+$('quickTacticDrawer').hidden=false;
+$('quickTactics').setAttribute('aria-expanded','true');
+$('quickTactics').textContent='🎯 戰術 ▴';
+$('tacticTabAttack').textContent='🎯 進攻';
+$('tacticTabDefense').textContent='🛡 保護';
+$('tacticTabBlock').textContent='🧱 擋球';
+function toggleQuickTactics(force){
+ const drawer=$('quickTacticDrawer'),show=typeof force==='boolean'?force:drawer.hidden;
+ drawer.hidden=!show;$('quickTactics').setAttribute('aria-expanded',String(show));$('quickTactics').textContent=show?'🎯 戰術 ▴':'🎯 戰術 ▾';
+ if(show){updateTacticsPanel();selectQuickTactic(activeQuickTactic);}
+}
+
+// 單一戰術分頁：保持原有選號 button、count 與 AI 資料結構不變。
+let activeQuickTactic='atkGroup';
+function selectQuickTactic(groupId){
+ activeQuickTactic=groupId;
+ for(const id of ['atkGroup','defGroup','blockGroup']){
+  const group=$(id);group.open=id===groupId;
+  group.classList.toggle('tactic-visible',id===groupId);
+ }
+ document.querySelectorAll('[data-tactic-tab]').forEach(btn=>{
+  const selected=btn.dataset.tacticTab===groupId;
+  btn.classList.toggle('active',selected);
+  btn.setAttribute('aria-selected',String(selected));
+ });
+}
+document.querySelectorAll('[data-tactic-tab]').forEach(btn=>btn.addEventListener('click',()=>selectQuickTactic(btn.dataset.tacticTab)));
+selectQuickTactic('atkGroup');
+// 戰術使用上方分頁切換，不讓 details 標題誤觸關閉號碼格。
+document.querySelectorAll('#quickTacticDrawer .tactics-group summary').forEach(el=>el.addEventListener('click',e=>e.preventDefault()));
+
+$('quickTactics').onclick=()=>{
+ document.body.classList.remove('settings-open');
+ $('quickTacticDrawer').hidden=false;
+ $('quickTactics').setAttribute('aria-expanded','true');
+ selectQuickTactic(activeQuickTactic);
+ updateTacticsPanel();
+};
+$('closeQuickTactics').onclick=()=>{ $('quickTacticDrawer').hidden=false; };
+$('quickTactics').textContent='🎯 戰術';
+// 戰術區常駐：不再因點擊戰術、設定、換手而收起號碼按鈕。
+const aimPad=$('aimPad'),aimPointer=$('aimPointer'),aimCancelZone=$('aimCancelZone');
+let padPointer=null,padDx=0,padDy=0,aimCancelling=false;
+function positionAimCancelZone(){
+ const rect=aimPad.getBoundingClientRect();
+ const zoneSize=Math.round(aimCancelZone.getBoundingClientRect().width||88),safe=8;
+ // Keep the cancel target sufficiently far from the throwing thumb.
+ // Prefer the upper-right direction but switch to upper-left on a left-hand layout.
+ const leftHanded=document.body.classList.contains('left-handed');
+ const desiredX=leftHanded?rect.left-zoneSize-64:rect.right+64;
+ const desiredY=rect.top-zoneSize*.38;
+ const x=Math.min(Math.max(safe,desiredX),window.innerWidth-zoneSize-safe);
+ const y=Math.min(Math.max(safe,desiredY),window.innerHeight-zoneSize-safe);
+ aimCancelZone.style.left=x+'px';aimCancelZone.style.top=y+'px';
+}
+function updateAimCancelState(e){
+ const rect=aimCancelZone.getBoundingClientRect();
+ const inside=e.clientX>=rect.left&&e.clientX<=rect.right&&e.clientY>=rect.top&&e.clientY<=rect.bottom;
+ aimCancelling=inside;
+ aimCancelZone.classList.toggle('active',inside);
+ aimPad.classList.toggle('aim-cancelling',inside);
+}
+function resetAimPad(){
+ padPointer=null;padDx=0;padDy=0;aimCancelling=false;
+ aimCancelZone.classList.remove('visible','active');aimPad.classList.remove('aim-cancelling');
+ aimPointer.style.transform='translate(-50%,-50%)';
+ if(drag?.kind==='throwPad')drag=null;render();
+}
+function aimPadAllowed(){const p=players.find(q=>q.id===ball?.owner);return state==='playing'&&ball?.mode==='held'&&p?.team==='blue';}
+function updateAimPadInput(e){
+ const rect=aimPad.getBoundingClientRect(),cx=(rect.left+rect.right)/2,cy=(rect.top+rect.bottom)/2;
+ const max=rect.width*.37;
+ const rawX=e.clientX-cx,rawY=e.clientY-cy,m=Math.hypot(rawX,rawY),ratio=m>max?max/m:1;
+ const dx=rawX*ratio,dy=rawY*ratio;padDx=dx;padDy=dy;
+ aimPointer.style.transform=`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px))`;
+ if(drag?.kind==='throwPad'){const scaled=Math.hypot(dx,dy)/max*215;
+ drag.dx=-scaled*(m?dx/Math.hypot(dx,dy):0);drag.dy=-scaled*(m?dy/Math.hypot(dx,dy):0);
+ updateAimCancelState(e);
+ $('aimCaption').textContent=aimCancelling?'放開取消投球':'力道 '+Math.round(scaled/215*100)+'% · 放開投球';
+ render();}
+}
+aimPad.addEventListener('pointerdown',e=>{
+ if(!aimPadAllowed()||padPointer!==null)return;
+ e.preventDefault();padPointer=e.pointerId;
+ positionAimCancelZone();aimCancelZone.classList.add('visible');
+ aimPad.setPointerCapture(e.pointerId);
+ drag={kind:'throwPad',dx:0,dy:0,ptr:e.pointerId};updateAimPadInput(e);
+});
+aimPad.addEventListener('pointermove',e=>{if(padPointer===e.pointerId){e.preventDefault();updateAimPadInput(e)}});
+aimPad.addEventListener('pointerup',e=>{
+ if(padPointer!==e.pointerId)return;e.preventDefault();updateAimPadInput(e);
+ const dx=drag?.kind==='throwPad'?drag.dx:0,dy=drag?.kind==='throwPad'?drag.dy:0;
+ const power=Math.hypot(dx,dy),cancelled=aimCancelling;resetAimPad();
+ if(cancelled){displayNotice('已取消投球',.6);}
+ else if(power>18&&aimPadAllowed()){
+  const p=players.find(q=>q.id===ball.owner),speed=clamp(power*3.3,settings.throwMin,settings.throwMax);
+  startFlight(p,dx/power*speed,dy/power*speed,'throw');displayNotice('藍隊投球！',.6);
+ }
+ $('aimCaption').textContent='向後拉、反方向投球';
+});
+for(const name of ['pointercancel','lostpointercapture'])aimPad.addEventListener(name,e=>{if(padPointer===e.pointerId){resetAimPad();$('aimCaption').textContent='向後拉、反方向投球'}});
+window.addEventListener('blur',()=>{stopJoystick();resetAimPad()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){stopJoystick();resetAimPad()}});
+document.addEventListener('dblclick',e=>{if(e.target.closest('.shell'))e.preventDefault()},{passive:false});
+window.addEventListener('contextmenu',e=>{if(e.target.closest('#court,#aimPad,#joystick'))e.preventDefault()});
+function updateAimEnabled(){const okay=aimPadAllowed();aimPad.setAttribute('aria-disabled',String(!okay));
+ if(padPointer===null)$('aimCaption').textContent=okay?'向後拉、反方向投球':'等待藍隊取得球權';}
+setInterval(updateAimEnabled,220);
+
 window.addEventListener('keydown',e=>{if(e.key==='Escape'&&state==='playing')$('pause').click()});
-reset();
-window.__dodgeV39={snapshot:()=>({attackClock:{team:attackClockTeam,elapsed:attackClockTeam?now-attackClockStart:0,remaining:attackClockTeam?Math.max(0,ATTACK_LIMIT-(now-attackClockStart)):null,violations:{...attackClockViolations}},state,remaining,scores:{...scores},ball:{...ball},players:players.map(p=>({id:p.id,team:p.team,num:p.num,role:p.role,zone:p.zone,x:p.x,y:p.y,anchorX:p.anchorX,anchorY:p.anchorY})),lineup:playerLineup?.map(x=>({...x})),stats:JSON.parse(JSON.stringify(gameStats)),strategy:bluePhase(),attackTargets:[...tacticalPicks.attack],defenseTargets:[...tacticalPicks.defense],blockTargets:[...tacticalPicks.block],autoTactics:true,tacticAnchors:players.filter(p=>p.team==='blue').map(p=>({id:p.id,x:p.anchorX,y:p.anchorY})),queuedShot:queuedShot?{fromId:queuedShot.fromId,at:queuedShot.at}:null}),
+reset();selectQuickTactic(activeQuickTactic);document.body.classList.add('settings-open');
+window.__dodgeV39={snapshot:()=>({attackClock:{team:attackClockTeam,elapsed:attackClockTeam?now-attackClockStart:0,remaining:attackClockTeam?Math.max(0,ATTACK_LIMIT-(now-attackClockStart)):null,violations:{...attackClockViolations}},state,remaining,scores:{...scores},ball:{...ball},players:players.map(p=>({id:p.id,team:p.team,num:p.num,role:p.role,zone:p.zone,x:p.x,y:p.y,anchorX:p.anchorX,anchorY:p.anchorY})),lineup:playerLineup?.map(x=>({...x})),stats:JSON.parse(JSON.stringify(gameStats)),strategy:bluePhase(),attackTargets:[...tacticalPicks.attack],defenseTargets:[...tacticalPicks.defense],blockTargets:[...tacticalPicks.block],autoTactics:true,cpuTactics:{targets:[...cpuAttackIds],protected:[...cpuProtectedIds],blockers:[...cpuBlockerIds]},tacticAnchors:players.filter(p=>p.team==='blue').map(p=>({id:p.id,x:p.anchorX,y:p.anchorY})),queuedShot:queuedShot?{fromId:queuedShot.fromId,at:queuedShot.at}:null}),
  testGround:(x,y,team='blue',zone='inner',seconds=0)=>{
   if(!debugMode||state!=='playing')return false;
   queuedShot=null;clearAttackClock();ball={mode:'ground',owner:null,team,origin:null,x,y,z:0,vx:0,vy:0,t:0,groundTime:seconds,groundZone:{team,zone}};pickupAssignment=null;sync();return true;
